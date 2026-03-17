@@ -1,0 +1,135 @@
+.category-menu-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Header styling */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  border-bottom: var(--border-card);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.home-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--c-coral);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 0 rgba(200, 60, 60, 0.3);
+  transition: transform 0.1s ease;
+}
+
+.home-btn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+.level-badge {
+  background: white;
+  border: 2px solid rgba(43, 43, 59, 0.1);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--text-dark);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-mascot {
+  width: 24px;
+  height: 24px;
+}
+
+.speaker-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--c-sky);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 0 rgba(80, 160, 200, 0.3);
+  transition: transform 0.1s ease;
+}
+
+.speaker-btn:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+
+/* Main Menu Layout */
+.menu-main {
+  flex: 1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  z-index: 2;
+  position: relative;
+}
+
+.menu-title-card {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  border: var(--border-card);
+  padding: 16px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.menu-title-card h2 {
+  font-size: var(--text-xl);
+  margin: 0;
+  color: var(--text-dark);
+}
+
+.category-grid {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Character in the corner */
+.menu-mascot-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 120px;
+  height: 140px;
+  z-index: 50;
+  pointer-events: none;
+}
+
+[dir="rtl"] .menu-mascot-wrapper {
+  right: auto;
+  left: 20px;
+}

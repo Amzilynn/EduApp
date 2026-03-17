@@ -1,0 +1,21 @@
+.progress-stars {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.star-unit {
+  font-size: 2.2rem;
+  color: var(--c-sunshine);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.3s ease;
+  filter: grayscale(1) opacity(0.3);
+  display: inline-block;
+}
+
+.star-unit.earned {
+  filter: grayscale(0) opacity(1);
+  animation: starEarn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}

@@ -1,0 +1,195 @@
+/* ===========================
+   CSS DESIGN TOKENS
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Baloo+2:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800;900&display=swap');
+
+:root {
+  /* === WORLD COLORS === */
+  --c-sunshine:     #FFD93D;   /* Primary — buttons, highlights, energy */
+  --c-sky:          #74C7EC;   /* Level 3 bg accent, calm, sky */
+  --c-grass:        #6BCB77;   /* Success, correct answers, growth */
+  --c-coral:        #FF6B6B;   /* Accent, excitement, warm CTA */
+  --c-lavender:     #C77DFF;   /* Level 5, magical, Luna's color */
+  --c-tangerine:    #FF9A3C;   /* Riko's color, Level 4, discovery */
+  --c-rose:         #FF8FAB;   /* Soft accent, girl voice, warmth */
+  --c-mint:         #A8E6CF;   /* Soft success tint, calm correct */
+
+  /* === BACKGROUNDS === */
+  --bg-warm-white:  #FFFBF0;   /* Main canvas — NOT pure white */
+  --bg-card:        #FFFFFF;
+  --bg-sky-l3:      linear-gradient(180deg, #B8E4F9 0%, #E8F7FF 60%, #F0FAE8 100%);
+  --bg-sky-l4:      linear-gradient(180deg, #FFE0A3 0%, #FFF4D6 60%, #E8F5E0 100%);
+  --bg-sky-l5:      linear-gradient(180deg, #D4B8F9 0%, #F0E8FF 60%, #E8F0FF 100%);
+
+  /* === TEXT === */
+  --text-dark:      #2B2B3B;   /* Deep navy-black — NOT pure black */
+  --text-medium:    #5A5A7A;
+  --text-light:     #8A8AAA;
+
+  /* === INTERACTIVE STATES === */
+  --hover-lift:     rgba(255,255,255,0.6);
+  --selected-glow:  0 0 0 4px rgba(255,217,61,0.5);
+  --drop-zone-glow: 0 0 0 3px rgba(107,203,119,0.6);
+
+  /* === SHADOWS (always warm-tinted) === */
+  --shadow-xs:  0 2px 4px rgba(43,43,59,0.08);
+  --shadow-sm:  0 4px 8px rgba(43,43,59,0.10);
+  --shadow-md:  0 6px 0px rgba(43,43,59,0.15), 0 2px 8px rgba(43,43,59,0.08);
+  --shadow-lg:  0 12px 0px rgba(43,43,59,0.12), 0 4px 16px rgba(43,43,59,0.10);
+  --shadow-btn: 0 5px 0px rgba(43,43,59,0.25);  /* The "pressed button" feel */
+
+  /* === BORDER RADIUS === */
+  --radius-xs:   8px;
+  --radius-sm:   12px;
+  --radius-md:   20px;
+  --radius-lg:   28px;
+  --radius-xl:   40px;
+  --radius-pill: 9999px;
+
+  /* === BORDER === */
+  --border-card: 2.5px solid rgba(43,43,59,0.07);
+  --border-thick: 3px solid rgba(43,43,59,0.10);
+
+  /* === TYPOGRAPHY === */
+  --font-display:  'Fredoka', 'Cairo', sans-serif;
+  --font-body:     'Baloo 2', 'Cairo', sans-serif;
+  --font-arabic:   'Cairo', 'Baloo 2', sans-serif;
+
+  --text-hero:    clamp(2.4rem, 7vw, 4.5rem);   /* App title */
+  --text-xl:      clamp(1.8rem, 5vw, 3rem);     /* Screen headings */
+  --text-lg:      clamp(1.4rem, 4vw, 2.2rem);   /* Category titles */
+  --text-md:      clamp(1.1rem, 3vw, 1.6rem);   /* Activity labels, buttons */
+  --text-sm:      clamp(0.9rem, 2.5vw, 1.2rem); /* Supporting text */
+}
+
+/* ===========================
+   GLOBAL RESET & BASE
+   =========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-warm-white);
+  color: var(--text-dark);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+/* Arabic language adjustments */
+[dir="rtl"] {
+  font-family: var(--font-arabic);
+}
+
+/* ===========================
+   GLOBAL ANIMATIONS
+   =========================== */
+@keyframes screenSlideIn {
+  0%   { opacity: 0; transform: translateY(24px) scale(0.97); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.screen-enter {
+  animation: screenSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes cardRise {
+  0%   { opacity: 0; transform: translateY(30px) scale(0.92); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.stagger-child {
+  animation: cardRise 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.float { animation: floating 3s ease-in-out infinite; }
+
+@keyframes cloudDrift {
+  0%   { transform: translateX(-200px); }
+  100% { transform: translateX(calc(100vw + 200px)); }
+}
+
+.cloud {
+  position: absolute;
+  animation: cloudDrift linear infinite;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+@keyframes starEarn {
+  0%   { transform: scale(0) rotate(-30deg); }
+  60%  { transform: scale(1.4) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes sparkle {
+  0%   { transform: translate(0,0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0); opacity: 0; }
+}
+
+@keyframes gentleShake {
+  0%,100% { transform: translateX(0) rotate(0deg); }
+  15%     { transform: translateX(-10px) rotate(-3deg); }
+  30%     { transform: translateX(10px) rotate(3deg); }
+  45%     { transform: translateX(-7px) rotate(-2deg); }
+  60%     { transform: translateX(7px) rotate(2deg); }
+  75%     { transform: translateX(-4px) rotate(-1deg); }
+}
+
+@keyframes zoneSuccess {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.08); }
+  70%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+
+@keyframes chipSnap {
+  0%   { transform: scale(1.2); }
+  60%  { transform: scale(0.93); }
+  100% { transform: scale(1); }
+}
+
+@keyframes trophySpin {
+  0%   { transform: scale(0) rotate(-180deg); }
+  80%  { transform: scale(1.1) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes speakerPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,217,61,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(255,217,61,0); }
+}
+
+@keyframes btnAppear {
+  0%   { transform: scale(0.7) translateY(10px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* ===========================
+   SCROLLBAR STYLES (Hidden for kids app)
+   =========================== */
+::-webkit-scrollbar { display: none; }
+body { -ms-overflow-style: none; scrollbar-width: none; }
