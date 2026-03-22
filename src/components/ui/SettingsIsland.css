@@ -91,6 +91,11 @@
 
 .flag-sub {
   font-size: var(--text-sm);
+  font-family: inherit;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
 .settings-divider {

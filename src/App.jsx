@@ -15,7 +15,8 @@ function AppRoutes() {
   useEffect(() => {
     document.documentElement.dir = 'ltr';
     document.documentElement.lang = settings.language === 'ar' ? 'ar' : 'fr';
-  }, [settings.language]);
+    document.body.className = `level-${settings.level || 3}`;
+  }, [settings.language, settings.level]);
 
   const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 

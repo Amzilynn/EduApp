@@ -42,7 +42,7 @@ export class SpeechEngine {
     // Ping the backend to wake it up (cold start handling)
     try {
       this.isWarmingUp = true;
-      const response = await fetch(`${this.backendUrl}/health`, { signal: AbortSignal.timeout(5000) });
+      const response = await fetch(`${this.backendUrl}/health`, { signal: AbortSignal.timeout(20000) });
       const data = await response.json();
       
       if (data.status === 'warming_up') {

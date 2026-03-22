@@ -44,7 +44,6 @@ export default function CategoryMenuScreen() {
   const standardHeader = (
     <>
       <button className="home-btn-pill" onClick={() => setShowConfirm(true)}>
-        <span className="home-icon">🏠</span>
         <span className="home-label">{isAr ? 'الرئيسية' : 'Accueil'}</span>
       </button>
 
@@ -57,33 +56,23 @@ export default function CategoryMenuScreen() {
         </span>
       </div>
 
-      <button className="speaker-btn-frosted" onClick={() => speak(content.welcomeMsg)}>
-        🔊
-      </button>
+
     </>
   );
 
   const v3Header = (
     <div className="v3-header-clean">
       <button className="home-btn-3d-premium" onClick={() => setShowConfirm(true)}>
-        <div className="home-btn-3d-inner">
-          <img src="/assets/images/3d/3d_home_icon.png" alt="Home" className="home-icon-3d-fancy" onError={(e) => e.target.src = '🏠'} />
-          <span className="home-label-3d-bold">{isAr ? 'الرئيسية' : 'Accueil'}</span>
-        </div>
+        <span className="home-label-3d-bold">{isAr ? 'الرئيسية' : 'Accueil'}</span>
       </button>
 
       <div className="v3-mascot-focus">
         <div className="mascot-waving-container">
           <Mascot type={mascotType} state="waving" className="chick-premium-anim" />
-          <div className="mascot-pointer-down">👇</div>
         </div>
       </div>
 
-      <div className="v3-header-right">
-        <button className="speaker-btn-3d-premium" onClick={() => speak(content.welcomeMsg)}>
-          <span className="speaker-icon-3d">🔊</span>
-        </button>
-      </div>
+      <div className="v3-header-right"></div>
     </div>
   );
 
@@ -92,24 +81,27 @@ export default function CategoryMenuScreen() {
       header={isV3 ? v3Header : standardHeader}
       dataLevel={settings.level}
       dir="ltr"
-      className={isV3 ? 'category-screen-v3-adventure' : 'category-screen-v2'}
+      className={isV3 ? 'category-screen-v3' : 'category-screen-v2'}
     >
-      <div className={isV3 ? "category-menu-layout-v3-adventure" : "category-menu-layout"}>
-        {isV3 && (
-          <div className="adventure-floor-bg">
-            <div className="adventure-path"></div>
-            <div className="stepping-stone stone-1"></div>
-            <div className="stepping-stone stone-2"></div>
-            <div className="stepping-stone stone-3"></div>
-            <div className="gentle-hill hill-1"></div>
-            <div className="gentle-hill hill-2"></div>
-            
-            {/* Playful 3D objects */}
-            <div className="clay-object floating-heart">❤️</div>
-            <div className="clay-object floating-droplet droplet-1">💧</div>
-            <div className="clay-object floating-droplet droplet-2">💧</div>
-          </div>
-        )}
+      <div className={isV3 ? "category-menu-layout-v3" : "category-menu-layout"}>
+        
+        {/* Learning Phrase */}
+        <motion.div 
+          className="learning-phrase-container"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <span className="learning-phrase-text">
+            {isAr ? 'ماذا سنتعلم اليوم؟' : "Qu'est-ce qu'on va apprendre aujourd'hui ?"}
+          </span>
+          <button className="speaker-btn-learning" onClick={() => speak(isAr ? 'ماذا سنتعلم اليوم؟' : "Qu'est-ce qu'on va apprendre aujourd'hui ?")}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
+        </motion.div>
 
         <div className={isV3 ? "category-cards-container-v3" : "category-list-stretch"}>
           {content.categories.map((cat, index) => (
@@ -128,7 +120,7 @@ export default function CategoryMenuScreen() {
                 <CategoryCard 
                   variant={isV3 ? 'v3' : 'v1'}
                   title={cat.title}
-                  icon={isV3 && ['famille', 'couleurs'].includes(cat.id) ? `/assets/images/3d/3d_${cat.id}_card.png` : cat.icon}
+                  icon={cat.icon}
                   color={cat.color}
                   onClick={() => handleCategoryTap(cat)}
                 />

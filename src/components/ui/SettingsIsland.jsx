@@ -53,14 +53,14 @@ export default function SettingsIsland({ settings, onLanguageChange, onVoiceChan
             onClick={() => onLanguageChange('fr')}
           >
             <div className="icon-container-3d"><EiffelTower /></div>
-            <div className="flag-sub">🇫🇷</div>
+            <div className="flag-sub">FR</div>
           </button>
           <button 
             className={`setting-pill-large ${settings.language === 'ar' ? 'active' : ''}`}
             onClick={() => onLanguageChange('ar')}
           >
             <div className="icon-container-3d"><CrescentMoon /></div>
-            <div className="flag-sub">🇸🇦</div>
+            <div className="flag-sub">AR</div>
           </button>
         </div>
       </div>

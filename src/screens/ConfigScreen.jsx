@@ -7,8 +7,6 @@ import LevelCard from '../components/ui/LevelCard';
 import ScreenWrapper from '../components/layout/ScreenWrapper';
 import FloatingDecorations from '../components/ui/FloatingDecorations';
 import SettingsIsland from '../components/ui/SettingsIsland';
-import TTSTester from '../components/ui/TTSTester';
-
 import './ConfigScreen.css';
 
 const LEVELS = [
@@ -100,10 +98,6 @@ export default function ConfigScreen() {
           </BigButton>
         </div>
 
-        {/* Testing Area */}
-        <div style={{ marginTop: '40px', paddingBottom: '40px' }}>
-          <TTSTester />
-        </div>
       </div>
     </ScreenWrapper>
   );

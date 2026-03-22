@@ -23,7 +23,7 @@ export default function ConfirmModal({ message, onConfirm, onCancel, isOpen }) {
             onClick={e => e.stopPropagation()}
             className="bg-[var(--color-surface)] rounded-[var(--radius-xl)] p-10 shadow-[var(--shadow-lg)] max-w-sm w-full text-center border-4 border-white"
           >
-            <div className="text-6xl mb-6">🏠</div>
+
             <p className="text-2xl font-black text-[var(--color-text)] mb-8 leading-tight">{message}</p>
             <div className="flex gap-4 justify-center">
               <Button variant="secondary" onClick={onCancel} size="sm">✕</Button>

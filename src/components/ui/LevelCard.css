@@ -1,7 +1,6 @@
 .level-card-3d {
   position: relative;
-  width: 100%; /* Fluid within container */
-  max-width: 240px;
+  width: 180px;
   aspect-ratio: 3 / 4;
   background: var(--color-surface);
   border-radius: var(--radius-xl);
@@ -13,6 +12,10 @@
     0 8px 0 rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
+}
+
+.level-card-3d:hover {
+  transform: translateY(-8px) scale(1.02);
 }
 
 .level-card-3d.selected {

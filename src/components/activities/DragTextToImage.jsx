@@ -72,7 +72,9 @@ function DropZoneCard({ zone, placedItem, feedbackState, variant = 'standard' })
       <div className="illustration-box">
         {zone.type === 'family' && (
           isV3 ? (
-            <img src={`/assets/images/${zone.shapeId}.png`} alt={zone.label} className="v3-clay-illustration" />
+            <div className="v3-family-illustration-wrap">
+              <img src={`/assets/images/${zone.shapeId}.png`} alt={zone.label} className="v3-clay-illustration" />
+            </div>
           ) : (
             <FamilyIllustration memberId={zone.shapeId} size={70} />
           )
@@ -87,7 +89,7 @@ function DropZoneCard({ zone, placedItem, feedbackState, variant = 'standard' })
           animate={{ scale: 1, rotate: isV3 ? 0 : 0 }}
           className={isV3 ? 'v3-placed-label' : 'placed-label-tag'}
         >
-          {placedItem.label} {isV3 ? '⭐' : '✓'}
+          {placedItem.label} {isV3 ? '✓' : '✓'}
         </motion.div>
       ) : (
         <div className={isV3 ? 'v3-empty-slot' : 'empty-slot-dash'}>

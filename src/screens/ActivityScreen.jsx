@@ -11,7 +11,6 @@ import NumberMatcher from '../components/activities/NumberMatcher';
 import ScreenWrapper from '../components/layout/ScreenWrapper';
 import ConfirmModal from '../components/ui/ConfirmModal';
 import Mascot from '../components/Mascot';
-import InstructionBanner from '../components/ui/InstructionBanner';
 import ProgressStars from '../components/ui/ProgressStars';
 import BigButton from '../components/ui/BigButton';
 import './ActivityScreen.css';
@@ -105,28 +104,20 @@ export default function ActivityScreen() {
   const isV3 = true; // Apply V3 premium design to all levels
 
   const v3Header = (
-    <div className="v3-activity-header">
-      <div className="v3-instruction-box">
-        <button className="v3-speaker-icon" onClick={() => speak(activity.instruction)}>
-          🔊
-        </button>
-        <h1 className="v3-instruction-text">{activity.instruction}</h1>
-      </div>
+    <div className="v3-activity-header-simple">
+      <button className="home-btn-3d-premium" onClick={() => setShowConfirm(true)}>
+        <span className="home-label-3d-bold">{isAr ? 'الرئيسية' : 'Accueil'}</span>
+      </button>
       
-      <div className="v3-progress-container">
-        <ProgressStars 
-          variant="v3-stars"
-          total={totalSteps} 
-          current={progress} 
-        />
-      </div>
+      <div className="v3-instruction-text">{activity.instruction}</div>
+      
+
     </div>
   );
 
   const standardHeader = (
     <>
       <button className="home-btn-pill" onClick={() => setShowConfirm(true)}>
-        <span className="home-icon">🏠</span>
         <span className="home-label">{isAr ? 'الرئيسية' : 'Accueil'}</span>
       </button>
 
@@ -134,9 +125,7 @@ export default function ActivityScreen() {
         {isAr ? `المستوى ${settings.level} › ${category.title}` : `Niveau ${settings.level} › ${category.title}`}
       </div>
 
-      <button className="speaker-btn-frosted" onClick={() => speak(activity.instruction)}>
-        🔊
-      </button>
+
     </>
   );
 
@@ -203,15 +192,7 @@ export default function ActivityScreen() {
       className={isV3 ? 'activity-screen-v3' : 'activity-screen-v2'}
     >
       <div className="activity-layout-grid">
-        {/* Row 2: Instruction */}
-        <section className="instruction-row">
-          <InstructionBanner 
-            text={activity.instruction} 
-            onSpeak={() => speak(activity.instruction)}
-          />
-        </section>
-
-        {/* Row 3: Progress Bar */}
+        {/* Progress */}
         <section className="progress-row">
           <div className="prominent-progress-bar">
             <ProgressStars 
@@ -221,7 +202,7 @@ export default function ActivityScreen() {
           </div>
         </section>
 
-        {/* Row 4: Activity Zone */}
+        {/* Activity Zone */}
         <section className="activity-zone-stretch">
           {renderActivity()}
         </section>

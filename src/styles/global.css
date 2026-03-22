@@ -79,6 +79,49 @@
   --text-dark:      var(--color-text);
   --radius-3d:      32px;
   --c-gold-orange:  var(--color-warning);
+
+  /* Level backgrounds - whiteish for clean look */
+  --bg-sky-l3: linear-gradient(180deg, #FFFEF5 0%, #F9FBE7 50%, #F5F9F0 100%);
+  --bg-sky-l4: linear-gradient(180deg, #FFFEF5 0%, #F5FBE8 50%, #F0F5EE 100%);
+  --bg-sky-l5: linear-gradient(180deg, #FFFEF5 0%, #F0FBE5 50%, #EBF0E8 100%);
+
+  /* Level-specific theme colors (override these with level classes) */
+  --level-primary: #FFB6C1;
+  --level-primary-dark: #E8909F;
+  --level-primary-light: #FFD1DC;
+  --level-accent: #FFB6C1;
+  --level-bg: #FFFBF5;
+  --level-bg-card: #FFFFFF;
+}
+
+/* Level 3 - Pink Theme (3 years old) */
+body.level-3 {
+  --level-primary: #FFB6C1;
+  --level-primary-dark: #C2185B;
+  --level-primary-light: #FFD1DC;
+  --level-accent: #FF6B9D;
+  --level-bg: #FFF5F7;
+  --level-bg-card: #FFFFFF;
+}
+
+/* Level 4 - Mint Theme (4 years old) */
+body.level-4 {
+  --level-primary: #81C784;
+  --level-primary-dark: #2E7D32;
+  --level-primary-light: #C8E6C9;
+  --level-accent: #56C596;
+  --level-bg: #F1F8E9;
+  --level-bg-card: #FFFFFF;
+}
+
+/* Level 5 - Sky Theme (5 years old) */
+body.level-5 {
+  --level-primary: #4FC3F7;
+  --level-primary-dark: #0277BD;
+  --level-primary-light: #B3E0FF;
+  --level-accent: #29B6F6;
+  --level-bg: #E1F5FE;
+  --level-bg-card: #FFFFFF;
 }
 
 /* ===========================

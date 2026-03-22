@@ -1,5 +1,5 @@
 .config-screen-v2 {
-  background: radial-gradient(circle at top left, #F9FBE7 0%, #E0F2F1 100%);
+  background: linear-gradient(180deg, #F9FBE7 0%, #E8F5E9 30%, #E0F2F1 100%) !important;
 }
 
 .central-visual-path {
@@ -69,22 +69,23 @@
 /* Age Selection Grid */
 .age-selection-band {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .age-pill-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-6);
+  max-width: 900px;
   width: 100%;
-  max-width: 800px;
-  justify-items: center;
 }
 
-/* On very small screens, 1 column, otherwise responsive */
+/* On very small screens, 1 column */
 @media (max-width: 639px) {
   .age-pill-grid {
     grid-template-columns: 1fr;
-    max-width: 240px;
+    max-width: 280px;
   }
 }
 
