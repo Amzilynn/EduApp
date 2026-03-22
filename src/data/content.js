@@ -143,6 +143,7 @@ const combinaisons_fr = {
   id: 'combinaisons',
   type: 'drag-image-to-zone',
   title: 'Formes et Couleurs',
+  instruction: 'Réponds aux questions suivantes',
   questions: [
     {
       id: 'q1',
@@ -195,6 +196,7 @@ const combinaisons_ar = {
   id: 'combinaisons',
   type: 'drag-image-to-zone',
   title: 'الأشكال والألوان',
+  instruction: 'أجب على الأسئلة التالية',
   questions: [
     {
       id: 'q1',
@@ -262,7 +264,8 @@ const alphabet_fr = {
     { word: 'OISEAU', letters: ['O','I','S','E','A','U'], distractors: ['L','F','R'],   hint: '🐦', hintLabel: 'Oiseau' },
     { word: 'FLEUR',  letters: ['F','L','E','U','R'],   distractors: ['O','I','S'],     hint: '🌸', hintLabel: 'Fleur' },
     { word: 'LAPIN',  letters: ['L','A','P','I','N'],   distractors: ['O','C','R'],     hint: '🐰', hintLabel: 'Lapin' },
-  ]
+  ],
+  trials: 5
 };
 
 const alphabet_ar = {
@@ -281,7 +284,8 @@ const alphabet_ar = {
     { word: 'وردة', letters: ['و','ر','د','ة'],   distractors: ['ب','ن','ت'],   hint: '🌹', hintLabel: 'وردة' },
     { word: 'تفاحة', letters: ['ت','ف','ا','ح','ة'], distractors: ['ب','ن','ت'],   hint: '🍎', hintLabel: 'تفاحة' },
     { word: 'جمل',  letters: ['ج','م','ل'],       distractors: ['ب','ن','ت'],   hint: '🐫', hintLabel: 'جمل' },
-  ]
+  ],
+  trials: 5
 };
 
 // ==========================================
@@ -293,25 +297,18 @@ const chiffres_fr = {
   title: 'Les Chiffres',
   instruction: 'Associe le chiffre à la bonne quantité !',
   noAudio: true,
-  rounds: [
-    {
-      pairs: [
-        { number: 1, object: 'apple',   emoji: '🍎', label: '1' },
-        { number: 2, object: 'star',    emoji: '⭐', label: '2' },
-        { number: 3, object: 'balloon', emoji: '🎈', label: '3' },
-        { number: 4, object: 'apple',   emoji: '🍎', label: '4' },
-        { number: 5, object: 'star',    emoji: '⭐', label: '5' },
-      ]
-    },
-    {
-      pairs: [
-        { number: 6,  object: 'balloon', emoji: '🎈', label: '6' },
-        { number: 7,  object: 'apple',   emoji: '🍎', label: '7' },
-        { number: 8,  object: 'star',    emoji: '⭐', label: '8' },
-        { number: 9,  object: 'balloon', emoji: '🎈', label: '9' },
-        { number: 10, object: 'apple',   emoji: '🍎', label: '10' },
-      ]
-    }
+  trials: 5,
+  items: [
+    { number: 1, object: 'apple',   emoji: '🍎', label: '1' },
+    { number: 2, object: 'star',    emoji: '⭐', label: '2' },
+    { number: 3, object: 'balloon', emoji: '🎈', label: '3' },
+    { number: 4, object: 'apple',   emoji: '🍎', label: '4' },
+    { number: 5, object: 'star',    emoji: '⭐', label: '5' },
+    { number: 6,  object: 'balloon', emoji: '🎈', label: '6' },
+    { number: 7,  object: 'apple',   emoji: '🍎', label: '7' },
+    { number: 8,  object: 'star',    emoji: '⭐', label: '8' },
+    { number: 9,  object: 'balloon', emoji: '🎈', label: '9' },
+    { number: 10, object: 'apple',   emoji: '🍎', label: '10' },
   ]
 };
 
@@ -321,7 +318,8 @@ const chiffres_ar = {
   title: 'الأرقام',
   instruction: 'طابق الرقم مع الكمية الصحيحة!',
   noAudio: true,
-  rounds: chiffres_fr.rounds // Same structure, no TTS
+  trials: 5,
+  items: chiffres_fr.items // Same structure, no TTS
 };
 
 // ==========================================

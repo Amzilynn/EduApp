@@ -12,37 +12,37 @@ export default function Button({
   ...props
 }) {
   const base = `
-    inline-flex items-center justify-center gap-2 font-extrabold
+    inline-flex items-center justify-center gap-2 font-black
     cursor-pointer select-none border-0 outline-none
-    transition-all duration-75 active:translate-y-1
-    focus:outline-2 focus:outline-offset-2 focus:outline-blue-400
+    transition-all duration-100 active:translate-y-1
+    focus:outline-none focus:ring-4 focus:ring-blue-400/30
   `;
 
   const sizes = {
-    sm: 'px-5 py-3 text-lg rounded-[50px]',
-    md: 'px-8 py-4 text-xl rounded-[50px]',
-    lg: 'px-10 py-5 text-2xl rounded-[50px]',
+    sm: 'px-5 py-2.5 text-lg rounded-[20px]',
+    md: 'px-8 py-3.5 text-xl rounded-[24px]',
+    lg: 'px-10 py-5 text-2xl rounded-[32px]',
   };
 
   const variants = {
-    primary: `bg-[#FFD93D] text-[#2D2D2D] border-[3px] border-black/15
-              shadow-[0_4px_0px_rgba(0,0,0,0.20)]
-              active:shadow-[0_1px_0px_rgba(0,0,0,0.20)]
-              hover:bg-[#FFCA00] disabled:opacity-50 disabled:cursor-not-allowed`,
-    secondary: `bg-white text-[#2D2D2D] border-[3px] border-black/10
-                shadow-[0_4px_0px_rgba(0,0,0,0.12)]
-                active:shadow-[0_1px_0px_rgba(0,0,0,0.12)]
-                hover:bg-gray-50 disabled:opacity-50`,
-    danger: `bg-[#FF6B6B] text-white border-[3px] border-black/10
-             shadow-[0_4px_0px_rgba(0,0,0,0.20)]
-             active:shadow-[0_1px_0px_rgba(0,0,0,0.20)]`,
-    ghost: `bg-transparent text-[#2D2D2D] hover:bg-black/5`,
+    primary: `bg-[var(--color-primary)] text-[var(--color-text)] border-b-4 border-black/10
+              shadow-[var(--shadow-md)]
+              active:border-b-0 active:translate-y-[4px]
+              hover:bg-[var(--color-primary-hover)] disabled:opacity-50 disabled:cursor-not-allowed`,
+    secondary: `bg-[var(--color-surface)] text-[var(--color-text)] border-b-4 border-black/5
+                shadow-[var(--shadow-sm)]
+                active:border-b-0 active:translate-y-[4px]
+                hover:bg-[var(--color-surface-hover)] disabled:opacity-50`,
+    danger: `bg-[var(--color-accent)] text-white border-b-4 border-black/15
+             shadow-[var(--shadow-md)]
+             hover:brightness-110 active:border-b-0 active:translate-y-[4px]`,
+    ghost: `bg-transparent text-[var(--color-text)] hover:bg-black/5`,
   };
 
   return (
     <motion.button
-      whileHover={{ scale: disabled ? 1 : 1.02 }}
-      whileTap={{ scale: disabled ? 1 : 0.97 }}
+      whileHover={{ scale: disabled ? 1 : 1.03 }}
+      whileTap={{ scale: disabled ? 1 : 0.95 }}
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
       className={`${base} ${sizes[size]} ${variants[variant]} ${pulse && !disabled ? 'pulse-cta' : ''} ${className}`}

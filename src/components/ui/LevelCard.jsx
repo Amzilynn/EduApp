@@ -1,29 +1,31 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import Mascot from '../Mascot';
 import './LevelCard.css';
 
-const LevelCard = ({ level, selected, onClick, type }) => {
-  const getAge = (lvl) => {
-    if (lvl === 3) return "3 ans";
-    if (lvl === 4) return "4 ans";
-    if (lvl === 5) return "5 ans";
-    return "";
-  };
+export default function LevelCard({ level, isSelected, onSelect, isAr }) {
+  const mascotType = level.id === 3 ? 'sunny' : level.id === 4 ? 'riko' : 'luna';
+  
+  const ageText = isAr 
+    ? (level.id === 1 ? 'سنة' : 'سنوات')
+    : (level.id === 1 ? 'An' : 'Ans');
 
   return (
-    <div 
-      className={`level-card ${selected ? 'selected' : ''}`} 
-      onClick={onClick}
-      data-level={level}
+    <motion.div
+      whileHover={{ y: -10, scale: 1.02 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => onSelect(level.id)}
+      className={`level-card-3d ${isSelected ? 'selected' : ''}`}
     >
-      <div className="mascot-badge">
-        <Mascot type={type} state={selected ? 'success' : 'idle'} />
+      <div className="card-inner-glow"></div>
+      <div className="level-card-content">
+         <div className="mascot-wrapper-3d">
+            <Mascot type={mascotType} />
+         </div>
+         <div className="mascot-age-label">
+           {level.id} {ageText}
+         </div>
       </div>
-      <div className="age-badge">
-        {getAge(level)}
-      </div>
-    </div>
+    </motion.div>
   );
-};
-
-export default LevelCard;
+}

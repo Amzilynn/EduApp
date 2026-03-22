@@ -1,19 +1,18 @@
 .drag-chip {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
+  gap: clamp(6px, 1.5vmin, 12px);
+  padding: clamp(8px, 1.5vh, 14px) clamp(16px, 3vw, 24px);
   border-radius: var(--radius-pill);
-  background: white;
   border: 2.5px solid rgba(43,43,59,0.12);
   box-shadow: var(--shadow-sm);
   font-family: var(--font-display);
-  font-size: var(--text-md);
+  font-size: var(--text-sm);
   font-weight: 700;
   color: var(--text-dark);
   cursor: grab;
   user-select: none;
-  transition: transform 150ms, box-shadow 150ms, border-color 150ms;
+  transition: transform var(--anim-fast) var(--spring), box-shadow var(--anim-fast) var(--spring), border-color var(--anim-fast);
   position: relative;
   touch-action: none;
 }

@@ -1,176 +1,102 @@
-.config-screen {
-  min-height: 100vh;
+.config-screen-v2 {
+  background: radial-gradient(circle at top left, #F9FBE7 0%, #E0F2F1 100%);
+}
+
+.central-visual-path {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 40px 20px;
-  position: relative;
-  overflow-y: auto;
-  background: var(--bg-sky-l3); /* Default background */
+  gap: var(--space-8);
+  padding: var(--space-8) var(--space-4);
 }
 
-/* Background animated elements */
-.config-bg-elements {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.rainbow {
-  position: absolute;
-  top: 40px;
-  right: -50px;
-  font-size: 120px;
-  opacity: 0.6;
-  filter: blur(2px);
-  transform: rotate(15deg);
-}
-
-.flower {
-  position: absolute;
-  bottom: 20px;
-  font-size: 30px;
-}
-
-.cloud-1 { font-size: 60px; top: 10%; animation-duration: 25s; filter: blur(1px); }
-.cloud-2 { font-size: 40px; top: 20%; animation-duration: 35s; animation-delay: -10s; }
-.cloud-3 { font-size: 50px; top: 5%; animation-duration: 30s; animation-delay: -18s; }
-
-/* Main Content Area */
-.config-content {
-  width: 100%;
-  max-width: 600px;
+/* Logo & Instruction */
+.brand-logo-area {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  z-index: 2;
-  position: relative;
+  align-items: center;
+  gap: var(--space-6);
+  width: 100%;
 }
 
-/* App Logo / Title Card */
-.app-title-card {
-  text-align: center;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(12px);
-  padding: 24px;
-  border-radius: var(--radius-xl);
-  border: var(--border-card);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 12px;
-}
-
-.app-logo-emoji {
-  font-size: 60px;
-  display: block;
-  margin-bottom: 8px;
-}
-
-.app-name {
+.edukids-logo-colorful {
+  font-family: 'Fredoka', sans-serif;
   font-size: var(--text-hero);
-  color: var(--text-dark);
-  margin: 0;
-}
-
-.app-tagline {
-  font-size: var(--text-md);
-  color: var(--text-medium);
-  margin: 4px 0 0;
-  font-weight: 500;
-}
-
-/* Config Sections */
-.config-section {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-radius: var(--radius-lg);
-  border: var(--border-card);
-  box-shadow: var(--shadow-sm);
-  padding: 20px;
-  width: 100%;
-}
-
-.config-section-title {
-  font-size: var(--text-md);
-  color: var(--text-medium);
-  margin-bottom: 16px;
-  text-align: center;
+  font-weight: 900;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  gap: var(--space-05);
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
 }
 
-.options-grid {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+.logo-letter {
+  display: inline-block;
 }
 
-/* Language & Voice Specific Selection Cards */
-.select-card-simple {
+.c1 { color: var(--color-accent); }
+.c2 { color: #4D96FF; }
+.c3 { color: var(--color-primary); }
+.c4 { color: var(--color-success); }
+.c5 { color: var(--color-warning); }
+.c6 { color: var(--color-magic); }
+
+.instruction-badge {
   background: white;
-  border-radius: var(--radius-md);
-  border: var(--border-thick);
+  padding: var(--space-2) var(--space-6);
+  border-radius: var(--radius-pill);
   box-shadow: var(--shadow-sm);
-  padding: 16px;
-  min-width: 120px;
+  border: 1px solid rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  position: relative;
 }
 
-.select-card-simple:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+.instruction-badge h3 {
+  font-size: var(--text-md);
+  color: var(--color-text-muted);
 }
 
-.select-card-simple.selected {
-  border-color: var(--c-sunshine);
-  box-shadow: var(--shadow-md), var(--selected-glow);
-  transform: scale(1.05);
-  background: var(--bg-warm-white);
+.down-arrow-icon {
+  color: var(--color-warning);
+  font-size: 1.5rem;
+  animation: bounceSoft 2s infinite;
 }
 
-.select-card-simple.selected::after {
-  content: '✓';
-  position: absolute;
-  top: -8px; right: -8px;
-  background: var(--c-grass);
-  color: white;
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 12px; font-weight: 900;
-  border: 2px solid white;
+/* Age Selection Grid */
+.age-selection-band {
+  width: 100%;
 }
 
-.selection-emoji {
-  font-size: 36px;
+.age-pill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 800px;
+  justify-items: center;
 }
 
-.selection-label {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--text-dark);
+/* On very small screens, 1 column, otherwise responsive */
+@media (max-width: 639px) {
+  .age-pill-grid {
+    grid-template-columns: 1fr;
+    max-width: 240px;
+  }
 }
 
-/* Footer CTA */
-.config-footer {
+/* CTA Row */
+.cta-container-8k {
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 20px;
-  margin-top: 8px;
+  padding-top: var(--space-4);
 }
 
-/* RTL Adjustments */
-[dir="rtl"] .select-card-simple.selected::after {
-  right: auto;
-  left: -8px;
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
 }

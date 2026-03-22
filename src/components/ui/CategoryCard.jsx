@@ -1,7 +1,30 @@
 import React from 'react';
 import './CategoryCard.css';
 
-const CategoryCard = ({ title, icon, color, onClick }) => {
+const CategoryCard = ({ title, icon, color, onClick, variant = 'v1' }) => {
+  if (variant === 'v3') {
+    return (
+      <div 
+        className="category-card-v3-premium" 
+        onClick={onClick}
+        style={{ '--category-color': color }}
+      >
+        <div className="card-inner-3d">
+          <div className="illustration-container-3d">
+            {typeof icon === 'string' && icon.startsWith('/') ? (
+              <img src={icon} alt={title} className="clay-illustration-3d" />
+            ) : (
+              <div className="icon-3d-fallback">{icon}</div>
+            )}
+          </div>
+          <div className="card-label-row">
+            <h3 className="category-title-v3-bold">{title}</h3>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div 
       className="category-card" 

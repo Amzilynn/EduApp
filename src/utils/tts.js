@@ -1,142 +1,179 @@
 /**
- * Text-to-Speech Engine using Web Speech API
+ * Text-to-Speech Engine using self-hosted XTTS-v2 backend on HuggingFace Spaces.
+ * Falls back to Web Speech API if backend is unavailable.
  */
 export class SpeechEngine {
   constructor(language, voiceType) {
-    this.language = language;   // 'fr' | 'ar'
-    this.voiceType = voiceType; // 'girl' | 'boy'
-    this.voice = null;
+    this.language = language || localStorage.getItem('ttsLanguage') || 'fr';
+    this.voiceType = voiceType || localStorage.getItem('ttsVoiceType') || 'child_female';
     this.ready = false;
+    this.isSpeaking = false;
+    this.isWarmingUp = false;
+    this.backendUrl = import.meta.env.VITE_TTS_BACKEND_URL || ''; // Set this in .env
+    this.audioContext = null;
+    this.currentAudio = null;
+
+    this.savePreferences();
     this.init();
   }
 
+  savePreferences() {
+    localStorage.setItem('ttsLanguage', this.language);
+    localStorage.setItem('ttsVoiceType', this.voiceType);
+  }
+
+  setLanguage(lang) {
+    this.language = lang;
+    this.savePreferences();
+  }
+
+  setVoiceType(type) {
+    this.voiceType = type;
+    this.savePreferences();
+  }
+
   async init() {
-    return new Promise(resolve => {
-      const load = () => {
-        const voices = window.speechSynthesis.getVoices();
-        console.log(`[SpeechEngine] Voices loaded: ${voices.length} found.`);
-        this.voice = this.selectVoice(voices);
-        if (this.voice) {
-          console.log(`[SpeechEngine] Selected voice: ${this.voice.name} (${this.voice.lang})`);
-        } else {
-          console.warn(`[SpeechEngine] No suitable voice found for ${this.language}.`);
-        }
-        this.ready = true;
+    if (!this.backendUrl) {
+      console.warn('[SpeechEngine] VITE_TTS_BACKEND_URL not set. Using Web Speech API fallback only.');
+      this.ready = true;
+      return;
+    }
+
+    // Ping the backend to wake it up (cold start handling)
+    try {
+      this.isWarmingUp = true;
+      const response = await fetch(`${this.backendUrl}/health`, { signal: AbortSignal.timeout(5000) });
+      const data = await response.json();
+      
+      if (data.status === 'warming_up') {
+        console.log('[SpeechEngine] Backend is warming up...');
+        // We don't block here, but we set the flag
+      } else if (data.status === 'ready') {
+        console.log('[SpeechEngine] Backend is ready.');
+        this.isWarmingUp = false;
+      }
+    } catch (error) {
+      console.error('[SpeechEngine] Backend health check failed:', error);
+      this.isWarmingUp = false;
+    } finally {
+      this.ready = true;
+    }
+  }
+
+  /**
+   * Main speak method
+   */
+  async speak(text, options = {}) {
+    if (!text) return;
+
+    // Try backend first
+    if (this.backendUrl) {
+      try {
+        await this.speakViaBackend(text, options);
+        return;
+      } catch (error) {
+        console.error('[SpeechEngine] Backend TTS failed, falling back to Web Speech API:', error);
+      }
+    }
+
+    // Fallback to Web Speech API
+    await this.speakViaBrowser(text, options);
+  }
+
+  /**
+   * Speak using XTTS-v2 Backend
+   */
+  async speakViaBackend(text, options = {}) {
+    const lang = this.language === 'ar' ? 'ar' : 'fr';
+    const voice = (this.voiceType === 'child_female' || this.voiceType === 'girl') ? 'girl' : 'boy';
+
+    const response = await fetch(`${this.backendUrl}/synthesize`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, language: lang, voice }),
+      signal: AbortSignal.timeout(30000) // 30s timeout for XTTS generation
+    });
+
+    if (!response.ok) {
+      throw new Error(`Backend returned ${response.status}: ${await response.text()}`);
+    }
+
+    const audioBlob = await response.blob();
+    const audioUrl = URL.createObjectURL(audioBlob);
+    
+    return new Promise((resolve, reject) => {
+      if (this.currentAudio) {
+        this.currentAudio.pause();
+      }
+      
+      this.currentAudio = new Audio(audioUrl);
+      this.currentAudio.onplay = () => { this.isSpeaking = true; };
+      this.currentAudio.onended = () => {
+        this.isSpeaking = false;
+        URL.revokeObjectURL(audioUrl);
         resolve();
       };
-      if (window.speechSynthesis && window.speechSynthesis.getVoices().length) {
-        load();
-      } else if (window.speechSynthesis) {
-        window.speechSynthesis.onvoiceschanged = load;
-        setTimeout(load, 1500); // Wait longer for voices
-      } else {
-        console.error('[SpeechEngine] Web Speech API not supported.');
-        resolve(); 
-      }
+      this.currentAudio.onerror = (e) => {
+        this.isSpeaking = false;
+        URL.revokeObjectURL(audioUrl);
+        reject(e);
+      };
+      this.currentAudio.play().catch(reject);
     });
   }
 
-  selectVoice(voices) {
-    if (!voices || voices.length === 0) return null;
-    const langCode = this.language === 'ar' ? 'ar' : 'fr';
-    
-    const langVoices = voices.filter(v => 
-      v.lang.toLowerCase().startsWith(langCode) || 
-      (langCode === 'ar' && (v.lang.toLowerCase().includes('ar') || v.name.toLowerCase().includes('arabic')))
-    );
-    
-    console.log(`[SpeechEngine] Found ${langVoices.length} voices for ${langCode}`);
-
-    const arabicFemaleKeywords = ['laila', 'muna', 'mariam', 'zariyah', 'nadia', 'salma', 'samira', 'houda', 'naayel', 'zira'];
-    const arabicMaleKeywords = ['majed', 'tarik', 'hassan', 'naim', 'faisal', 'mehdi'];
-    
-    const femaleKeywords = ['female', 'woman', 'fille', 'amelie', 'marie', 'hana', ...arabicFemaleKeywords];
-    const maleKeywords = ['male', 'man', 'garcon', 'thomas', 'nicolas', ...arabicMaleKeywords];
-
-    if (langVoices.length === 0) return voices[0];
-
-    let voice = null;
-    if (this.voiceType === 'girl') {
-      voice = langVoices.find(v =>
-        femaleKeywords.some(k => v.name.toLowerCase().includes(k))
-      );
-    } else {
-      voice = langVoices.find(v =>
-        maleKeywords.some(k => v.name.toLowerCase().includes(k))
-      );
-    }
-
-    return voice || langVoices[0];
-  }
-
-  speak(text, options = {}) {
-    if (!window.speechSynthesis || !text) return Promise.resolve();
-    
-    window.speechSynthesis.cancel();
-    
-    const utterance = new SpeechSynthesisUtterance(text);
-    const selectedVoice = options.voice || this.voice;
-    
-    if (selectedVoice) {
-      utterance.voice = selectedVoice;
-      utterance.lang = selectedVoice.lang;
-    } else {
-      utterance.lang = this.language === 'ar' ? 'ar-SA' : 'fr-FR';
-    }
-
-    utterance.rate = options.rate || 0.85;
-    utterance.pitch = this.voiceType === 'girl' ? 1.15 : 0.90;
-    utterance.volume = 1.0;
-
-    console.log(`[SpeechEngine] Speaking: "${text}" with voice: ${selectedVoice?.name || 'default'} (lang: ${utterance.lang})`);
+  /**
+   * Speak using Web Speech API (Fallback)
+   */
+  async speakViaBrowser(text, options = {}) {
+    if (!window.speechSynthesis) return;
 
     return new Promise(resolve => {
-      utterance.onstart = () => console.log(`[SpeechEngine] Speech started: "${text}"`);
+      window.speechSynthesis.cancel();
+      
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = this.language === 'ar' ? 'ar-SA' : 'fr-FR';
+      
+      // Force child-like pitch and rate for fallback
+      utterance.pitch = 1.8;
+      utterance.rate = 1.1;
+      utterance.volume = 1.0;
+
+      utterance.onstart = () => { this.isSpeaking = true; };
       utterance.onend = () => {
-        console.log(`[SpeechEngine] Speech finished: "${text}"`);
+        this.isSpeaking = false;
         resolve();
       };
       utterance.onerror = (e) => {
-        console.error('[SpeechEngine] Error:', e);
+        console.error('[SpeechEngine] Browser TTS Error:', e);
+        this.isSpeaking = false;
         resolve();
       };
       
-      setTimeout(() => {
-        window.speechSynthesis.speak(utterance);
-      }, 100);
+      window.speechSynthesis.speak(utterance);
     });
   }
 
   speakWithOppositeVoice(text) {
-    if (!window.speechSynthesis || !text) return Promise.resolve();
-    const allVoices = window.speechSynthesis.getVoices();
-    const langCode = this.language === 'ar' ? 'ar' : 'fr';
-    const langVoices = allVoices.filter(v => v.lang.toLowerCase().startsWith(langCode));
+    const originalVoice = this.voiceType;
+    const opposite = (originalVoice === 'child_female' || originalVoice === 'girl') ? 'child_male' : 'child_female';
     
-    if (langVoices.length === 0) return this.speak(text);
-
-    const opposite = this.voiceType === 'girl' ? 'boy' : 'girl';
-    const arabicFemaleKeywords = ['laila', 'muna', 'mariam', 'zariyah', 'nadia', 'salma'];
-    const arabicMaleKeywords = ['majed', 'tarik', 'hassan', 'naim'];
-    
-    const femaleKeywords = ['female', 'woman', 'fille', 'amelie', 'marie', ...arabicFemaleKeywords];
-    const maleKeywords = ['male', 'man', 'garcon', 'thomas', ...arabicMaleKeywords];
-    
-    let oppositeVoice;
-    if (opposite === 'girl') {
-      oppositeVoice = langVoices.find(v =>
-        femaleKeywords.some(k => v.name.toLowerCase().includes(k))
-      ) || langVoices[0];
-    } else {
-      oppositeVoice = langVoices.find(v =>
-        maleKeywords.some(k => v.name.toLowerCase().includes(k))
-      ) || langVoices[1] || langVoices[0];
-    }
-
-    return this.speak(text, { voice: oppositeVoice });
+    // Temporarily swap voice type
+    this.voiceType = opposite;
+    const promise = this.speak(text);
+    // Restore
+    promise.finally(() => { this.voiceType = originalVoice; });
+    return promise;
   }
 
   stop() {
-    if (window.speechSynthesis) window.speechSynthesis.cancel();
+    if (this.currentAudio) {
+      this.currentAudio.pause();
+      this.currentAudio = null;
+    }
+    if (window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+    this.isSpeaking = false;
   }
 }

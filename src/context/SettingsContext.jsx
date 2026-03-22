@@ -5,7 +5,7 @@ const SettingsContext = createContext(null);
 const initialSettings = {
   level: null,       // 3 | 4 | 5
   language: null,    // 'fr' | 'ar'
-  voiceType: null,   // 'girl' | 'boy'
+  voiceType: null,   // 'child_female' | 'child_male'
   configured: false,
 };
 

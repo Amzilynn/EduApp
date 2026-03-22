@@ -1,0 +1,98 @@
+.letter-sequencer-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-4);
+}
+
+.word-hint-card {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1.5 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  border: 4px solid white;
+  box-shadow: var(--shadow-md);
+}
+
+.hint-emoji {
+  font-size: var(--text-hero);
+  line-height: 1;
+}
+
+.hint-label {
+  font-family: 'Fredoka', sans-serif;
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--color-text-medium);
+  margin-top: var(--space-2);
+}
+
+/* Slot Grid */
+.word-slots-row {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.letter-slot {
+  width: clamp(48px, 10vw, 64px);
+  height: clamp(48px, 10vw, 64px);
+  border-radius: var(--radius-md);
+  border: 3px solid var(--color-surface-sunken);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-h2);
+  font-weight: 950;
+  background: var(--color-surface);
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.05);
+  transition: all var(--anim-fast) var(--spring);
+}
+
+.letter-slot.filled {
+  background: var(--color-success);
+  color: white;
+  border: none;
+  box-shadow: 0 6px 0 var(--color-success-hover);
+}
+
+/* Pool Grid */
+.letter-pool-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 500px;
+}
+
+.pool-letter-btn {
+  width: clamp(52px, 12vw, 68px);
+  height: clamp(52px, 12vw, 68px);
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-h2);
+  font-weight: 950;
+  color: var(--color-text);
+  box-shadow: 0 8px 0 var(--color-accent-hover);
+  cursor: pointer;
+  transition: all var(--anim-fast);
+}
+
+.pool-letter-btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 var(--color-accent-hover);
+}
