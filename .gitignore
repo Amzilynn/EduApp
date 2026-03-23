@@ -12,3 +12,11 @@ yarn-error.log*
 *.swp
 *.swo
 *.wav
+nul
+voice_ids.txt
+tmp_check_voices.py
+voices_output.txt
+test_carre_gris.wav
+test_pyttsx3.wav
+temp_audio.wav
+test.mp3

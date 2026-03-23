@@ -8,10 +8,11 @@ const ROOT = path.resolve(__dirname, '..');
 const OUTPUT_DIR = path.join(ROOT, 'public', 'recordings');
 const MANIFEST_PATH = path.join(OUTPUT_DIR, 'manifest.json');
 
-const BACKEND_URL = process.env.TTS_BACKEND_URL || 'https://amzilynn-eduapp.hf.space';
+const BACKEND_URL = process.env.TTS_BACKEND_URL || 'http://localhost:7860';
 const PARALLEL_REQUESTS = 1;
 const RETRY_ATTEMPTS = 3;
-const TIMEOUT_MS = 300000;
+const TIMEOUT_MS = 600000; // 10 minutes
+const DELAY_BETWEEN_MS = 1000; // 1 second delay to let backend breathe
 
 const SHAPES = {
   fr: ['Cercle', 'Carré', 'Triangle', 'Rectangle'],
@@ -185,6 +186,9 @@ async function main() {
 
     await Promise.all(batchPromises);
     completed += batch.length;
+
+    // Small delay to prevent overwhelming the single-threaded backend
+    await new Promise(r => setTimeout(r, DELAY_BETWEEN_MS));
 
     const elapsed = ((Date.now() - startTime) / 1000).toFixed(0);
     const rate = (completed / elapsed).toFixed(1);

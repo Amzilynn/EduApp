@@ -1,12 +1,1792 @@
-    {
+{
   "recordings": {
     "fr": {
-      "girl": [],
-      "boy": []
+      "girl": [
+        {
+          "file": "a.wav",
+          "key": "a"
+        },
+        {
+          "file": "arbre.wav",
+          "key": "arbre"
+        },
+        {
+          "file": "avion.wav",
+          "key": "avion"
+        },
+        {
+          "file": "b.wav",
+          "key": "b"
+        },
+        {
+          "file": "blanc.wav",
+          "key": "blanc"
+        },
+        {
+          "file": "bleu.wav",
+          "key": "bleu"
+        },
+        {
+          "file": "bravo.wav",
+          "key": "bravo"
+        },
+        {
+          "file": "c.wav",
+          "key": "c"
+        },
+        {
+          "file": "carr.wav",
+          "key": "carr"
+        },
+        {
+          "file": "carr_blanc.wav",
+          "key": "carr_blanc"
+        },
+        {
+          "file": "carr_bleu.wav",
+          "key": "carr_bleu"
+        },
+        {
+          "file": "carr_gris.wav",
+          "key": "carr_gris"
+        },
+        {
+          "file": "carr_jaune.wav",
+          "key": "carr_jaune"
+        },
+        {
+          "file": "carr_noir.wav",
+          "key": "carr_noir"
+        },
+        {
+          "file": "carr_orange.wav",
+          "key": "carr_orange"
+        },
+        {
+          "file": "carr_rose.wav",
+          "key": "carr_rose"
+        },
+        {
+          "file": "carr_rouge.wav",
+          "key": "carr_rouge"
+        },
+        {
+          "file": "carr_vert.wav",
+          "key": "carr_vert"
+        },
+        {
+          "file": "carr_violet.wav",
+          "key": "carr_violet"
+        },
+        {
+          "file": "cercle.wav",
+          "key": "cercle"
+        },
+        {
+          "file": "cercle_blanc.wav",
+          "key": "cercle_blanc"
+        },
+        {
+          "file": "cercle_bleu.wav",
+          "key": "cercle_bleu"
+        },
+        {
+          "file": "cercle_gris.wav",
+          "key": "cercle_gris"
+        },
+        {
+          "file": "cercle_jaune.wav",
+          "key": "cercle_jaune"
+        },
+        {
+          "file": "cercle_noir.wav",
+          "key": "cercle_noir"
+        },
+        {
+          "file": "cercle_orange.wav",
+          "key": "cercle_orange"
+        },
+        {
+          "file": "cercle_rose.wav",
+          "key": "cercle_rose"
+        },
+        {
+          "file": "cercle_rouge.wav",
+          "key": "cercle_rouge"
+        },
+        {
+          "file": "cercle_vert.wav",
+          "key": "cercle_vert"
+        },
+        {
+          "file": "cercle_violet.wav",
+          "key": "cercle_violet"
+        },
+        {
+          "file": "chat.wav",
+          "key": "chat"
+        },
+        {
+          "file": "d.wav",
+          "key": "d"
+        },
+        {
+          "file": "e.wav",
+          "key": "e"
+        },
+        {
+          "file": "essaie_encore.wav",
+          "key": "essaie_encore"
+        },
+        {
+          "file": "excellent.wav",
+          "key": "excellent"
+        },
+        {
+          "file": "f.wav",
+          "key": "f"
+        },
+        {
+          "file": "fleur.wav",
+          "key": "fleur"
+        },
+        {
+          "file": "g.wav",
+          "key": "g"
+        },
+        {
+          "file": "glisse_le_mot_vers_la_bonne_couleur.wav",
+          "key": "glisse_le_mot_vers_la_bonne_couleur"
+        },
+        {
+          "file": "glisse_le_mot_vers_la_bonne_forme.wav",
+          "key": "glisse_le_mot_vers_la_bonne_forme"
+        },
+        {
+          "file": "glisse_le_mot_vers_le_bon_personnage.wav",
+          "key": "glisse_le_mot_vers_le_bon_personnage"
+        },
+        {
+          "file": "gris.wav",
+          "key": "gris"
+        },
+        {
+          "file": "h.wav",
+          "key": "h"
+        },
+        {
+          "file": "i.wav",
+          "key": "i"
+        },
+        {
+          "file": "j.wav",
+          "key": "j"
+        },
+        {
+          "file": "jaune.wav",
+          "key": "jaune"
+        },
+        {
+          "file": "k.wav",
+          "key": "k"
+        },
+        {
+          "file": "l.wav",
+          "key": "l"
+        },
+        {
+          "file": "la_grand_m_re.wav",
+          "key": "la_grand_m_re"
+        },
+        {
+          "file": "la_m_re.wav",
+          "key": "la_m_re"
+        },
+        {
+          "file": "la_s_ur.wav",
+          "key": "la_s_ur"
+        },
+        {
+          "file": "lapin.wav",
+          "key": "lapin"
+        },
+        {
+          "file": "le_fr_re.wav",
+          "key": "le_fr_re"
+        },
+        {
+          "file": "le_grand_p_re.wav",
+          "key": "le_grand_p_re"
+        },
+        {
+          "file": "le_p_re.wav",
+          "key": "le_p_re"
+        },
+        {
+          "file": "livre.wav",
+          "key": "livre"
+        },
+        {
+          "file": "lune.wav",
+          "key": "lune"
+        },
+        {
+          "file": "m.wav",
+          "key": "m"
+        },
+        {
+          "file": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_.wav",
+          "key": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_"
+        },
+        {
+          "file": "n.wav",
+          "key": "n"
+        },
+        {
+          "file": "noir.wav",
+          "key": "noir"
+        },
+        {
+          "file": "o.wav",
+          "key": "o"
+        },
+        {
+          "file": "o_est_le_carr_bleu.wav",
+          "key": "o_est_le_carr_bleu"
+        },
+        {
+          "file": "o_est_le_cercle_rouge.wav",
+          "key": "o_est_le_cercle_rouge"
+        },
+        {
+          "file": "o_est_le_rectangle_vert.wav",
+          "key": "o_est_le_rectangle_vert"
+        },
+        {
+          "file": "o_est_le_triangle_jaune.wav",
+          "key": "o_est_le_triangle_jaune"
+        },
+        {
+          "file": "oiseau.wav",
+          "key": "oiseau"
+        },
+        {
+          "file": "orange.wav",
+          "key": "orange"
+        },
+        {
+          "file": "p.wav",
+          "key": "p"
+        },
+        {
+          "file": "pas_tout_fait.wav",
+          "key": "pas_tout_fait"
+        },
+        {
+          "file": "pomme.wav",
+          "key": "pomme"
+        },
+        {
+          "file": "q.wav",
+          "key": "q"
+        },
+        {
+          "file": "qu_est_ce_qu_on_veut_apprendre_aujourd_hui.wav",
+          "key": "qu_est_ce_qu_on_veut_apprendre_aujourd_hui"
+        },
+        {
+          "file": "r.wav",
+          "key": "r"
+        },
+        {
+          "file": "r_essaie.wav",
+          "key": "r_essaie"
+        },
+        {
+          "file": "r_ponds_aux_questions_suivantes.wav",
+          "key": "r_ponds_aux_questions_suivantes"
+        },
+        {
+          "file": "rectangle.wav",
+          "key": "rectangle"
+        },
+        {
+          "file": "rectangle_blanc.wav",
+          "key": "rectangle_blanc"
+        },
+        {
+          "file": "rectangle_bleu.wav",
+          "key": "rectangle_bleu"
+        },
+        {
+          "file": "rectangle_gris.wav",
+          "key": "rectangle_gris"
+        },
+        {
+          "file": "rectangle_jaune.wav",
+          "key": "rectangle_jaune"
+        },
+        {
+          "file": "rectangle_noir.wav",
+          "key": "rectangle_noir"
+        },
+        {
+          "file": "rectangle_orange.wav",
+          "key": "rectangle_orange"
+        },
+        {
+          "file": "rectangle_rose.wav",
+          "key": "rectangle_rose"
+        },
+        {
+          "file": "rectangle_rouge.wav",
+          "key": "rectangle_rouge"
+        },
+        {
+          "file": "rectangle_vert.wav",
+          "key": "rectangle_vert"
+        },
+        {
+          "file": "rectangle_violet.wav",
+          "key": "rectangle_violet"
+        },
+        {
+          "file": "rose.wav",
+          "key": "rose"
+        },
+        {
+          "file": "rouge.wav",
+          "key": "rouge"
+        },
+        {
+          "file": "s.wav",
+          "key": "s"
+        },
+        {
+          "file": "soleil.wav",
+          "key": "soleil"
+        },
+        {
+          "file": "super.wav",
+          "key": "super"
+        },
+        {
+          "file": "t.wav",
+          "key": "t"
+        },
+        {
+          "file": "tr_s_bien.wav",
+          "key": "tr_s_bien"
+        },
+        {
+          "file": "triangle.wav",
+          "key": "triangle"
+        },
+        {
+          "file": "triangle_blanc.wav",
+          "key": "triangle_blanc"
+        },
+        {
+          "file": "triangle_bleu.wav",
+          "key": "triangle_bleu"
+        },
+        {
+          "file": "triangle_gris.wav",
+          "key": "triangle_gris"
+        },
+        {
+          "file": "triangle_jaune.wav",
+          "key": "triangle_jaune"
+        },
+        {
+          "file": "triangle_noir.wav",
+          "key": "triangle_noir"
+        },
+        {
+          "file": "triangle_orange.wav",
+          "key": "triangle_orange"
+        },
+        {
+          "file": "triangle_rose.wav",
+          "key": "triangle_rose"
+        },
+        {
+          "file": "triangle_rouge.wav",
+          "key": "triangle_rouge"
+        },
+        {
+          "file": "triangle_vert.wav",
+          "key": "triangle_vert"
+        },
+        {
+          "file": "triangle_violet.wav",
+          "key": "triangle_violet"
+        },
+        {
+          "file": "tu_es_formidable.wav",
+          "key": "tu_es_formidable"
+        },
+        {
+          "file": "u.wav",
+          "key": "u"
+        },
+        {
+          "file": "v.wav",
+          "key": "v"
+        },
+        {
+          "file": "vert.wav",
+          "key": "vert"
+        },
+        {
+          "file": "violet.wav",
+          "key": "violet"
+        },
+        {
+          "file": "w.wav",
+          "key": "w"
+        },
+        {
+          "file": "x.wav",
+          "key": "x"
+        },
+        {
+          "file": "y.wav",
+          "key": "y"
+        },
+        {
+          "file": "z.wav",
+          "key": "z"
+        }
+      ],
+      "boy": [
+        {
+          "file": "a.wav",
+          "key": "a"
+        },
+        {
+          "file": "arbre.wav",
+          "key": "arbre"
+        },
+        {
+          "file": "avion.wav",
+          "key": "avion"
+        },
+        {
+          "file": "b.wav",
+          "key": "b"
+        },
+        {
+          "file": "blanc.wav",
+          "key": "blanc"
+        },
+        {
+          "file": "bleu.wav",
+          "key": "bleu"
+        },
+        {
+          "file": "bravo.wav",
+          "key": "bravo"
+        },
+        {
+          "file": "c.wav",
+          "key": "c"
+        },
+        {
+          "file": "carr.wav",
+          "key": "carr"
+        },
+        {
+          "file": "carr_blanc.wav",
+          "key": "carr_blanc"
+        },
+        {
+          "file": "carr_bleu.wav",
+          "key": "carr_bleu"
+        },
+        {
+          "file": "carr_gris.wav",
+          "key": "carr_gris"
+        },
+        {
+          "file": "carr_jaune.wav",
+          "key": "carr_jaune"
+        },
+        {
+          "file": "carr_noir.wav",
+          "key": "carr_noir"
+        },
+        {
+          "file": "carr_orange.wav",
+          "key": "carr_orange"
+        },
+        {
+          "file": "carr_rose.wav",
+          "key": "carr_rose"
+        },
+        {
+          "file": "carr_rouge.wav",
+          "key": "carr_rouge"
+        },
+        {
+          "file": "carr_vert.wav",
+          "key": "carr_vert"
+        },
+        {
+          "file": "carr_violet.wav",
+          "key": "carr_violet"
+        },
+        {
+          "file": "cercle.wav",
+          "key": "cercle"
+        },
+        {
+          "file": "cercle_blanc.wav",
+          "key": "cercle_blanc"
+        },
+        {
+          "file": "cercle_bleu.wav",
+          "key": "cercle_bleu"
+        },
+        {
+          "file": "cercle_gris.wav",
+          "key": "cercle_gris"
+        },
+        {
+          "file": "cercle_jaune.wav",
+          "key": "cercle_jaune"
+        },
+        {
+          "file": "cercle_noir.wav",
+          "key": "cercle_noir"
+        },
+        {
+          "file": "cercle_orange.wav",
+          "key": "cercle_orange"
+        },
+        {
+          "file": "cercle_rose.wav",
+          "key": "cercle_rose"
+        },
+        {
+          "file": "cercle_rouge.wav",
+          "key": "cercle_rouge"
+        },
+        {
+          "file": "cercle_vert.wav",
+          "key": "cercle_vert"
+        },
+        {
+          "file": "cercle_violet.wav",
+          "key": "cercle_violet"
+        },
+        {
+          "file": "chat.wav",
+          "key": "chat"
+        },
+        {
+          "file": "d.wav",
+          "key": "d"
+        },
+        {
+          "file": "e.wav",
+          "key": "e"
+        },
+        {
+          "file": "essaie_encore.wav",
+          "key": "essaie_encore"
+        },
+        {
+          "file": "excellent.wav",
+          "key": "excellent"
+        },
+        {
+          "file": "f.wav",
+          "key": "f"
+        },
+        {
+          "file": "fleur.wav",
+          "key": "fleur"
+        },
+        {
+          "file": "g.wav",
+          "key": "g"
+        },
+        {
+          "file": "glisse_le_mot_vers_la_bonne_couleur.wav",
+          "key": "glisse_le_mot_vers_la_bonne_couleur"
+        },
+        {
+          "file": "glisse_le_mot_vers_la_bonne_forme.wav",
+          "key": "glisse_le_mot_vers_la_bonne_forme"
+        },
+        {
+          "file": "glisse_le_mot_vers_le_bon_personnage.wav",
+          "key": "glisse_le_mot_vers_le_bon_personnage"
+        },
+        {
+          "file": "gris.wav",
+          "key": "gris"
+        },
+        {
+          "file": "h.wav",
+          "key": "h"
+        },
+        {
+          "file": "i.wav",
+          "key": "i"
+        },
+        {
+          "file": "j.wav",
+          "key": "j"
+        },
+        {
+          "file": "jaune.wav",
+          "key": "jaune"
+        },
+        {
+          "file": "k.wav",
+          "key": "k"
+        },
+        {
+          "file": "l.wav",
+          "key": "l"
+        },
+        {
+          "file": "la_grand_m_re.wav",
+          "key": "la_grand_m_re"
+        },
+        {
+          "file": "la_m_re.wav",
+          "key": "la_m_re"
+        },
+        {
+          "file": "la_s_ur.wav",
+          "key": "la_s_ur"
+        },
+        {
+          "file": "lapin.wav",
+          "key": "lapin"
+        },
+        {
+          "file": "le_fr_re.wav",
+          "key": "le_fr_re"
+        },
+        {
+          "file": "le_grand_p_re.wav",
+          "key": "le_grand_p_re"
+        },
+        {
+          "file": "le_p_re.wav",
+          "key": "le_p_re"
+        },
+        {
+          "file": "livre.wav",
+          "key": "livre"
+        },
+        {
+          "file": "lune.wav",
+          "key": "lune"
+        },
+        {
+          "file": "m.wav",
+          "key": "m"
+        },
+        {
+          "file": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_.wav",
+          "key": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_"
+        },
+        {
+          "file": "n.wav",
+          "key": "n"
+        },
+        {
+          "file": "noir.wav",
+          "key": "noir"
+        },
+        {
+          "file": "o.wav",
+          "key": "o"
+        },
+        {
+          "file": "o_est_le_carr_bleu.wav",
+          "key": "o_est_le_carr_bleu"
+        },
+        {
+          "file": "o_est_le_cercle_rouge.wav",
+          "key": "o_est_le_cercle_rouge"
+        },
+        {
+          "file": "o_est_le_rectangle_vert.wav",
+          "key": "o_est_le_rectangle_vert"
+        },
+        {
+          "file": "o_est_le_triangle_jaune.wav",
+          "key": "o_est_le_triangle_jaune"
+        },
+        {
+          "file": "oiseau.wav",
+          "key": "oiseau"
+        },
+        {
+          "file": "orange.wav",
+          "key": "orange"
+        },
+        {
+          "file": "p.wav",
+          "key": "p"
+        },
+        {
+          "file": "pas_tout_fait.wav",
+          "key": "pas_tout_fait"
+        },
+        {
+          "file": "pomme.wav",
+          "key": "pomme"
+        },
+        {
+          "file": "q.wav",
+          "key": "q"
+        },
+        {
+          "file": "qu_est_ce_qu_on_veut_apprendre_aujourd_hui.wav",
+          "key": "qu_est_ce_qu_on_veut_apprendre_aujourd_hui"
+        },
+        {
+          "file": "r.wav",
+          "key": "r"
+        },
+        {
+          "file": "r_essaie.wav",
+          "key": "r_essaie"
+        },
+        {
+          "file": "r_ponds_aux_questions_suivantes.wav",
+          "key": "r_ponds_aux_questions_suivantes"
+        },
+        {
+          "file": "rectangle.wav",
+          "key": "rectangle"
+        },
+        {
+          "file": "rectangle_blanc.wav",
+          "key": "rectangle_blanc"
+        },
+        {
+          "file": "rectangle_bleu.wav",
+          "key": "rectangle_bleu"
+        },
+        {
+          "file": "rectangle_gris.wav",
+          "key": "rectangle_gris"
+        },
+        {
+          "file": "rectangle_jaune.wav",
+          "key": "rectangle_jaune"
+        },
+        {
+          "file": "rectangle_noir.wav",
+          "key": "rectangle_noir"
+        },
+        {
+          "file": "rectangle_orange.wav",
+          "key": "rectangle_orange"
+        },
+        {
+          "file": "rectangle_rose.wav",
+          "key": "rectangle_rose"
+        },
+        {
+          "file": "rectangle_rouge.wav",
+          "key": "rectangle_rouge"
+        },
+        {
+          "file": "rectangle_vert.wav",
+          "key": "rectangle_vert"
+        },
+        {
+          "file": "rectangle_violet.wav",
+          "key": "rectangle_violet"
+        },
+        {
+          "file": "rose.wav",
+          "key": "rose"
+        },
+        {
+          "file": "rouge.wav",
+          "key": "rouge"
+        },
+        {
+          "file": "s.wav",
+          "key": "s"
+        },
+        {
+          "file": "soleil.wav",
+          "key": "soleil"
+        },
+        {
+          "file": "super.wav",
+          "key": "super"
+        },
+        {
+          "file": "t.wav",
+          "key": "t"
+        },
+        {
+          "file": "tr_s_bien.wav",
+          "key": "tr_s_bien"
+        },
+        {
+          "file": "triangle.wav",
+          "key": "triangle"
+        },
+        {
+          "file": "triangle_blanc.wav",
+          "key": "triangle_blanc"
+        },
+        {
+          "file": "triangle_bleu.wav",
+          "key": "triangle_bleu"
+        },
+        {
+          "file": "triangle_gris.wav",
+          "key": "triangle_gris"
+        },
+        {
+          "file": "triangle_jaune.wav",
+          "key": "triangle_jaune"
+        },
+        {
+          "file": "triangle_noir.wav",
+          "key": "triangle_noir"
+        },
+        {
+          "file": "triangle_orange.wav",
+          "key": "triangle_orange"
+        },
+        {
+          "file": "triangle_rose.wav",
+          "key": "triangle_rose"
+        },
+        {
+          "file": "triangle_rouge.wav",
+          "key": "triangle_rouge"
+        },
+        {
+          "file": "triangle_vert.wav",
+          "key": "triangle_vert"
+        },
+        {
+          "file": "triangle_violet.wav",
+          "key": "triangle_violet"
+        },
+        {
+          "file": "tu_es_formidable.wav",
+          "key": "tu_es_formidable"
+        },
+        {
+          "file": "u.wav",
+          "key": "u"
+        },
+        {
+          "file": "v.wav",
+          "key": "v"
+        },
+        {
+          "file": "vert.wav",
+          "key": "vert"
+        },
+        {
+          "file": "violet.wav",
+          "key": "violet"
+        },
+        {
+          "file": "w.wav",
+          "key": "w"
+        },
+        {
+          "file": "x.wav",
+          "key": "x"
+        },
+        {
+          "file": "y.wav",
+          "key": "y"
+        },
+        {
+          "file": "z.wav",
+          "key": "z"
+        }
+      ]
     },
     "ar": {
-      "girl": [],
-      "boy": []
+      "girl": [
+        {
+          "file": "أ.wav",
+          "key": "أ"
+        },
+        {
+          "file": "أبيض.wav",
+          "key": "أبيض"
+        },
+        {
+          "file": "أجب_على_الأسئلة_التالية.wav",
+          "key": "أجب_على_الأسئلة_التالية"
+        },
+        {
+          "file": "أحسنت.wav",
+          "key": "أحسنت"
+        },
+        {
+          "file": "أحمر.wav",
+          "key": "أحمر"
+        },
+        {
+          "file": "أخضر.wav",
+          "key": "أخضر"
+        },
+        {
+          "file": "أزرق.wav",
+          "key": "أزرق"
+        },
+        {
+          "file": "أسد.wav",
+          "key": "أسد"
+        },
+        {
+          "file": "أسود.wav",
+          "key": "أسود"
+        },
+        {
+          "file": "أصفر.wav",
+          "key": "أصفر"
+        },
+        {
+          "file": "أعد_المحاولة.wav",
+          "key": "أعد_المحاولة"
+        },
+        {
+          "file": "أنت_ممتاز.wav",
+          "key": "أنت_ممتاز"
+        },
+        {
+          "file": "أين_الدائرة_الحمراء؟.wav",
+          "key": "أين_الدائرة_الحمراء؟"
+        },
+        {
+          "file": "أين_المثلث_الأصفر؟.wav",
+          "key": "أين_المثلث_الأصفر؟"
+        },
+        {
+          "file": "أين_المربع_الأزرق؟.wav",
+          "key": "أين_المربع_الأزرق؟"
+        },
+        {
+          "file": "أين_المستطيل_الأخضر؟.wav",
+          "key": "أين_المستطيل_الأخضر؟"
+        },
+        {
+          "file": "ا.wav",
+          "key": "ا"
+        },
+        {
+          "file": "اسحب_الكلمة_إلى_الشخص_الصحيح.wav",
+          "key": "اسحب_الكلمة_إلى_الشخص_الصحيح"
+        },
+        {
+          "file": "اسحب_الكلمة_إلى_الشكل_الصحيح.wav",
+          "key": "اسحب_الكلمة_إلى_الشكل_الصحيح"
+        },
+        {
+          "file": "اسحب_الكلمة_إلى_اللون_الصحيح.wav",
+          "key": "اسحب_الكلمة_إلى_اللون_الصحيح"
+        },
+        {
+          "file": "الأب.wav",
+          "key": "الأب"
+        },
+        {
+          "file": "الأخ.wav",
+          "key": "الأخ"
+        },
+        {
+          "file": "الأخت.wav",
+          "key": "الأخت"
+        },
+        {
+          "file": "الأم.wav",
+          "key": "الأم"
+        },
+        {
+          "file": "الجد.wav",
+          "key": "الجد"
+        },
+        {
+          "file": "الجدة.wav",
+          "key": "الجدة"
+        },
+        {
+          "file": "ب.wav",
+          "key": "ب"
+        },
+        {
+          "file": "بحر.wav",
+          "key": "بحر"
+        },
+        {
+          "file": "برتقالي.wav",
+          "key": "برتقالي"
+        },
+        {
+          "file": "بنفسجي.wav",
+          "key": "بنفسجي"
+        },
+        {
+          "file": "بيت.wav",
+          "key": "بيت"
+        },
+        {
+          "file": "ة.wav",
+          "key": "ة"
+        },
+        {
+          "file": "ت.wav",
+          "key": "ت"
+        },
+        {
+          "file": "تفاحة.wav",
+          "key": "تفاحة"
+        },
+        {
+          "file": "ج.wav",
+          "key": "ج"
+        },
+        {
+          "file": "جمل.wav",
+          "key": "جمل"
+        },
+        {
+          "file": "جيد_جدا.wav",
+          "key": "جيد_جدا"
+        },
+        {
+          "file": "ح.wav",
+          "key": "ح"
+        },
+        {
+          "file": "حاول_مرة_أخرى.wav",
+          "key": "حاول_مرة_أخرى"
+        },
+        {
+          "file": "د.wav",
+          "key": "د"
+        },
+        {
+          "file": "دائرة.wav",
+          "key": "دائرة"
+        },
+        {
+          "file": "دائرة_أبيض.wav",
+          "key": "دائرة_أبيض"
+        },
+        {
+          "file": "دائرة_أحمر.wav",
+          "key": "دائرة_أحمر"
+        },
+        {
+          "file": "دائرة_أخضر.wav",
+          "key": "دائرة_أخضر"
+        },
+        {
+          "file": "دائرة_أزرق.wav",
+          "key": "دائرة_أزرق"
+        },
+        {
+          "file": "دائرة_أسود.wav",
+          "key": "دائرة_أسود"
+        },
+        {
+          "file": "دائرة_أصفر.wav",
+          "key": "دائرة_أصفر"
+        },
+        {
+          "file": "دائرة_برتقالي.wav",
+          "key": "دائرة_برتقالي"
+        },
+        {
+          "file": "دائرة_بنفسجي.wav",
+          "key": "دائرة_بنفسجي"
+        },
+        {
+          "file": "دائرة_رمادي.wav",
+          "key": "دائرة_رمادي"
+        },
+        {
+          "file": "دائرة_وردي.wav",
+          "key": "دائرة_وردي"
+        },
+        {
+          "file": "ر.wav",
+          "key": "ر"
+        },
+        {
+          "file": "رائع.wav",
+          "key": "رائع"
+        },
+        {
+          "file": "رتّب_الحروف_لتكوين_الكلمة.wav",
+          "key": "رتّب_الحروف_لتكوين_الكلمة"
+        },
+        {
+          "file": "رمادي.wav",
+          "key": "رمادي"
+        },
+        {
+          "file": "س.wav",
+          "key": "س"
+        },
+        {
+          "file": "ش.wav",
+          "key": "ش"
+        },
+        {
+          "file": "شمس.wav",
+          "key": "شمس"
+        },
+        {
+          "file": "ع.wav",
+          "key": "ع"
+        },
+        {
+          "file": "ف.wav",
+          "key": "ف"
+        },
+        {
+          "file": "ق.wav",
+          "key": "ق"
+        },
+        {
+          "file": "قلم.wav",
+          "key": "قلم"
+        },
+        {
+          "file": "قمر.wav",
+          "key": "قمر"
+        },
+        {
+          "file": "ك.wav",
+          "key": "ك"
+        },
+        {
+          "file": "كتاب.wav",
+          "key": "كتاب"
+        },
+        {
+          "file": "ل.wav",
+          "key": "ل"
+        },
+        {
+          "file": "ليس_صحيحا.wav",
+          "key": "ليس_صحيحا"
+        },
+        {
+          "file": "م.wav",
+          "key": "م"
+        },
+        {
+          "file": "ماذا_نريد_أن_نتعلم_اليوم؟.wav",
+          "key": "ماذا_نريد_أن_نتعلم_اليوم؟"
+        },
+        {
+          "file": "مثلث.wav",
+          "key": "مثلث"
+        },
+        {
+          "file": "مثلث_أبيض.wav",
+          "key": "مثلث_أبيض"
+        },
+        {
+          "file": "مثلث_أحمر.wav",
+          "key": "مثلث_أحمر"
+        },
+        {
+          "file": "مثلث_أخضر.wav",
+          "key": "مثلث_أخضر"
+        },
+        {
+          "file": "مثلث_أزرق.wav",
+          "key": "مثلث_أزرق"
+        },
+        {
+          "file": "مثلث_أسود.wav",
+          "key": "مثلث_أسود"
+        },
+        {
+          "file": "مثلث_أصفر.wav",
+          "key": "مثلث_أصفر"
+        },
+        {
+          "file": "مثلث_برتقالي.wav",
+          "key": "مثلث_برتقالي"
+        },
+        {
+          "file": "مثلث_بنفسجي.wav",
+          "key": "مثلث_بنفسجي"
+        },
+        {
+          "file": "مثلث_رمادي.wav",
+          "key": "مثلث_رمادي"
+        },
+        {
+          "file": "مثلث_وردي.wav",
+          "key": "مثلث_وردي"
+        },
+        {
+          "file": "مربع.wav",
+          "key": "مربع"
+        },
+        {
+          "file": "مربع_أبيض.wav",
+          "key": "مربع_أبيض"
+        },
+        {
+          "file": "مربع_أحمر.wav",
+          "key": "مربع_أحمر"
+        },
+        {
+          "file": "مربع_أخضر.wav",
+          "key": "مربع_أخضر"
+        },
+        {
+          "file": "مربع_أزرق.wav",
+          "key": "مربع_أزرق"
+        },
+        {
+          "file": "مربع_أسود.wav",
+          "key": "مربع_أسود"
+        },
+        {
+          "file": "مربع_أصفر.wav",
+          "key": "مربع_أصفر"
+        },
+        {
+          "file": "مربع_برتقالي.wav",
+          "key": "مربع_برتقالي"
+        },
+        {
+          "file": "مربع_بنفسجي.wav",
+          "key": "مربع_بنفسجي"
+        },
+        {
+          "file": "مربع_رمادي.wav",
+          "key": "مربع_رمادي"
+        },
+        {
+          "file": "مربع_وردي.wav",
+          "key": "مربع_وردي"
+        },
+        {
+          "file": "مستطيل.wav",
+          "key": "مستطيل"
+        },
+        {
+          "file": "مستطيل_أبيض.wav",
+          "key": "مستطيل_أبيض"
+        },
+        {
+          "file": "مستطيل_أحمر.wav",
+          "key": "مستطيل_أحمر"
+        },
+        {
+          "file": "مستطيل_أخضر.wav",
+          "key": "مستطيل_أخضر"
+        },
+        {
+          "file": "مستطيل_أزرق.wav",
+          "key": "مستطيل_أزرق"
+        },
+        {
+          "file": "مستطيل_أسود.wav",
+          "key": "مستطيل_أسود"
+        },
+        {
+          "file": "مستطيل_أصفر.wav",
+          "key": "مستطيل_أصفر"
+        },
+        {
+          "file": "مستطيل_برتقالي.wav",
+          "key": "مستطيل_برتقالي"
+        },
+        {
+          "file": "مستطيل_بنفسجي.wav",
+          "key": "مستطيل_بنفسجي"
+        },
+        {
+          "file": "مستطيل_رمادي.wav",
+          "key": "مستطيل_رمادي"
+        },
+        {
+          "file": "مستطيل_وردي.wav",
+          "key": "مستطيل_وردي"
+        },
+        {
+          "file": "ممتاز.wav",
+          "key": "ممتاز"
+        },
+        {
+          "file": "ن.wav",
+          "key": "ن"
+        },
+        {
+          "file": "و.wav",
+          "key": "و"
+        },
+        {
+          "file": "وردة.wav",
+          "key": "وردة"
+        },
+        {
+          "file": "وردي.wav",
+          "key": "وردي"
+        },
+        {
+          "file": "ي.wav",
+          "key": "ي"
+        }
+      ],
+      "boy": [
+        {
+          "file": "أ.wav",
+          "key": "أ"
+        },
+        {
+          "file": "أبيض.wav",
+          "key": "أبيض"
+        },
+        {
+          "file": "أجب_على_الأسئلة_التالية.wav",
+          "key": "أجب_على_الأسئلة_التالية"
+        },
+        {
+          "file": "أحسنت.wav",
+          "key": "أحسنت"
+        },
+        {
+          "file": "أحمر.wav",
+          "key": "أحمر"
+        },
+        {
+          "file": "أخضر.wav",
+          "key": "أخضر"
+        },
+        {
+          "file": "أزرق.wav",
+          "key": "أزرق"
+        },
+        {
+          "file": "أسد.wav",
+          "key": "أسد"
+        },
+        {
+          "file": "أسود.wav",
+          "key": "أسود"
+        },
+        {
+          "file": "أصفر.wav",
+          "key": "أصفر"
+        },
+        {
+          "file": "أعد_المحاولة.wav",
+          "key": "أعد_المحاولة"
+        },
+        {
+          "file": "أنت_ممتاز.wav",
+          "key": "أنت_ممتاز"
+        },
+        {
+          "file": "أين_الدائرة_الحمراء؟.wav",
+          "key": "أين_الدائرة_الحمراء؟"
+        },
+        {
+          "file": "أين_المثلث_الأصفر؟.wav",
+          "key": "أين_المثلث_الأصفر؟"
+        },
+        {
+          "file": "أين_المربع_الأزرق؟.wav",
+          "key": "أين_المربع_الأزرق؟"
+        },
+        {
+          "file": "أين_المستطيل_الأخضر؟.wav",
+          "key": "أين_المستطيل_الأخضر؟"
+        },
+        {
+          "file": "ا.wav",
+          "key": "ا"
+        },
+        {
+          "file": "اسحب_الكلمة_إلى_الشخص_الصحيح.wav",
+          "key": "اسحب_الكلمة_إلى_الشخص_الصحيح"
+        },
+        {
+          "file": "اسحب_الكلمة_إلى_الشكل_الصحيح.wav",
+          "key": "اسحب_الكلمة_إلى_الشكل_الصحيح"
+        },
+        {
+          "file": "اسحب_الكلمة_إلى_اللون_الصحيح.wav",
+          "key": "اسحب_الكلمة_إلى_اللون_الصحيح"
+        },
+        {
+          "file": "الأب.wav",
+          "key": "الأب"
+        },
+        {
+          "file": "الأخ.wav",
+          "key": "الأخ"
+        },
+        {
+          "file": "الأخت.wav",
+          "key": "الأخت"
+        },
+        {
+          "file": "الأم.wav",
+          "key": "الأم"
+        },
+        {
+          "file": "الجد.wav",
+          "key": "الجد"
+        },
+        {
+          "file": "الجدة.wav",
+          "key": "الجدة"
+        },
+        {
+          "file": "ب.wav",
+          "key": "ب"
+        },
+        {
+          "file": "بحر.wav",
+          "key": "بحر"
+        },
+        {
+          "file": "برتقالي.wav",
+          "key": "برتقالي"
+        },
+        {
+          "file": "بنفسجي.wav",
+          "key": "بنفسجي"
+        },
+        {
+          "file": "بيت.wav",
+          "key": "بيت"
+        },
+        {
+          "file": "ة.wav",
+          "key": "ة"
+        },
+        {
+          "file": "ت.wav",
+          "key": "ت"
+        },
+        {
+          "file": "تفاحة.wav",
+          "key": "تفاحة"
+        },
+        {
+          "file": "ج.wav",
+          "key": "ج"
+        },
+        {
+          "file": "جمل.wav",
+          "key": "جمل"
+        },
+        {
+          "file": "جيد_جدا.wav",
+          "key": "جيد_جدا"
+        },
+        {
+          "file": "ح.wav",
+          "key": "ح"
+        },
+        {
+          "file": "حاول_مرة_أخرى.wav",
+          "key": "حاول_مرة_أخرى"
+        },
+        {
+          "file": "د.wav",
+          "key": "د"
+        },
+        {
+          "file": "دائرة.wav",
+          "key": "دائرة"
+        },
+        {
+          "file": "دائرة_أبيض.wav",
+          "key": "دائرة_أبيض"
+        },
+        {
+          "file": "دائرة_أحمر.wav",
+          "key": "دائرة_أحمر"
+        },
+        {
+          "file": "دائرة_أخضر.wav",
+          "key": "دائرة_أخضر"
+        },
+        {
+          "file": "دائرة_أزرق.wav",
+          "key": "دائرة_أزرق"
+        },
+        {
+          "file": "دائرة_أسود.wav",
+          "key": "دائرة_أسود"
+        },
+        {
+          "file": "دائرة_أصفر.wav",
+          "key": "دائرة_أصفر"
+        },
+        {
+          "file": "دائرة_برتقالي.wav",
+          "key": "دائرة_برتقالي"
+        },
+        {
+          "file": "دائرة_بنفسجي.wav",
+          "key": "دائرة_بنفسجي"
+        },
+        {
+          "file": "دائرة_رمادي.wav",
+          "key": "دائرة_رمادي"
+        },
+        {
+          "file": "دائرة_وردي.wav",
+          "key": "دائرة_وردي"
+        },
+        {
+          "file": "ر.wav",
+          "key": "ر"
+        },
+        {
+          "file": "رائع.wav",
+          "key": "رائع"
+        },
+        {
+          "file": "رتّب_الحروف_لتكوين_الكلمة.wav",
+          "key": "رتّب_الحروف_لتكوين_الكلمة"
+        },
+        {
+          "file": "رمادي.wav",
+          "key": "رمادي"
+        },
+        {
+          "file": "س.wav",
+          "key": "س"
+        },
+        {
+          "file": "ش.wav",
+          "key": "ش"
+        },
+        {
+          "file": "شمس.wav",
+          "key": "شمس"
+        },
+        {
+          "file": "ع.wav",
+          "key": "ع"
+        },
+        {
+          "file": "ف.wav",
+          "key": "ف"
+        },
+        {
+          "file": "ق.wav",
+          "key": "ق"
+        },
+        {
+          "file": "قلم.wav",
+          "key": "قلم"
+        },
+        {
+          "file": "قمر.wav",
+          "key": "قمر"
+        },
+        {
+          "file": "ك.wav",
+          "key": "ك"
+        },
+        {
+          "file": "كتاب.wav",
+          "key": "كتاب"
+        },
+        {
+          "file": "ل.wav",
+          "key": "ل"
+        },
+        {
+          "file": "ليس_صحيحا.wav",
+          "key": "ليس_صحيحا"
+        },
+        {
+          "file": "م.wav",
+          "key": "م"
+        },
+        {
+          "file": "ماذا_نريد_أن_نتعلم_اليوم؟.wav",
+          "key": "ماذا_نريد_أن_نتعلم_اليوم؟"
+        },
+        {
+          "file": "مثلث.wav",
+          "key": "مثلث"
+        },
+        {
+          "file": "مثلث_أبيض.wav",
+          "key": "مثلث_أبيض"
+        },
+        {
+          "file": "مثلث_أحمر.wav",
+          "key": "مثلث_أحمر"
+        },
+        {
+          "file": "مثلث_أخضر.wav",
+          "key": "مثلث_أخضر"
+        },
+        {
+          "file": "مثلث_أزرق.wav",
+          "key": "مثلث_أزرق"
+        },
+        {
+          "file": "مثلث_أسود.wav",
+          "key": "مثلث_أسود"
+        },
+        {
+          "file": "مثلث_أصفر.wav",
+          "key": "مثلث_أصفر"
+        },
+        {
+          "file": "مثلث_برتقالي.wav",
+          "key": "مثلث_برتقالي"
+        },
+        {
+          "file": "مثلث_بنفسجي.wav",
+          "key": "مثلث_بنفسجي"
+        },
+        {
+          "file": "مثلث_رمادي.wav",
+          "key": "مثلث_رمادي"
+        },
+        {
+          "file": "مثلث_وردي.wav",
+          "key": "مثلث_وردي"
+        },
+        {
+          "file": "مربع.wav",
+          "key": "مربع"
+        },
+        {
+          "file": "مربع_أبيض.wav",
+          "key": "مربع_أبيض"
+        },
+        {
+          "file": "مربع_أحمر.wav",
+          "key": "مربع_أحمر"
+        },
+        {
+          "file": "مربع_أخضر.wav",
+          "key": "مربع_أخضر"
+        },
+        {
+          "file": "مربع_أزرق.wav",
+          "key": "مربع_أزرق"
+        },
+        {
+          "file": "مربع_أسود.wav",
+          "key": "مربع_أسود"
+        },
+        {
+          "file": "مربع_أصفر.wav",
+          "key": "مربع_أصفر"
+        },
+        {
+          "file": "مربع_برتقالي.wav",
+          "key": "مربع_برتقالي"
+        },
+        {
+          "file": "مربع_بنفسجي.wav",
+          "key": "مربع_بنفسجي"
+        },
+        {
+          "file": "مربع_رمادي.wav",
+          "key": "مربع_رمادي"
+        },
+        {
+          "file": "مربع_وردي.wav",
+          "key": "مربع_وردي"
+        },
+        {
+          "file": "مستطيل.wav",
+          "key": "مستطيل"
+        },
+        {
+          "file": "مستطيل_أبيض.wav",
+          "key": "مستطيل_أبيض"
+        },
+        {
+          "file": "مستطيل_أحمر.wav",
+          "key": "مستطيل_أحمر"
+        },
+        {
+          "file": "مستطيل_أخضر.wav",
+          "key": "مستطيل_أخضر"
+        },
+        {
+          "file": "مستطيل_أزرق.wav",
+          "key": "مستطيل_أزرق"
+        },
+        {
+          "file": "مستطيل_أسود.wav",
+          "key": "مستطيل_أسود"
+        },
+        {
+          "file": "مستطيل_أصفر.wav",
+          "key": "مستطيل_أصفر"
+        },
+        {
+          "file": "مستطيل_برتقالي.wav",
+          "key": "مستطيل_برتقالي"
+        },
+        {
+          "file": "مستطيل_بنفسجي.wav",
+          "key": "مستطيل_بنفسجي"
+        },
+        {
+          "file": "مستطيل_رمادي.wav",
+          "key": "مستطيل_رمادي"
+        },
+        {
+          "file": "مستطيل_وردي.wav",
+          "key": "مستطيل_وردي"
+        },
+        {
+          "file": "ممتاز.wav",
+          "key": "ممتاز"
+        },
+        {
+          "file": "ن.wav",
+          "key": "ن"
+        },
+        {
+          "file": "و.wav",
+          "key": "و"
+        },
+        {
+          "file": "وردة.wav",
+          "key": "وردة"
+        },
+        {
+          "file": "وردي.wav",
+          "key": "وردي"
+        },
+        {
+          "file": "ي.wav",
+          "key": "ي"
+        }
+      ]
     }
   }
 }
