@@ -33,12 +33,14 @@ export default function SuccessOverlay({ onNext, isAr, noAudio }) {
       }
     }());
 
-    // Play bravo audio
+    // Play bravo audio - REMOVED as per user request to disable automatic playback
+    /*
     if (!noAudio) {
       setTimeout(() => {
         speak(isAr ? 'أحسنت! لقد نجحت!' : 'Bravo ! Tu as tout réussi !');
       }, 500);
     }
+    */
   }, []);
 
   return (

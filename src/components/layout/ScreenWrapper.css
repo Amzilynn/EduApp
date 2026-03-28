@@ -1,3 +1,5 @@
+/* ===== MASTER LAYOUT PROTOCOL: SCREEN WRAPPER ===== */
+
 .bg-decorations {
   position: absolute;
   inset: 0;
@@ -9,8 +11,8 @@
   position: absolute;
   animation: floatDeco var(--d, 4s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
-  opacity: 0.65;
-  filter: blur(0.3px);
+  opacity: 0.8;
+  filter: none;
 }
 
 @keyframes floatDeco {
@@ -25,17 +27,21 @@
   }
 }
 
-/* Base header/footer layout inside grid */
+/* FOOTER — MASTER LAYOUT PROTOCOL: pinned 8vh, always visible */
 .app-footer {
-  padding: clamp(8px, 1.5vh, 16px) clamp(12px, 3vw, 24px);
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
+  height: 8vh;
+  min-height: 52px; /* a11y minimum */
+  flex-shrink: 0;   /* Never shrink */
+  padding: 0 clamp(12px, 3vw, 24px);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: none;
   border-top: 1px solid rgba(0,0,0,0.05);
   z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 12px;
+  overflow: hidden;
 }
 
 /* Level gradients - unified clean design for all ages */

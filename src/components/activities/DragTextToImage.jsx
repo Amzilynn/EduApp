@@ -71,13 +71,7 @@ function DropZoneCard({ zone, placedItem, feedbackState, variant = 'standard' })
     >
       <div className="illustration-box">
         {zone.type === 'family' && (
-          isV3 ? (
-            <div className="v3-family-illustration-wrap">
-              <img src={`/assets/images/${zone.shapeId}.png`} alt={zone.label} className="v3-clay-illustration" />
-            </div>
-          ) : (
-            <FamilyIllustration memberId={zone.shapeId} size={70} />
-          )
+          <FamilyIllustration memberId={zone.shapeId} size={isV3 ? 90 : 70} />
         )}
         {zone.type === 'color' && <ColorSwatch color={zone.color} size={70} />}
         {zone.type === 'shape' && <ShapeIllustration shapeId={zone.shapeId} size={70} />}

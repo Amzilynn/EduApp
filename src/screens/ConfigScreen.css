@@ -1,18 +1,25 @@
+/* ===== MASTER LAYOUT PROTOCOL: CONFIG (SETUP) SCREEN ===== */
+
 .config-screen-v2 {
   background: linear-gradient(180deg, #F9FBE7 0%, #E8F5E9 30%, #E0F2F1 100%) !important;
 }
 
+/* Central visual column — fills the content zone, no scroll */
 .central-visual-path {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--space-8);
-  padding: var(--space-8) var(--space-4);
+  /* Use full content zone height */
+  flex: 1;
+  min-height: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-evenly !important;
+  padding: clamp(4px, 1vh, 12px) clamp(8px, 2vw, 16px) !important;
+  overflow: hidden !important;
+  box-sizing: border-box;
+  gap: clamp(6px, 1.5vh, 20px);
 }
 
 /* Logo & Instruction */
@@ -20,17 +27,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-6);
+  gap: clamp(4px, 1vh, 12px);
   width: 100%;
+  flex-shrink: 0;
 }
 
 .edukids-logo-colorful {
   font-family: 'Fredoka', sans-serif;
-  font-size: var(--text-hero);
+  font-size: clamp(2.2rem, 7vh, 4.5rem);
   font-weight: 900;
   display: flex;
-  gap: var(--space-05);
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));
+  gap: var(--space-04);
+  filter: drop-shadow(0 12px 24px rgba(100, 149, 237, 0.4));
+  letter-spacing: -0.02em;
 }
 
 .logo-letter {
@@ -46,7 +55,7 @@
 
 .instruction-badge {
   background: white;
-  padding: var(--space-2) var(--space-6);
+  padding: clamp(4px, 1vh, 8px) var(--space-6);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-sm);
   border: 1px solid rgba(0,0,0,0.05);
@@ -56,13 +65,15 @@
 }
 
 .instruction-badge h3 {
-  font-size: var(--text-md);
-  color: var(--color-text-muted);
+  font-size: clamp(0.9rem, 2.5vh, 1.2rem);
+  color: var(--color-text-dark);
+  font-weight: 800;
+  margin: 0;
 }
 
 .down-arrow-icon {
   color: var(--color-warning);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   animation: bounceSoft 2s infinite;
 }
 
@@ -71,14 +82,21 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-shrink: 1;
+  flex: 1;
+  min-height: 0;
+  align-items: center;
 }
 
 .age-pill-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  max-width: 900px;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: clamp(12px, 4vw, 40px);
+  max-width: 1000px;
   width: 100%;
+  padding: 0 clamp(8px, 2vw, 16px);
+  justify-items: center;
 }
 
 /* On very small screens, 1 column */
@@ -89,12 +107,13 @@
   }
 }
 
-/* CTA Row */
+/* CTA Row — pinned at bottom of content zone */
 .cta-container-8k {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: var(--space-4);
+  padding: clamp(4px, 0.5vh, 8px) 0;
+  flex-shrink: 0;
 }
 
 @keyframes bounceSoft {

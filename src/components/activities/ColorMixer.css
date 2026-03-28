@@ -1,0 +1,156 @@
+.color-mixer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+
+.mixing-equation-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 4px white solid;
+  margin-top: 1rem;
+}
+
+.equation-symbol {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #555;
+  user-select: none;
+}
+
+.splat-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.splat-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* Splat SVG styling */
+.splat-svg {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.splat-container:hover .splat-svg {
+  transform: scale(1.05) rotate(2deg);
+}
+
+.mixer-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  width: 90%;
+}
+
+.splat-option-card {
+  cursor: grab;
+  padding: 10px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+  border: 4px solid transparent;
+}
+
+.splat-option-card:active {
+  cursor: grabbing;
+}
+
+.splat-option-card.dragging {
+  opacity: 0.5;
+  transform: scale(1.1);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.mixer-drop-zone {
+  width: 100px;
+  height: 100px;
+  border: 4px dashed #ccc;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.5);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.mixer-drop-zone.over {
+  border-color: #4D96FF;
+  background: rgba(77, 150, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.mixer-drop-zone.filled {
+  border: 4px solid #6BCB77;
+  background: white;
+  border-style: solid;
+}
+
+.drop-hint-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+.success-check {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #6BCB77;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.interaction-tip {
+  color: #888;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.shake-it {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* Mascot spacing adjustment */
+.activity-mascot-fixed {
+  z-index: 50;
+}

@@ -53,7 +53,15 @@ export default function ScreenWrapper({
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5, type: 'spring', stiffness: 100 }}
-          style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          style={{ 
+            width: '100%', 
+            flex: 1,
+            minHeight: 0,
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
           {children}
         </motion.div>

@@ -1,11 +1,15 @@
+/* ===== MASTER LAYOUT PROTOCOL: LETTER SEQUENCER ===== */
 .letter-sequencer-container {
   width: 100%;
-  max-width: 800px;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-8);
-  padding: var(--space-4);
+  /* AUTO-SHRINK: gaps first */
+  gap: clamp(6px, 1.5vh, 24px);
+  padding: clamp(4px, 0.8vh, 12px);
 }
 
 .word-hint-card {

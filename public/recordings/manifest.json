@@ -3,12 +3,56 @@
     "fr": {
       "girl": [
         {
+          "file": "1.wav",
+          "key": "1"
+        },
+        {
+          "file": "10.wav",
+          "key": "10"
+        },
+        {
+          "file": "2.wav",
+          "key": "2"
+        },
+        {
+          "file": "3.wav",
+          "key": "3"
+        },
+        {
+          "file": "4.wav",
+          "key": "4"
+        },
+        {
+          "file": "5.wav",
+          "key": "5"
+        },
+        {
+          "file": "6.wav",
+          "key": "6"
+        },
+        {
+          "file": "7.wav",
+          "key": "7"
+        },
+        {
+          "file": "8.wav",
+          "key": "8"
+        },
+        {
+          "file": "9.wav",
+          "key": "9"
+        },
+        {
           "file": "a.wav",
           "key": "a"
         },
         {
           "file": "arbre.wav",
           "key": "arbre"
+        },
+        {
+          "file": "associe_le_chiffre_la_bonne_quantit.wav",
+          "key": "associe_le_chiffre_la_bonne_quantit"
         },
         {
           "file": "avion.wav",
@@ -461,12 +505,56 @@
       ],
       "boy": [
         {
+          "file": "1.wav",
+          "key": "1"
+        },
+        {
+          "file": "10.wav",
+          "key": "10"
+        },
+        {
+          "file": "2.wav",
+          "key": "2"
+        },
+        {
+          "file": "3.wav",
+          "key": "3"
+        },
+        {
+          "file": "4.wav",
+          "key": "4"
+        },
+        {
+          "file": "5.wav",
+          "key": "5"
+        },
+        {
+          "file": "6.wav",
+          "key": "6"
+        },
+        {
+          "file": "7.wav",
+          "key": "7"
+        },
+        {
+          "file": "8.wav",
+          "key": "8"
+        },
+        {
+          "file": "9.wav",
+          "key": "9"
+        },
+        {
           "file": "a.wav",
           "key": "a"
         },
         {
           "file": "arbre.wav",
           "key": "arbre"
+        },
+        {
+          "file": "associe_le_chiffre_la_bonne_quantit.wav",
+          "key": "associe_le_chiffre_la_bonne_quantit"
         },
         {
           "file": "avion.wav",
@@ -921,6 +1009,46 @@
     "ar": {
       "girl": [
         {
+          "file": "1.wav",
+          "key": "1"
+        },
+        {
+          "file": "10.wav",
+          "key": "10"
+        },
+        {
+          "file": "2.wav",
+          "key": "2"
+        },
+        {
+          "file": "3.wav",
+          "key": "3"
+        },
+        {
+          "file": "4.wav",
+          "key": "4"
+        },
+        {
+          "file": "5.wav",
+          "key": "5"
+        },
+        {
+          "file": "6.wav",
+          "key": "6"
+        },
+        {
+          "file": "7.wav",
+          "key": "7"
+        },
+        {
+          "file": "8.wav",
+          "key": "8"
+        },
+        {
+          "file": "9.wav",
+          "key": "9"
+        },
+        {
           "file": "أ.wav",
           "key": "أ"
         },
@@ -1057,6 +1185,10 @@
           "key": "تفاحة"
         },
         {
+          "file": "ث.wav",
+          "key": "ث"
+        },
+        {
           "file": "ج.wav",
           "key": "ج"
         },
@@ -1075,6 +1207,10 @@
         {
           "file": "حاول_مرة_أخرى.wav",
           "key": "حاول_مرة_أخرى"
+        },
+        {
+          "file": "خ.wav",
+          "key": "خ"
         },
         {
           "file": "د.wav",
@@ -1125,6 +1261,10 @@
           "key": "دائرة_وردي"
         },
         {
+          "file": "ذ.wav",
+          "key": "ذ"
+        },
+        {
           "file": "ر.wav",
           "key": "ر"
         },
@@ -1141,6 +1281,10 @@
           "key": "رمادي"
         },
         {
+          "file": "ز.wav",
+          "key": "ز"
+        },
+        {
           "file": "س.wav",
           "key": "س"
         },
@@ -1153,8 +1297,32 @@
           "key": "شمس"
         },
         {
+          "file": "ص.wav",
+          "key": "ص"
+        },
+        {
+          "file": "ض.wav",
+          "key": "ض"
+        },
+        {
+          "file": "ط.wav",
+          "key": "ط"
+        },
+        {
+          "file": "طابق_الرقم_مع_الكمية_الصحيحة.wav",
+          "key": "طابق_الرقم_مع_الكمية_الصحيحة"
+        },
+        {
+          "file": "ظ.wav",
+          "key": "ظ"
+        },
+        {
           "file": "ع.wav",
           "key": "ع"
+        },
+        {
+          "file": "غ.wav",
+          "key": "غ"
         },
         {
           "file": "ف.wav",
@@ -1335,6 +1503,10 @@
         {
           "file": "ن.wav",
           "key": "ن"
+        },
+        {
+          "file": "هـ.wav",
+          "key": "هـ"
         },
         {
           "file": "و.wav",
@@ -1355,6 +1527,46 @@
       ],
       "boy": [
         {
+          "file": "1.wav",
+          "key": "1"
+        },
+        {
+          "file": "10.wav",
+          "key": "10"
+        },
+        {
+          "file": "2.wav",
+          "key": "2"
+        },
+        {
+          "file": "3.wav",
+          "key": "3"
+        },
+        {
+          "file": "4.wav",
+          "key": "4"
+        },
+        {
+          "file": "5.wav",
+          "key": "5"
+        },
+        {
+          "file": "6.wav",
+          "key": "6"
+        },
+        {
+          "file": "7.wav",
+          "key": "7"
+        },
+        {
+          "file": "8.wav",
+          "key": "8"
+        },
+        {
+          "file": "9.wav",
+          "key": "9"
+        },
+        {
           "file": "أ.wav",
           "key": "أ"
         },
@@ -1491,6 +1703,10 @@
           "key": "تفاحة"
         },
         {
+          "file": "ث.wav",
+          "key": "ث"
+        },
+        {
           "file": "ج.wav",
           "key": "ج"
         },
@@ -1509,6 +1725,10 @@
         {
           "file": "حاول_مرة_أخرى.wav",
           "key": "حاول_مرة_أخرى"
+        },
+        {
+          "file": "خ.wav",
+          "key": "خ"
         },
         {
           "file": "د.wav",
@@ -1559,6 +1779,10 @@
           "key": "دائرة_وردي"
         },
         {
+          "file": "ذ.wav",
+          "key": "ذ"
+        },
+        {
           "file": "ر.wav",
           "key": "ر"
         },
@@ -1575,6 +1799,10 @@
           "key": "رمادي"
         },
         {
+          "file": "ز.wav",
+          "key": "ز"
+        },
+        {
           "file": "س.wav",
           "key": "س"
         },
@@ -1587,8 +1815,32 @@
           "key": "شمس"
         },
         {
+          "file": "ص.wav",
+          "key": "ص"
+        },
+        {
+          "file": "ض.wav",
+          "key": "ض"
+        },
+        {
+          "file": "ط.wav",
+          "key": "ط"
+        },
+        {
+          "file": "طابق_الرقم_مع_الكمية_الصحيحة.wav",
+          "key": "طابق_الرقم_مع_الكمية_الصحيحة"
+        },
+        {
+          "file": "ظ.wav",
+          "key": "ظ"
+        },
+        {
           "file": "ع.wav",
           "key": "ع"
+        },
+        {
+          "file": "غ.wav",
+          "key": "غ"
         },
         {
           "file": "ف.wav",
@@ -1769,6 +2021,10 @@
         {
           "file": "ن.wav",
           "key": "ن"
+        },
+        {
+          "file": "هـ.wav",
+          "key": "هـ"
         },
         {
           "file": "و.wav",

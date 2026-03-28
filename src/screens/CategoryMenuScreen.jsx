@@ -18,14 +18,17 @@ export default function CategoryMenuScreen() {
   const isAr = settings.language === 'ar';
 
   const content = getContent(settings.level, settings.language);
-  const mascotType = settings.level === 3 ? 'sunny' : settings.level === 4 ? 'riko' : 'luna';
+  const mascotType = settings.level === 3 ? 'sunny' : settings.level === 4 ? 'heart' : 'star';
 
+  // Welcome message no longer played automatically as per user request
+  /*
   useEffect(() => {
     const timer = setTimeout(() => {
       speak(content.welcomeMsg);
     }, 600);
     return () => clearTimeout(timer);
   }, []);
+  */
 
   const isV3 = true; // Apply V3 premium design to all levels
 
@@ -68,7 +71,7 @@ export default function CategoryMenuScreen() {
 
       <div className="v3-mascot-focus">
         <div className="mascot-waving-container">
-          <Mascot type={mascotType} state="waving" className="chick-premium-anim" />
+          <Mascot type={mascotType} state="waving" className="v3-premium-mascot-anim" />
         </div>
       </div>
 

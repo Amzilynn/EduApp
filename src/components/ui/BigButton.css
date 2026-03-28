@@ -28,9 +28,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  padding: var(--space-4) var(--space-8);
+  padding: var(--space-3) var(--space-10);
   border-radius: var(--radius-pill);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-weight: 800;
   color: var(--color-text);
   border: 3px solid rgba(0,0,0,0.08); /* Sophisticated subtle border */

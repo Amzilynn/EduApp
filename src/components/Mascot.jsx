@@ -5,6 +5,8 @@ const Mascot = ({ type = 'sunny', state = 'idle', className = '' }) => {
   const isSunny = type === 'sunny';
   const isRiko = type === 'riko';
   const isLuna = type === 'luna';
+  const isHeart = type === 'heart';
+  const isStar = type === 'star';
 
   return (
     <div className={`mascot-container ${type} ${state} ${className}`}>
@@ -30,7 +32,36 @@ const Mascot = ({ type = 'sunny', state = 'idle', className = '' }) => {
                 <stop offset="0%" stopColor="#E1BEE7" />
                 <stop offset="100%" stopColor="#C77DFF" />
             </radialGradient>
+            <radialGradient id="heartGrad" cx="30%" cy="30%" r="70%">
+                <stop offset="0%" stopColor="#ff7eb3" />
+                <stop offset="50%" stopColor="#ff758c" />
+                <stop offset="100%" stopColor="#ff4b2b" />
+            </radialGradient>
+            <radialGradient id="starGrad" cx="40%" cy="40%" r="60%">
+                <stop offset="0%" stopColor="#FFE082" />
+                <stop offset="40%" stopColor="#FFC107" />
+                <stop offset="100%" stopColor="#FFA000" />
+            </radialGradient>
           </defs>
+
+          {isHeart && (
+            <path 
+              d="M50 40 C30 10 0 30 0 65 C0 95 50 115 50 115 C50 115 100 95 100 65 C100 30 70 10 50 40 Z" 
+              fill="url(#heartGrad)" 
+              className="body-part heartbeat" 
+              transform="translate(0, -10)"
+              filter="drop-shadow(0 4px 8px rgba(0,0,0,0.2))"
+            />
+          )}
+
+          {isStar && (
+             <path 
+              d="M50 15 L61 45 L95 45 L68 65 L78 95 L50 75 L22 95 L32 65 L5 45 L39 45 Z" 
+              fill="url(#starGrad)" 
+              className="body-part star-rotate" 
+              filter="drop-shadow(0 4px 8px rgba(0,0,0,0.2))"
+            />
+          )}
 
           {isSunny && (
             <>

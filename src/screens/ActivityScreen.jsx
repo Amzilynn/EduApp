@@ -8,6 +8,7 @@ import DragTextToImage from '../components/activities/DragTextToImage';
 import DragImageToZone from '../components/activities/DragImageToZone';
 import LetterSequencer from '../components/activities/LetterSequencer';
 import NumberMatcher from '../components/activities/NumberMatcher';
+import ColorMixer from '../components/activities/ColorMixer';
 import ScreenWrapper from '../components/layout/ScreenWrapper';
 import ConfirmModal from '../components/ui/ConfirmModal';
 import Mascot from '../components/Mascot';
@@ -27,8 +28,11 @@ export default function ActivityScreen() {
   const isAr = settings.language === 'ar';
   const category = getCategory(settings.level, settings.language, categoryId);
   const activity = category?.activity;
-  const mascotType = settings.level === 3 ? 'sunny' : settings.level === 4 ? 'riko' : 'luna';
+  const mascotType = settings.level === 3 ? 'sunny' : settings.level === 4 ? 'heart' : 'star';
+  
 
+  // Instructions are no longer played automatically as per user request
+  /*
   useEffect(() => {
     if (activity?.instruction) {
       const timer = setTimeout(() => {
@@ -37,6 +41,7 @@ export default function ActivityScreen() {
       return () => clearTimeout(timer);
     }
   }, [activity]);
+  */
 
   if (!category || !activity) {
     navigate('/categories');
@@ -96,6 +101,8 @@ export default function ActivityScreen() {
         return <LetterSequencer {...props} />;
       case 'number-matcher':
         return <NumberMatcher {...props} />;
+      case 'color-mixer':
+        return <ColorMixer {...props} />;
       default:
         return <div>Activité inconnue</div>;
     }
@@ -109,9 +116,18 @@ export default function ActivityScreen() {
         <span className="home-label-3d-bold">{isAr ? 'الرئيسية' : 'Accueil'}</span>
       </button>
       
-      <div className="v3-instruction-text">{activity.instruction}</div>
-      
-
+      <div className="v3-instruction-text-group">
+        <div className="v3-instruction-text">{activity.instruction}</div>
+        {!activity.noAudio && (
+          <button 
+            className="v3-instruction-speaker-btn" 
+            onClick={() => speak(activity.instruction)}
+            title="Écouter l'instruction"
+          >
+            🔊
+          </button>
+        )}
+      </div>
     </div>
   );
 

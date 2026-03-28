@@ -154,5 +154,5 @@ export function getRecordingPath(text, lang, voice) {
     .replace(/_+/g, '_')
     .replace(/^_|_$/g, '')
     .substring(0, 50);
-  return `/recordings/${lang}/${voice}/${normalized}.mp3`;
+  return `/recordings/${lang}/${voice}/${normalized}.wav`;
 }

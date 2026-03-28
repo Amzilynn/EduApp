@@ -122,6 +122,8 @@ export default function DragImageToZone({ activity, onComplete, onProgress }) {
     useSensor(TouchSensor, { activationConstraint: { delay: 100, tolerance: 5 } })
   );
 
+  // Questions are no longer played automatically as per user request
+  /*
   useEffect(() => {
     const t = setTimeout(() => {
       const isSame = currentQ % 2 === 0;
@@ -131,6 +133,11 @@ export default function DragImageToZone({ activity, onComplete, onProgress }) {
     if (onProgress) onProgress(currentQ);
     return () => clearTimeout(t);
   }, [currentQ]);
+  */
+
+  useEffect(() => {
+    if (onProgress) onProgress(currentQ);
+  }, [currentQ, onProgress]);
 
   function handleDragEnd({ active, over }) {
     if (!over || over.id !== 'answer-zone' || answer) return;

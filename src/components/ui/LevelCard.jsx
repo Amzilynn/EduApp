@@ -4,7 +4,8 @@ import Mascot from '../Mascot';
 import './LevelCard.css';
 
 export default function LevelCard({ level, isSelected, onSelect, isAr }) {
-  const mascotType = level.id === 3 ? 'sunny' : level.id === 4 ? 'riko' : 'luna';
+  const mascotType = level.id === 3 ? 'sunny' : level.id === 4 ? 'heart' : 'star';
+  
   
   const ageText = isAr 
     ? (level.id === 1 ? 'سنة' : 'سنوات')

@@ -246,6 +246,103 @@ const combinaisons_ar = {
 };
 
 // ==========================================
+// LEVEL 4 — MÉLANGE DES COULEURS
+// ==========================================
+const melange_fr = {
+  id: 'melange',
+  type: 'color-mixer',
+  title: 'Mélange des Couleurs',
+  instruction: 'Mélange les couleurs pour trouver le résultat !',
+  rounds: [
+    {
+      color1: { label: 'Rouge', value: '#FF4444' },
+      color2: { label: 'Jaune', value: '#FFD700' },
+      resultId: 'orange'
+    },
+    {
+      color1: { label: 'Jaune', value: '#FFD700' },
+      color2: { label: 'Bleu', value: '#4488FF' },
+      resultId: 'vert'
+    },
+    {
+      color1: { label: 'Bleu', value: '#4488FF' },
+      color2: { label: 'Rouge', value: '#FF4444' },
+      resultId: 'violet'
+    },
+    {
+      color1: { label: 'Rouge', value: '#FF4444' },
+      color2: { label: 'Vert', value: '#44AA44' },
+      resultId: 'marron'
+    },
+    {
+      color1: { label: 'Rouge', value: '#FF4444' },
+      color2: { label: 'Blanc', value: '#F5F5F5' },
+      resultId: 'rose'
+    },
+    {
+      color1: { label: 'Blanc', value: '#F5F5F5' },
+      color2: { label: 'Noir', value: '#222222' },
+      resultId: 'gris'
+    }
+  ],
+  options: [
+    { id: 'orange', label: 'Orange', color: '#FF8C00' },
+    { id: 'vert',   label: 'Vert',   color: '#44AA44' },
+    { id: 'violet', label: 'Violet', color: '#8B00FF' },
+    { id: 'marron', label: 'Marron', color: '#8B4513' },
+    { id: 'rose',   label: 'Rose',   color: '#FF69B4' },
+    { id: 'gris',   label: 'Gris',   color: '#808080' },
+  ]
+};
+
+const melange_ar = {
+  id: 'melange',
+  type: 'color-mixer',
+  title: 'مزج الألوان',
+  instruction: 'امزج الألوان لتجد النتيجة!',
+  rounds: [
+    {
+      color1: { label: 'أحمر', value: '#FF4444' },
+      color2: { label: 'أصفر', value: '#FFD700' },
+      resultId: 'orange'
+    },
+    {
+      color1: { label: 'أصفر', value: '#FFD700' },
+      color2: { label: 'أزرق', value: '#4488FF' },
+      resultId: 'vert'
+    },
+    {
+      color1: { label: 'أزرق', value: '#4488FF' },
+      color2: { label: 'أحمر', value: '#FF4444' },
+      resultId: 'violet'
+    },
+    {
+      color1: { label: 'أحمر', value: '#FF4444' },
+      color2: { label: 'أخضر', value: '#44AA44' },
+      resultId: 'marron'
+    },
+    {
+      color1: { label: 'أحمر', value: '#FF4444' },
+      color2: { label: 'أبيض', value: '#F5F5F5' },
+      resultId: 'rose'
+    },
+    {
+      color1: { label: 'أبيض', value: '#F5F5F5' },
+      color2: { label: 'أسود', value: '#222222' },
+      resultId: 'gris'
+    }
+  ],
+  options: [
+    { id: 'orange', label: 'برتقالي', color: '#FF8C00' },
+    { id: 'vert',   label: 'أخضر',   color: '#44AA44' },
+    { id: 'violet', label: 'بنفسجي', color: '#8B00FF' },
+    { id: 'marron', label: 'بني',    color: '#8B4513' },
+    { id: 'rose',   label: 'وردي',   color: '#FF69B4' },
+    { id: 'gris',   label: 'رمادي',   color: '#808080' },
+  ]
+};
+
+// ==========================================
 // LEVEL 5 — L'ALPHABET
 // ==========================================
 const alphabet_fr = {
@@ -296,7 +393,6 @@ const chiffres_fr = {
   type: 'number-matcher',
   title: 'Les Chiffres',
   instruction: 'Associe le chiffre à la bonne quantité !',
-  noAudio: true,
   trials: 5,
   items: [
     { number: 1, object: 'apple',   emoji: '🍎', label: '1' },
@@ -317,7 +413,6 @@ const chiffres_ar = {
   type: 'number-matcher',
   title: 'الأرقام',
   instruction: 'طابق الرقم مع الكمية الصحيحة!',
-  noAudio: true,
   trials: 5,
   items: chiffres_fr.items // Same structure, no TTS
 };

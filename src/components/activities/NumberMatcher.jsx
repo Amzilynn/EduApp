@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DndContext, useDraggable, useDroppable, PointerSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { useSettings } from '../../context/SettingsContext';
 import QuantityIllustration from '../illustrations/QuantityIllustration';
+import { useSpeech } from '../../hooks/useSpeech';
 import './NumberMatcher.css';
 
 function shuffle(arr) {
@@ -17,20 +18,20 @@ function shuffle(arr) {
 function NumberCard({ num, isPlaced }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `num-${num}`,
-    disabled: isPlaced,
   });
 
-  const style = transform
-    ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0) scale(1.1) rotate(4deg)`, zIndex: 100 }
-    : {};
+  const style = transform ? {
+    transform: `translate3d(${transform.x}px, ${transform.y}px, 0) scale(1.1) rotate(4deg)`,
+    zIndex: 100
+  } : undefined;
 
   return (
     <div
       ref={setNodeRef}
-      style={{ ...style, touchAction: 'none' }}
-      {...(isPlaced ? {} : listeners)}
-      {...(isPlaced ? {} : attributes)}
-      className={`number-drag-card ${isPlaced ? 'placed' : ''}`}
+      {...listeners}
+      {...attributes}
+      className={`number-drag-card ${isPlaced ? 'placed' : ''} ${isDragging ? 'dragging' : ''}`}
+      style={style}
     >
       {num}
     </div>
@@ -38,23 +39,26 @@ function NumberCard({ num, isPlaced }) {
 }
 
 function QuantityZone({ pair, placedNumber, feedbackState }) {
-  const { setNodeRef, isOver } = useDroppable({ id: `zone-${pair.number}` });
-  const isCorrect = feedbackState === 'correct';
-  const isError = feedbackState === 'error';
-  const items = Array(pair.number).fill(pair.object);
+  const { setNodeRef, isOver } = useDroppable({
+    id: `zone-${pair.number}`,
+  });
 
   return (
     <div
       ref={setNodeRef}
-      className={`quantity-drop-zone ${isOver ? 'over' : ''} ${isCorrect ? 'correct' : ''} ${isError ? 'error-shake' : ''}`}
+      className={`quantity-drop-zone ${isOver ? 'over' : ''} ${feedbackState || ''}`}
     >
       <div className="illustration-wrap">
-        {items.map((type, i) => (
-          <QuantityIllustration key={i} type={type} size={44} />
+        {Array.from({ length: pair.number }).map((_, i) => (
+          <QuantityIllustration 
+            key={i} 
+            type={pair.object} 
+            size={pair.number > 5 ? 30 : 40} 
+          />
         ))}
       </div>
 
-      <div className={`drop-slot-indicator ${placedNumber !== null ? 'filled' : ''}`}>
+      <div className={`drop-slot-indicator ${placedNumber ? 'filled' : ''}`}>
         {placedNumber || '?'}
       </div>
     </div>
@@ -63,6 +67,7 @@ function QuantityZone({ pair, placedNumber, feedbackState }) {
 
 export default function NumberMatcher({ activity, onComplete, onProgress }) {
   const { settings } = useSettings();
+  const { speak } = useSpeech();
   const isAr = settings.language === 'ar';
   
   const [placements, setPlacements] = useState({}); 
@@ -102,6 +107,9 @@ export default function NumberMatcher({ activity, onComplete, onProgress }) {
       const newPlacements = { ...placements, [zoneId]: num };
       setPlacements(newPlacements);
       setFeedback(prev => ({ ...prev, [zoneId]: 'correct' }));
+      
+      // Speak the number!
+      speak(num.toString());
 
       const newPlacedCount = Object.keys(newPlacements).length;
       if (onProgress) onProgress(newPlacedCount);
@@ -114,6 +122,7 @@ export default function NumberMatcher({ activity, onComplete, onProgress }) {
       }
     } else {
       setFeedback(prev => ({ ...prev, [zoneId]: 'error' }));
+      speak(isAr ? 'حاول مرة أخرى!' : 'Essaie encore !');
       setTimeout(() => setFeedback(prev => ({ ...prev, [zoneId]: null })), 600);
     }
   }
@@ -148,7 +157,7 @@ export default function NumberMatcher({ activity, onComplete, onProgress }) {
         </div>
 
         <p className="interaction-tip">
-          {isAr ? '🔇 انقر واسحب الرقم للمجموعة الصحيحة' : '🔇 Glisse le chiffre vers le bon groupe'}
+          {isAr ? 'اسحب الرقم للمجموعة الصحيحة' : 'Glisse le chiffre vers le bon groupe'}
         </p>
       </div>
     </DndContext>

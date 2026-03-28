@@ -33,6 +33,8 @@ add("Réponds aux questions suivantes", "fr", "instruction")
 add("أجب على الأسئلة التالية", "ar", "instruction")
 add("Mets les lettres dans le bon ordre pour former le mot !", "fr", "instruction")
 add("رتّب الحروف لتكوين الكلمة!", "ar", "instruction")
+add("Associe le chiffre à la bonne quantité !", "fr", "instruction")
+add("طابق الرقم مع الكمية الصحيحة!", "ar", "instruction")
 
 # Family
 for t in ["La mère","Le père","Le frère","La sœur","La grand-mère","Le grand-père"]:
@@ -51,6 +53,11 @@ FR_SHAPES = ["Cercle","Carré","Triangle","Rectangle"]
 AR_SHAPES = ["دائرة","مربع","مثلث","مستطيل"]
 for s in FR_SHAPES: add(s, "fr", "shape")
 for s in AR_SHAPES: add(s, "ar", "shape")
+
+# Numbers (1-10)
+for n in range(1, 11):
+    add(str(n), "fr", "number")
+    add(str(n), "ar", "number")
 
 # Combination questions
 for t in ["Où est le cercle rouge ?","Où est le carré bleu ?",
@@ -89,7 +96,11 @@ for s in AR_SHAPES:
 # Letters
 for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
     add(letter, "fr", "letter")
-for letter in ["ب","ي","ت","ق","م","ر","ش","س","ك","ا","ل","أ","د","ح","و","ف","ج","ن","ع","ة"]:
+
+AR_LETTERS = [
+    "أ", "ب", "ت", "ث", "ج", "ح", "خ", "د", "ذ", "ر", "ز", "س", "ش", "ص", "ض", "ط", "ظ", "ع", "غ", "ف", "ق", "ك", "ل", "م", "ن", "هـ", "و", "ي", "ة"
+]
+for letter in AR_LETTERS:
     add(letter, "ar", "letter")
 
 

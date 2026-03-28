@@ -1,3 +1,4 @@
+/* ===== MASTER LAYOUT PROTOCOL: DRAG-TEXT-TO-IMAGE CONTAINER ===== */
 .drag-text-image-container {
   width: 100%;
   height: 100%;
@@ -5,7 +6,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  gap: clamp(8px, 1.5vh, 20px);
+  /* AUTO-SHRINK: gaps compress first */
+  gap: clamp(4px, 1vh, 16px);
   padding: 4px;
 }
 
@@ -45,26 +47,40 @@
   cursor: default;
 }
 
+/* ===== MASTER LAYOUT PROTOCOL: 2×3 GAME SCREEN GRID ===== */
 .drop-zones-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(clamp(100px, 25vw, 160px), 1fr));
-  gap: clamp(10px, 2vw, 20px);
+  /* 2 columns × 3 rows = 6 cards */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: clamp(6px, 1.5vmin, 16px);
   width: 100%;
+  /* flex: 1 so it grows to fill space, min-height:0 so it can shrink */
+  flex: 1;
+  min-height: 0;
+  max-width: 700px;
   justify-content: center;
+  align-items: stretch;
 }
 
+/* Each card: MLP enforces max-height:25vh, aspect-ratio stays square */
 .image-drop-card {
   background: white;
   border-radius: var(--radius-lg);
   border: 3px dashed #C5E1A5;
-  padding: clamp(8px, 1.5vh, 16px);
+  /* AUTO-SHRINK: padding compresses after gaps */
+  padding: clamp(4px, 0.8vh, 12px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-height: clamp(120px, 25vh, 180px);
+  gap: clamp(4px, 0.8vh, 10px);
+  /* MLP Card sizing */
+  max-height: 25vh;
+  aspect-ratio: 1 / 1;
+  width: 100%;
   transition: all var(--anim-fast) var(--spring);
+  overflow: hidden;
 }
 
 .image-drop-card.over {
@@ -78,13 +94,25 @@
   background: rgba(107,203,119,0.1);
 }
 
+/* IMAGE ALIGNMENT — MLP: width/height:100%, object-fit:cover, border-radius */
 .illustration-box {
   width: 100%;
   flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-2);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.illustration-box img,
+.illustration-box svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
 
 .v3-sticker-slot .illustration-box {
@@ -112,15 +140,17 @@
   background: #E0E0E0;
   border-radius: 2px;
 }
-/* V3 — 3 Year Olds High-End 3D Activity UI */
+/* V3 — 3 Year Olds High-End 3D Activity UI — MLP compliant */
 .v3-drag-activity-container {
   width: 100%;
-  max-width: 900px;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-6);
-  padding: var(--space-4);
+  gap: clamp(6px, 1.5vh, 24px);
+  padding: clamp(4px, 1vh, 16px);
 }
 
 .v3-stickers-row {
@@ -182,24 +212,31 @@ body.level-3 .v3-word-sticker {
   box-shadow: none;
 }
 
-/* Sticker Grid */
+/* STICKER GRID — MLP: 2×3 grid (2 columns × 3 rows = 6 character cards) */
 .v3-sticker-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  gap: var(--space-5);
+  /* Exactly 2 columns for the 6-card game screen */
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: clamp(4px, 1vmin, 12px);
   width: 100%;
-  max-width: 800px;
-  justify-items: center;
-  padding: var(--space-2);
+  max-width: 700px;
+  flex: 1;
+  min-height: 0;
+  justify-items: stretch;
+  align-items: stretch;
+  padding: clamp(2px, 0.5vh, 8px);
 }
 
+/* V3 STICKER SLOT — MLP: max-height:25vh, aspect-ratio:1/1 */
 .v3-sticker-slot {
   width: 100%;
-  max-width: 200px;
-  aspect-ratio: 1 / 1.2;
+  height: 100%;           /* Fill grid row */
+  max-height: 25vh;       /* MLP: hard cap */
+  aspect-ratio: 1 / 1;   /* Square cards, identical size */
   background: var(--level-bg-card);
-  border-radius: 28px;
-  border: 5px solid var(--level-primary-light);
+  border-radius: 20px;
+  border: 4px solid var(--level-primary-light);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,10 +244,9 @@ body.level-3 .v3-word-sticker {
   position: relative;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 
-    0 8px 30px color-mix(in srgb, var(--level-primary) 15%, transparent),
-    0 2px 8px rgba(0, 0, 0, 0.05),
-    inset 0 -4px 12px rgba(0, 0, 0, 0.02);
-  padding: var(--space-3);
+    0 6px 20px color-mix(in srgb, var(--level-primary) 12%, transparent),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  padding: clamp(2px, 0.5vh, 8px);
   overflow: hidden;
 }
 
@@ -244,14 +280,46 @@ body.level-3 .v3-word-sticker {
     0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Clay illustration — MLP image alignment: cover + border-radius */
 .v3-clay-illustration {
   width: 100%;
   height: 100%;
   max-height: none;
-  object-fit: contain;
-  object-position: center;
-  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));
+  object-fit: cover;
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
   transition: transform 0.3s ease;
+  display: block;
+}
+
+/* ILLUSTRATION-BOX inside v3-sticker-slot: fill entire card */
+.v3-sticker-slot .illustration-box {
+  min-height: 0;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Force FamilyIllustration and any img/div inside to fill the box */
+.v3-sticker-slot .illustration-box > div,
+.v3-sticker-slot .illustration-box img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+
+/* Also fix any nested img inside the wrapper div */
+.v3-sticker-slot .illustration-box > div img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 10px !important;
 }
 
 .v3-sticker-slot:hover .v3-clay-illustration {
