@@ -112,8 +112,18 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: clamp(4px, 0.5vh, 8px) 0;
+  padding: clamp(4px, 1vh, 12px) 0;
   flex-shrink: 0;
+}
+
+.cta-container-8k .btn-content {
+  padding: clamp(10px, 2vh, 16px) clamp(40px, 8vw, 80px) !important;
+  font-size: clamp(1.2rem, 3vh, 2rem) !important;
+  border-width: 4px !important;
+}
+
+.cta-container-8k .btn-big:hover:not(:disabled) .btn-content {
+  transform: translateY(-4px);
 }
 
 @keyframes bounceSoft {
