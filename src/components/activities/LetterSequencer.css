@@ -67,6 +67,11 @@
   transition: all 0.2s ease;
 }
 
+.letter-slot.over {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px var(--level-primary-light);
+}
+
 .letter-slot.filled {
   background: linear-gradient(180deg, var(--level-primary) 0%, var(--level-primary-dark) 100%);
   color: white;
@@ -111,6 +116,11 @@
   box-shadow: 
     0 12px 0 var(--level-primary-dark),
     0 16px 35px color-mix(in srgb, var(--level-primary) 35%, transparent);
+}
+
+.pool-letter-btn.dragging {
+  opacity: 0.8 !important;
+  cursor: grabbing;
 }
 
 .pool-letter-btn:active {
