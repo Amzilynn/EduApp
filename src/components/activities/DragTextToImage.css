@@ -32,6 +32,7 @@
   cursor: grab;
   user-select: none;
   touch-action: none;
+  will-change: transform; /* Promote to GPU layer for smooth drag */
   min-width: clamp(80px, 15vw, 120px);
   text-align: center;
   display: flex;
@@ -68,18 +69,17 @@
   background: white;
   border-radius: var(--radius-lg);
   border: 3px dashed #C5E1A5;
-  /* AUTO-SHRINK: padding compresses after gaps */
   padding: clamp(4px, 0.8vh, 12px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: clamp(4px, 0.8vh, 10px);
-  /* MLP Card sizing */
   max-height: 25vh;
   aspect-ratio: 1 / 1;
   width: 100%;
-  transition: all var(--anim-fast) var(--spring);
+  /* Use specific props only — 'transition: all' causes reflows during every drag frame */
+  transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
   overflow: hidden;
 }
 
@@ -149,39 +149,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(6px, 1.5vh, 24px);
-  padding: clamp(4px, 1vh, 16px);
+  gap: clamp(4px, 0.8vh, 12px);
+  padding: clamp(2px, 0.5vh, 8px);
+  overflow: visible; /* Allow dragged chips to escape container */
 }
 
 .v3-stickers-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Force single row */
   justify-content: center;
   align-items: center;
-  gap: var(--space-4);
+  gap: clamp(4px, 0.8vw, 10px);
   width: 100%;
-  padding: var(--space-3);
+  padding: var(--space-1) var(--space-2);
+  /* NOTE: NO overflow:hidden — dragged chips must be visible outside this row */
 }
 
 .v3-word-sticker {
-  padding: var(--space-2) var(--space-5); /* Slight decrease */
+  padding: 6px 12px;
   background: linear-gradient(180deg, var(--level-bg-card) 0%, var(--level-bg) 100%);
   border-radius: 50px;
   font-family: 'Fredoka', sans-serif;
-  font-weight: 950;
-  font-size: clamp(1rem, 2.5vw, 1.3rem); /* Slight decrease */
+  font-weight: 900;
+  font-size: clamp(0.75rem, 1.6vw, 1rem);
   color: var(--level-primary-dark);
   cursor: grab;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  touch-action: none;
+  user-select: none;
+  will-change: transform; /* GPU layer for smooth drag */
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
   box-shadow: 
-    0 6px 0 color-mix(in srgb, var(--level-primary) 50%, transparent),
-    0 8px 24px color-mix(in srgb, var(--level-primary) 25%, transparent);
-  border: 4px solid var(--level-primary-light);
+    0 4px 0 color-mix(in srgb, var(--level-primary) 50%, transparent),
+    0 6px 16px color-mix(in srgb, var(--level-primary) 20%, transparent);
+  border: 2px solid var(--level-primary-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
-  min-width: 100px;
+  gap: 4px;
+  min-width: 0;
+  white-space: nowrap;
+  flex-shrink: 1;
 }
 
 /* Ensure text is always readable */
@@ -218,7 +225,7 @@ body.level-3 .v3-word-sticker {
   /* 3 columns for 6 items */
   grid-template-columns: repeat(3, min-content);
   grid-template-rows: repeat(2, min-content);
-  gap: clamp(16px, 3vh, 32px); /* Increased space between cards */
+  gap: clamp(12px, 2.5vmin, 28px);
   width: 100%;
   justify-content: center;
   align-content: center; /* Center grid horizontally/vertically */
@@ -232,8 +239,8 @@ body.level-3 .v3-word-sticker {
   height: 22vh;          /* MLP: strict square sizing */
   max-width: 250px;
   max-height: 250px;
-  min-width: 120px;
-  min-height: 120px;
+  min-width: 110px;
+  min-height: 110px;
   background: var(--level-bg-card);
   border-radius: 20px;
   border: 4px solid var(--level-primary-light);
@@ -304,6 +311,7 @@ body.level-3 .v3-word-sticker {
   overflow: hidden;
   border-radius: 12px;
   z-index: 1;
+  pointer-events: none; /* CRITICAL: don't block drop zone hit detection */
 }
 
 /* Force FamilyIllustration and any img/div inside to fill the box */
@@ -330,7 +338,7 @@ body.level-3 .v3-word-sticker {
 
 .v3-answer-space {
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
   left: 0;
   right: 0;
   width: 100%;
@@ -339,7 +347,7 @@ body.level-3 .v3-word-sticker {
   align-items: center;
   justify-content: center;
   z-index: 10;
-  pointer-events: none; /* Let clicks pass to the card */
+  /* pointer-events intentionally NOT set to none — allow drop zone to work */
 }
 
 .standard-answer-space {

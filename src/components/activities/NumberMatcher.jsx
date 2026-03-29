@@ -53,7 +53,7 @@ function QuantityZone({ pair, placedNumber, feedbackState }) {
           <QuantityIllustration 
             key={i} 
             type={pair.object} 
-            size={pair.number > 5 ? 30 : 40} 
+            size={pair.number > 5 ? 24 : 32} 
           />
         ))}
       </div>

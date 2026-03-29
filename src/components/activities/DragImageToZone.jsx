@@ -67,14 +67,6 @@ function DraggableOption({ item, isDragging }) {
       style={style}
     >
       <ShapeRenderer shape={item.shape} color={item.color} size={50} />
-      <button 
-        className="element-speaker-btn shape-speaker-btn"
-        onClick={handleSpeakerClick}
-        onPointerDown={(e) => e.stopPropagation()}
-        title="Écouter"
-      >
-        🔊
-      </button>
     </div>
   );
 }
@@ -98,7 +90,6 @@ function AnswerDropZone({ filled, filledItem }) {
         </motion.div>
       ) : (
         <div className="drop-here-hint">
-          <div className="drop-here-icon">🎯</div>
           <div className="drop-here-label text-center">Dépose ici / ضع هنا</div>
         </div>
       )}
