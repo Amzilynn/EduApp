@@ -9,7 +9,7 @@
 
 .deco {
   position: absolute;
-  animation: floatDeco var(--d, 4s) ease-in-out infinite;
+  animation: none;
   animation-delay: var(--delay, 0s);
   opacity: 0.8;
   filter: none;

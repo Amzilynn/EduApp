@@ -50,7 +50,6 @@ const Mascot = ({ type = 'sunny', state = 'idle', className = '' }) => {
               fill="url(#heartGrad)" 
               className="body-part heartbeat" 
               transform="translate(0, -10)"
-              filter="drop-shadow(0 4px 8px rgba(0,0,0,0.2))"
             />
           )}
 
@@ -59,7 +58,6 @@ const Mascot = ({ type = 'sunny', state = 'idle', className = '' }) => {
               d="M50 15 L61 45 L95 45 L68 65 L78 95 L50 75 L22 95 L32 65 L5 45 L39 45 Z" 
               fill="url(#starGrad)" 
               className="body-part star-rotate" 
-              filter="drop-shadow(0 4px 8px rgba(0,0,0,0.2))"
             />
           )}
 

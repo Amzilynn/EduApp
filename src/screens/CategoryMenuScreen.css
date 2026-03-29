@@ -14,7 +14,7 @@
     inset 0 3px 0 rgba(255, 255, 255, 0.5);
   width: 100%;
   max-width: 650px;
-  margin: 0 auto var(--space-3);
+  margin: clamp(6px, 1.5vh, 18px) auto var(--space-2);
   position: relative;
   overflow: hidden;
 }
@@ -33,7 +33,7 @@
 
 .learning-phrase-text {
   font-family: 'Fredoka', sans-serif;
-  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  font-size: clamp(1.4rem, 4.5vw, 2.1rem);
   font-weight: 900;
   color: white;
   text-align: center;
@@ -278,10 +278,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(4px, 1vh, 12px) clamp(8px, 2vw, 16px);
-  gap: clamp(6px, 1.5vh, 16px);
+  padding: clamp(2px, 0.8vh, 10px) clamp(6px, 1.5vw, 14px);
+  gap: clamp(4px, 1vh, 12px);
   position: relative;
   z-index: 1;
+}
+
+/* Header bottom decoration - 20vh visual band */
+.category-screen-v3::after {
+  content: '';
+  position: absolute;
+  top: 70vh;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  background: linear-gradient(180deg, var(--level-bg) 0%, color-mix(in srgb, var(--level-primary) 15%, white) 100%);
+  border-radius: 50% 50% 0 0;
+  z-index: 5;
+  pointer-events: none;
 }
 
 /* Adventure Floor Background */
@@ -327,7 +341,7 @@
   background: linear-gradient(180deg, var(--level-primary) 0%, var(--level-primary-dark) 100%);
   border: none;
   border-radius: 50px;
-  padding: clamp(6px, 1vh, 10px) clamp(12px, 2vw, 20px);
+  padding: clamp(8px, 1.25vh, 14px) clamp(16px, 3vw, 24px);
   box-shadow: 
     0 4px 0 var(--level-primary-dark),
     0 6px 20px color-mix(in srgb, var(--level-primary) 40%, transparent);
@@ -365,7 +379,7 @@
 
 .home-label-3d-bold { 
   font-weight: 900; 
-  font-size: clamp(0.85rem, 2.5vh, 1.1rem);
+  font-size: clamp(0.95rem, 3vh, 1.2rem);
   color: white;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
   position: relative;
@@ -376,10 +390,10 @@
 .v3-mascot-focus {
   /* Position mascot so it floats over the top area */
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  transform: translate(-50%, -50%);
+  z-index: 200;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -387,16 +401,16 @@
 }
 
 .mascot-waving-container {
-  /* Mascot size: ~15vh, sits at top edge */
-  width: clamp(60px, 15vh, 110px);
-  height: clamp(60px, 15vh, 110px);
+  /* Mascot size: matches header height (50vh) */
+  width: clamp(60px, 10vh, 100px);
+  height: clamp(60px, 10vh, 100px);
 }
 
 .v3-premium-mascot-anim {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 10px 20px color-mix(in srgb, var(--level-primary) 30%, transparent));
-  animation: mascotFloat 3s ease-in-out infinite;
+  filter: none;
+  animation: none;
 }
 
 @keyframes mascotFloat {
@@ -433,11 +447,11 @@
   justify-content: center;
   align-items: center;
   /* Gaps shrink first when space is tight */
-  gap: clamp(8px, 2.5vmin, 32px);
+  gap: clamp(10px, 3vmin, 36px);
   width: 100%;
   max-width: 900px;
   /* Padding shrinks next */
-  padding: clamp(4px, 1vh, 20px) clamp(8px, 2vw, 24px);
+  padding: clamp(2px, 0.8vh, 16px) clamp(6px, 1.5vw, 20px);
   margin: 0 auto;
   flex: 1;
   min-height: 0;
@@ -445,6 +459,35 @@
 
 .category-cards-container-v3 > * {
   /* Cards shrink to fit; max-width constrains them */
-  flex: 1 1 clamp(120px, 22vmin, 240px);
-  max-width: clamp(140px, 28vmin, 260px);
+  flex: 1 1 clamp(150px, 28vmin, 300px);
+  max-width: clamp(170px, 34vmin, 320px);
+}
+
+.v3-mascot-focus .mascot-shadow {
+  display: none !important;
+}
+
+/* Header Mascots Fixed - no floating animation */
+.v3-mascot-focus .mascot-body-group {
+  animation: none !important;
+}
+
+.v3-mascot-focus .tail {
+  animation: none !important;
+}
+
+.v3-mascot-focus .eye {
+  animation: none !important;
+}
+
+.v3-mascot-focus .wing-right {
+  animation: none !important;
+}
+
+.v3-mascot-focus .heartbeat {
+  animation: none !important;
+}
+
+.v3-mascot-focus .star-rotate {
+  animation: none !important;
 }

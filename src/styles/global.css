@@ -316,11 +316,11 @@ button, a, summary {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
   padding: clamp(4px, 1vh, 10px) clamp(12px, 3vw, 24px);
   z-index: 100;
-  max-height: 10vh;
+  max-height: 70vh;
   flex-shrink: 0;  /* Header must never shrink */
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible; /* Allow mascots to float above/below header */
 }
 
 @keyframes starEarn {

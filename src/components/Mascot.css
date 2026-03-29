@@ -128,7 +128,7 @@
 }
 
 .chick-waving-anim {
-  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1));
+  filter: none;
 }
 
 /* === HEART & STAR ANIMATIONS === */
@@ -161,5 +161,5 @@
 
 .success .star-rotate {
   animation: star-spin 1.5s linear infinite;
-  filter: drop-shadow(0 0 15px rgba(255, 217, 61, 0.8));
+  filter: none;
 }
