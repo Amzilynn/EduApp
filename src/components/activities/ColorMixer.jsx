@@ -99,12 +99,21 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
   const { speak } = useSpeech();
   const isAr = settings.language === 'ar';
   
+  // Shuffle rounds and options once on component mount
+  const shuffledData = React.useMemo(() => {
+    const shuffle = (array) => [...array].sort(() => Math.random() - 0.5);
+    return {
+      rounds: shuffle(activity.rounds),
+      options: shuffle(activity.options)
+    };
+  }, [activity]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answer, setAnswer] = useState(null);
   const [isError, setIsError] = useState(false);
   const [activeId, setActiveId] = useState(null);
 
-  const round = activity.rounds[currentIndex];
+  const round = shuffledData.rounds[currentIndex];
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
@@ -130,7 +139,7 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
       speak(isAr ? 'أحسنت!' : 'Bravo !');
       
       setTimeout(() => {
-        if (currentIndex < activity.rounds.length - 1) {
+        if (currentIndex < shuffledData.rounds.length - 1) {
           setCurrentIndex(i => i + 1);
           setAnswer(null);
         } else {
@@ -183,7 +192,7 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
 
         {/* Options */}
         <div className="mixer-options-row">
-          {activity.options.map(opt => (
+          {shuffledData.options.map(opt => (
             <DraggableSplat 
               key={opt.id} 
               item={opt} 
