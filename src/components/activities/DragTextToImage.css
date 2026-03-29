@@ -64,6 +64,11 @@
   align-items: stretch;
 }
 
+.drop-zones-grid.fewer-items {
+  grid-template-rows: repeat(2, 1fr);
+  max-width: 800px;
+}
+
 /* Each card: MLP enforces max-height:25vh, aspect-ratio stays square */
 .image-drop-card {
   background: white;
@@ -81,6 +86,11 @@
   /* Use specific props only — 'transition: all' causes reflows during every drag frame */
   transition: border-color 120ms ease, background 120ms ease, transform 120ms ease;
   overflow: hidden;
+}
+
+.drop-zones-grid.fewer-items .image-drop-card {
+  max-height: 28vh;
+  padding: clamp(8px, 1.5vh, 16px);
 }
 
 .image-drop-card.over {

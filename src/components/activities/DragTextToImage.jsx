@@ -190,7 +190,9 @@ export default function DragTextToImage({ activity, onComplete, onProgress }) {
         </div>
 
         {/* Row 2: Image Drop Zones */}
-        <div className={isV3 ? "v3-sticker-grid" : "drop-zones-grid"}>
+        <div 
+          className={isV3 ? "v3-sticker-grid" : `drop-zones-grid ${activity.items.length <= 4 ? 'fewer-items' : ''}`}
+        >
           {shuffledZones.map(zone => (
             <DropZoneCard
               key={zone.id}
