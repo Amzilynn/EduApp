@@ -483,7 +483,7 @@ const contentMap = {
           icon: '🎨',
           color: '#4D96FF',
           bgColor: '#F0F6FF',
-          activity: couleurs4_fr,
+          activity: melange_fr,
         },
         {
           id: 'combinaisons',
@@ -512,7 +512,7 @@ const contentMap = {
           icon: '🎨',
           color: '#4D96FF',
           bgColor: '#F0F6FF',
-          activity: couleurs4_ar,
+          activity: melange_ar,
         },
         {
           id: 'combinaisons',

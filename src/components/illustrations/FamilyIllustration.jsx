@@ -78,22 +78,23 @@ export default function FamilyIllustration({ memberId, size = 100 }) {
   const isMale = memberId.includes('pere') || memberId.includes('frere') || memberId.includes('grandpere');
 
   return (
-    <div className="flex flex-col items-center gap-1 relative" style={{ width: size, height: size }}>
+    <div className="v3-family-illustration-wrap" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       {!useFallback ? (
         <img 
           src={imagePath} 
           alt={config.label}
-          className="w-full h-full object-contain rounded-[20px]"
+          className="v3-clay-illustration"
           onError={() => setUseFallback(true)}
           style={{ 
-            filter: 'drop-shadow(0 4px 10px rgba(0,0,0,0.1))',
-            border: '3px solid rgba(0,0,0,0.05)',
-            background: 'white'
+            width: '100%',
+            height: '100%',
+            objectFit: 'contain', /* KEY FIX: stop cropping */
+            display: 'block'
           }}
         />
       ) : (
-        <div className="w-full h-full flex items-center justify-center bg-white rounded-[20px] shadow-sm border-2 border-[rgba(0,0,0,0.05)]">
-          <PersonSVG config={config} size={size * 0.9} isGrandparent={isGrandparent} isMale={isMale} />
+        <div className="w-full h-full flex items-center justify-center bg-white/50 rounded-[20px] backdrop-blur-sm shadow-sm border-2 border-white/20">
+          <PersonSVG config={config} size={60} isGrandparent={isGrandparent} isMale={isMale} />
         </div>
       )}
     </div>

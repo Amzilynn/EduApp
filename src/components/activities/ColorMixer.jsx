@@ -8,17 +8,18 @@ import './ColorMixer.css';
 /**
  * Renders a "paint splat" style shape using SVG
  */
-function SplatRenderer({ color, size = 80, label, labelColor }) {
+/**
+ * Renders a "paint splat" style shape using SVG
+ */
+function SplatRenderer({ color, label, labelColor }) {
   return (
-    <div className="splat-container" style={{ width: size, height: size + 30 }}>
+    <div className="splat-container">
       {label && (
         <span className="splat-label" style={{ color: labelColor || color || '#555' }}>
           {label}
         </span>
       )}
       <svg 
-        width={size} 
-        height={size} 
         viewBox="0 0 100 100" 
         className="splat-svg"
         xmlns="http://www.w3.org/2000/svg"
@@ -26,18 +27,18 @@ function SplatRenderer({ color, size = 80, label, labelColor }) {
         <path 
           d="M50 10C35 10 25 20 25 35C25 45 30 50 20 60C10 70 5 75 5 85C5 95 15 95 30 90C40 85 45 80 50 85C55 80 60 85 70 90C85 95 95 95 95 85C95 75 90 70 80 60C70 50 75 45 75 35C75 20 65 10 50 10Z" 
           fill={color} 
-          stroke="rgba(0,0,0,0.1)" 
-          strokeWidth="2"
+          stroke="rgba(0,0,0,0.08)" 
+          strokeWidth="1.5"
         />
         {/* Drips */}
-        <circle cx="28" cy="75" r="5" fill={color} />
-        <circle cx="50" cy="92" r="6" fill={color} />
-        <circle cx="72" cy="78" r="4" fill={color} />
+        <circle cx="28" cy="75" r="4.5" fill={color} />
+        <circle cx="50" cy="92" r="5.5" fill={color} />
+        <circle cx="72" cy="78" r="3.5" fill={color} />
         {/* Shine */}
         <path 
           d="M40 25C35 25 32 30 32 35" 
-          stroke="rgba(255,255,255,0.4)" 
-          strokeWidth="4" 
+          stroke="rgba(255,255,255,0.45)" 
+          strokeWidth="4.5" 
           strokeLinecap="round" 
         />
       </svg>
@@ -46,7 +47,6 @@ function SplatRenderer({ color, size = 80, label, labelColor }) {
 }
 
 function DraggableSplat({ item, isDragging }) {
-  const { speak } = useSpeech();
   const { attributes, listeners, setNodeRef, transform } = useDraggable({ 
     id: item.id,
     data: item
@@ -55,7 +55,6 @@ function DraggableSplat({ item, isDragging }) {
   const style = transform ? {
     transform: `translate3d(${transform.x}px, ${transform.y}px, 0) scale(1.15) rotate(5deg)`,
     zIndex: 1000,
-    cursor: 'grabbing'
   } : undefined;
 
   return (
@@ -66,7 +65,7 @@ function DraggableSplat({ item, isDragging }) {
       className={`splat-option-card ${isDragging ? 'dragging' : ''}`}
       style={style}
     >
-      <SplatRenderer color={item.color} size={65} label={item.label} labelColor={item.color} />
+      <SplatRenderer color={item.color} label={item.label} labelColor={item.color} />
     </div>
   );
 }
@@ -81,11 +80,11 @@ function MixingDropZone({ filled, filledItem, isOver }) {
     >
       {filled ? (
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: 'spring', damping: 12 }}
+          initial={{ scale: 0, rotate: -15 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: 'spring', damping: 10, stiffness: 100 }}
         >
-          <SplatRenderer color={filledItem.color} size={80} label={filledItem.label} labelColor={filledItem.color} />
+          <SplatRenderer color={filledItem.color} label={filledItem.label} labelColor={filledItem.color} />
           <div className="success-check">✓</div>
         </motion.div>
       ) : (
@@ -108,18 +107,12 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
   const round = activity.rounds[currentIndex];
 
   const sensors = useSensors(
-    useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
-    useSensor(TouchSensor, { activationConstraint: { delay: 100, tolerance: 5 } })
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 0, tolerance: 10 } })
   );
 
   useEffect(() => {
     if (onProgress) onProgress(currentIndex);
-    // Instruction playback on first round removed as per user request
-    /*
-    if (currentIndex === 0) {
-      speak(activity.instruction);
-    }
-    */
   }, [currentIndex, onProgress]);
 
   function handleDragStart(event) {
@@ -143,7 +136,7 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
         } else {
           onComplete();
         }
-      }, 1500);
+      }, 1800);
     } else {
       setIsError(true);
       speak(isAr ? 'حاول مرة أخرى!' : 'Essaie encore !');
@@ -184,9 +177,9 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
           />
         </div>
 
-        <p className="interaction-tip">
+        <div className="interaction-tip">
           {isAr ? 'اسحب اللون الصحيح لإكمال النتيجة' : 'Glisse la bonne couleur pour compléter le résultat'}
-        </p>
+        </div>
 
         {/* Options */}
         <div className="mixer-options-row">
@@ -202,3 +195,4 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
     </DndContext>
   );
 }
+

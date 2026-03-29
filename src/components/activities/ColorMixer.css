@@ -2,31 +2,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5vh;
   width: 100%;
   height: 100%;
-  padding: 1rem;
+  padding: 1vh;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .mixing-equation-area {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  padding: 2rem;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  border: 4px white solid;
-  margin-top: 1rem;
+  gap: 2vw;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  padding: 2.5vh 3vw;
+  border-radius: 40px;
+  box-shadow: 
+    0 15px 40px rgba(0,0,0,0.08),
+    inset 0 0 0 4px rgba(255,255,255,0.9);
+  border: none;
+  margin-top: 0;
+  max-width: 95%;
+  flex-shrink: 0;
 }
 
 .equation-symbol {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #555;
+  font-size: clamp(2rem, 5vh, 4rem);
+  font-weight: 900;
+  color: #666;
   user-select: none;
+  text-shadow: 0 2px 4px rgba(255,255,255,1);
 }
 
 .splat-container {
@@ -34,46 +41,62 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.8vh;
+  flex-shrink: 0;
 }
 
 .splat-label {
-  font-family: 'Inter', sans-serif;
-  font-weight: 800;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-weight: 900;
   text-transform: uppercase;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
+  font-size: clamp(0.9rem, 1.8vh, 1.4rem);
+  letter-spacing: 1.5px;
+  filter: drop-shadow(0 2px 0 rgba(255,255,255,0.5));
 }
 
 /* Splat SVG styling */
 .splat-svg {
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+  width: clamp(60px, 12vh, 120px);
+  height: clamp(60px, 12vh, 120px);
 }
 
 .splat-container:hover .splat-svg {
-  transform: scale(1.05) rotate(2deg);
+  transform: scale(1.08) rotate(3deg);
 }
 
 .mixer-options-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 24px;
-  width: 90%;
+  gap: 1.5vw;
+  padding: 2vh;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 35px;
+  width: fit-content;
+  max-width: 90%;
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.03);
+  margin-bottom: 1vh;
 }
 
 .splat-option-card {
   cursor: grab;
-  padding: 10px;
+  padding: 1.5vh;
   background: white;
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: all 0.2s ease;
+  border-radius: 28px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 4px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splat-option-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+  border-color: rgba(255,255,255,0.8);
 }
 
 .splat-option-card:active {
@@ -81,76 +104,87 @@
 }
 
 .splat-option-card.dragging {
-  opacity: 0.5;
-  transform: scale(1.1);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  opacity: 0.4;
+  transform: scale(1.15);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .mixer-drop-zone {
-  width: 100px;
-  height: 100px;
-  border: 4px dashed #ccc;
-  border-radius: 20px;
+  width: clamp(80px, 14vh, 140px);
+  height: clamp(80px, 14vh, 140px);
+  border: 4px dashed #ddd;
+  border-radius: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255,255,255,0.5);
-  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.6);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: visible;
 }
 
 .mixer-drop-zone.over {
   border-color: #4D96FF;
-  background: rgba(77, 150, 255, 0.1);
+  background: rgba(77, 150, 255, 0.15);
   transform: scale(1.1);
+  box-shadow: 0 0 0 8px rgba(77, 150, 255, 0.1);
 }
 
 .mixer-drop-zone.filled {
   border: 4px solid #6BCB77;
   background: white;
-  border-style: solid;
+  box-shadow: 0 10px 30px rgba(107, 203, 119, 0.2);
 }
 
 .drop-hint-icon {
-  font-size: 2rem;
-  opacity: 0.3;
+  font-size: clamp(1.5rem, 4vh, 3rem);
+  opacity: 0.4;
+  font-weight: 800;
+  color: #aaa;
 }
 
 .success-check {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #6BCB77;
+  top: -12px;
+  right: -12px;
+  background: linear-gradient(135deg, #6BCB77, #4CAF50);
   color: white;
-  width: 30px;
-  height: 30px;
+  width: clamp(30px, 4vh, 45px);
+  height: clamp(30px, 4vh, 45px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: clamp(1rem, 2vh, 1.5rem);
   font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 10;
+  border: 3px solid white;
 }
 
 .interaction-tip {
-  color: #888;
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 1rem;
+  color: #777;
+  font-size: clamp(0.8rem, 1.6vh, 1.1rem);
+  font-weight: 600;
+  margin: 1vh 0;
+  background: rgba(255,255,255,0.4);
+  padding: 0.5vh 2vw;
+  border-radius: 20px;
 }
 
 /* Animations */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
 }
 
 .shake-it {
-  animation: shake 0.4s ease-in-out;
+  animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
 /* Mascot spacing adjustment */
 .activity-mascot-fixed {
-  z-index: 50;
+  z-index: 100;
 }
+

@@ -77,19 +77,21 @@ function DropZoneCard({ zone, placedItem, feedbackState, variant = 'standard' })
         {zone.type === 'shape' && <ShapeIllustration shapeId={zone.shapeId} size={70} />}
       </div>
 
-      {placedItem ? (
-        <motion.div
-          initial={{ scale: 0, rotate: -10 }}
-          animate={{ scale: 1, rotate: isV3 ? 0 : 0 }}
-          className={isV3 ? 'v3-placed-label' : 'placed-label-tag'}
-        >
-          {placedItem.label} {isV3 ? '✓' : '✓'}
-        </motion.div>
-      ) : (
-        <div className={isV3 ? 'v3-empty-slot' : 'empty-slot-dash'}>
-          {isV3 && <div className="slot-inner-shadow" />}
-        </div>
-      )}
+      <div className={isV3 ? "v3-answer-space" : "standard-answer-space"}>
+        {placedItem ? (
+          <motion.div
+            initial={{ scale: 0, rotate: -10 }}
+            animate={{ scale: 1, rotate: 0 }}
+            className={isV3 ? 'v3-placed-label' : 'placed-label-tag'}
+          >
+            {placedItem.label} {isV3 ? '✓' : '✓'}
+          </motion.div>
+        ) : (
+          <div className={isV3 ? 'v3-empty-slot' : 'empty-slot-dash'}>
+            {isV3 && <div className="slot-inner-shadow" />}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
