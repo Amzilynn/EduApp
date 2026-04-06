@@ -67,7 +67,7 @@ function DropZoneCard({ zone, placedItem, feedbackState, variant = 'standard' })
   return (
     <div
       ref={setNodeRef}
-      className={`${isV3 ? 'v3-sticker-slot' : 'image-drop-card'} ${isOver ? 'over' : ''} ${isCorrect ? 'correct' : ''} ${isError ? 'error-shake' : ''}`}
+      className={`${isV3 ? 'v3-sticker-slot' : 'image-drop-card'} ${isOver ? 'over' : ''} ${isCorrect ? 'correct' : ''} ${isError ? 'error-shake' : ''} ${zone.id === 'blanc' ? 'white-target' : ''}`}
     >
       <div className="illustration-box">
         {zone.type === 'family' && (

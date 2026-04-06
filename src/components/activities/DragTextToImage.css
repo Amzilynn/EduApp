@@ -99,6 +99,12 @@
   transform: scale(1.03);
 }
 
+/* Ensure white target stands out from white card */
+.image-drop-card.white-target {
+  background: #E2E8F0;
+  border-color: #CBD5E1;
+}
+
 .image-drop-card.correct {
   border: 3px solid var(--c-grass);
   background: rgba(107,203,119,0.1);
@@ -286,6 +292,12 @@ body.level-3 .v3-word-sticker {
   box-shadow: 
     0 16px 40px color-mix(in srgb, var(--level-primary) 30%, transparent),
     0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Ensure white target stands out from typical light card backgrounds */
+.v3-sticker-slot.white-target {
+  background: #E2E8F0;
+  border-color: #CBD5E1;
 }
 
 .v3-sticker-slot.correct {

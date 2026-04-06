@@ -26,12 +26,12 @@ const famille_ar = {
   title: 'العائلة',
   instruction: 'اسحب الكلمة إلى الشخص الصحيح!',
   items: [
-    { id: 'mere',      label: 'أم',   imageKey: 'family-mere',      audio: 'الأم' },
-    { id: 'pere',      label: 'أب',   imageKey: 'family-pere',      audio: 'الأب' },
-    { id: 'frere',     label: 'أخ',   imageKey: 'family-frere',     audio: 'الأخ' },
-    { id: 'soeur',     label: 'أخت',  imageKey: 'family-soeur',     audio: 'الأخت' },
-    { id: 'grandmere', label: 'جدة',  imageKey: 'family-grandmere', audio: 'الجدة' },
-    { id: 'grandpere', label: 'جد',   imageKey: 'family-grandpere', audio: 'الجد' },
+    { id: 'mere',      label: 'الأم',   imageKey: 'family-mere',      audio: 'الأم' },
+    { id: 'pere',      label: 'الأب',   imageKey: 'family-pere',      audio: 'الأب' },
+    { id: 'frere',     label: 'الأخ',   imageKey: 'family-frere',     audio: 'الأخ' },
+    { id: 'soeur',     label: 'الأخت',  imageKey: 'family-soeur',     audio: 'الأخت' },
+    { id: 'grandmere', label: 'الجدة',  imageKey: 'family-grandmere', audio: 'الجدة' },
+    { id: 'grandpere', label: 'الجد',   imageKey: 'family-grandpere', audio: 'الجد' },
   ]
 };
 
@@ -350,17 +350,29 @@ const alphabet_fr = {
   type: 'letter-sequencer',
   title: "L'Alphabet",
   instruction: 'Mets les lettres dans le bon ordre pour former le mot !',
-  words: [
-    { word: 'ÉCOLE',  letters: ['É','C','O','L','E'],   distractors: ['M','T','R'],     hint: '🏫', hintLabel: 'ÉCOLE' },
-    { word: 'CLASSE', letters: ['C','L','A','S','S','E'], distractors: ['B','M','O'],   hint: '👩‍🏫', hintLabel: 'CLASSE' },
-    { word: 'CRAYON', letters: ['C','R','A','Y','O','N'], distractors: ['T','S','M'],   hint: '✏️', hintLabel: 'CRAYON' },
-    { word: 'PAPIER', letters: ['P','A','P','I','E','R'], distractors: ['U','M','T'],   hint: '📄', hintLabel: 'PAPIER' },
-    { word: 'GOMME',  letters: ['G','O','M','M','E'],   distractors: ['T','F','P'],     hint: '🧽', hintLabel: 'GOMME' },
-    { word: 'CAHIER', letters: ['C','A','H','I','E','R'], distractors: ['S','O','N'],   hint: '📓', hintLabel: 'CAHIER' },
-    { word: 'JOUET',  letters: ['J','O','U','E','T'],   distractors: ['M','I','S'],     hint: '🧸', hintLabel: 'JOUET' },
-    { word: 'LIVRE',  letters: ['L','I','V','R','E'],   distractors: ['A','M','P'],     hint: '📚', hintLabel: 'LIVRE' },
-    { word: 'ÉLÈVE',  letters: ['É','L','È','V','E'],   distractors: ['P','O','N'],     hint: '🎒', hintLabel: 'ÉLÈVE' },
-    { word: 'COUR',   letters: ['C','O','U','R'],       distractors: ['M','L','S'],     hint: '⚽', hintLabel: 'COUR' },
+  wordLists: [
+    [
+      { word: 'STYLO',  letters: ['S','T','Y','L','O'],   distractors: ['M','R','A'],     hint: '🖊️', hintLabel: 'STYLO' },
+      { word: 'LIVRE',  letters: ['L','I','V','R','E'],   distractors: ['A','M','P'],     hint: '📚', hintLabel: 'LIVRE' },
+      { word: 'CARTABLE', letters: ['C','A','R','T','A','B','L','E'], distractors: ['M','O','S'],   hint: '🎒', hintLabel: 'CARTABLE' },
+      { word: 'MAÎTRESSE', letters: ['M','A','Î','T','R','E','S','S','E'], distractors: ['B','O','N'],   hint: '👩‍🏫', hintLabel: 'MAÎTRESSE' },
+      { word: 'ÉCOLE',  letters: ['É','C','O','L','E'],   distractors: ['M','T','R'],     hint: '🏫', hintLabel: 'ÉCOLE' },
+    ],
+    [
+      { word: 'MAMAN',  letters: ['M','A','M','A','N'],   distractors: ['E','R','I'],     hint: 'maman', hintLabel: 'MAMAN' },
+      { word: 'PAPA',   letters: ['P','A','P','A'],       distractors: ['M','E','O'],     hint: 'papa', hintLabel: 'PAPA' },
+      { word: 'FILLE',  letters: ['F','I','L','L','E'],   distractors: ['A','M','R'],     hint: 'fille', hintLabel: 'FILLE' },
+      { word: 'GARÇON', letters: ['G','A','R','Ç','O','N'], distractors: ['E','M','T'],   hint: 'garcon', hintLabel: 'GARÇON' },
+      { word: 'AMI',    letters: ['A','M','I'],           distractors: ['E','O','U'],     hint: 'ami', hintLabel: 'AMI' },
+    ],
+    [
+      { word: 'MOUTON', letters: ['M','O','U','T','O','N'], distractors: ['A','E','I'],   hint: '🐑', hintLabel: 'MOUTON' },
+      { word: 'VACHE',  letters: ['V','A','C','H','E'],   distractors: ['O','M','R'],     hint: '🐄', hintLabel: 'VACHE' },
+      { word: 'POULE',  letters: ['P','O','U','L','E'],   distractors: ['A','I','M'],     hint: '🐔', hintLabel: 'POULE' },
+      { word: 'CHAT',   letters: ['C','H','A','T'],       distractors: ['O','E','M'],     hint: '🐱', hintLabel: 'CHAT' },
+      { word: 'CHIEN',  letters: ['C','H','I','E','N'],   distractors: ['A','O','U'],     hint: '🐶', hintLabel: 'CHIEN' },
+      { word: 'POISSON', letters: ['P','O','I','S','S','O','N'], distractors: ['A','E','M'],   hint: '🐟', hintLabel: 'POISSON' },
+    ]
   ],
   trials: 5
 };
@@ -370,17 +382,28 @@ const alphabet_ar = {
   type: 'letter-sequencer',
   title: 'الأبجدية',
   instruction: 'رتّب الحروف لتكوين الكلمة!',
-  words: [
-    { word: 'مدرسة',  letters: ['م','د','ر','س','ة'],   distractors: ['ب','ن','ت'],   hint: '🏫', hintLabel: 'مدرسة' },
-    { word: 'صف',    letters: ['ص','ف'],             distractors: ['م','ن','ر'],   hint: '👩‍🏫', hintLabel: 'صف' },
-    { word: 'قلم',   letters: ['ق','ل','م'],         distractors: ['ب','ن','ت'],   hint: '✏️', hintLabel: 'قلم' },
-    { word: 'كتاب',  letters: ['ك','ت','ا','ب'],     distractors: ['م','ن','ر'],   hint: '📚', hintLabel: 'كتاب' },
-    { word: 'معلم',  letters: ['م','ع','ل','م'],     distractors: ['س','ن','ر'],   hint: '👨‍🏫', hintLabel: 'معلم' },
-    { word: 'ملعب',  letters: ['م','ل','ع','ب'],     distractors: ['س','ن','ت'],   hint: '⚽', hintLabel: 'ملعب' },
-    { word: 'ورقة',  letters: ['و','ر','ق','ة'],     distractors: ['ب','ن','ت'],   hint: '📄', hintLabel: 'ورقة' },
-    { word: 'ممحاة', letters: ['م','م','ح','ا','ة'], distractors: ['س','ن','ر'],   hint: '🧽', hintLabel: 'ممحاة' },
-    { word: 'دفتر',  letters: ['د','ف','ت','ر'],     distractors: ['م','ن','ع'],   hint: '📓', hintLabel: 'دفتر' },
-    { word: 'حقيبة', letters: ['ح','ق','ي','ب','ة'], distractors: ['س','ن','م'],   hint: '🎒', hintLabel: 'حقيبة' },
+  wordLists: [
+    [
+      { word: 'قلم', letters: ['ق','ل','م'], distractors: ['ب','ت','ر'], hint: '🖊️', hintLabel: 'قلم' },
+      { word: 'كتاب', letters: ['ك','ت','ا','ب'], distractors: ['م','ن','ر'], hint: '📚', hintLabel: 'كتاب' },
+      { word: 'محفظة', letters: ['م','ح','ف','ظ','ة'], distractors: ['ق','ل','ب'], hint: '🎒', hintLabel: 'محفظة' },
+      { word: 'معلمة', letters: ['م','ع','ل','م','ة'], distractors: ['ق','ب','ر'], hint: '👩‍🏫', hintLabel: 'معلمة' },
+      { word: 'مدرسة', letters: ['م','د','ر','س','ة'], distractors: ['ك','ت','ب'], hint: '🏫', hintLabel: 'مدرسة' },
+    ],
+    [
+      { word: 'أمي', letters: ['أ','م','ي'], distractors: ['و','ك','ت'], hint: 'أمي', hintLabel: 'أمي' },
+      { word: 'أبي', letters: ['أ','ب','ي'], distractors: ['م','و','ك'], hint: 'أبي', hintLabel: 'أبي' },
+      { word: 'أختي', letters: ['أ','خ','ت','ي'], distractors: ['ب','م','و'], hint: 'أختي', hintLabel: 'أختي' },
+      { word: 'أخي', letters: ['أ','خ','ي'], distractors: ['ت','ب','م'], hint: 'أخي', hintLabel: 'أخي' },
+      { word: 'صديقي', letters: ['ص','د','ي','ق','ي'], distractors: ['ك','م','و'], hint: 'صديقي', hintLabel: 'صديقي' },
+    ],
+    [
+      { word: 'قطة', letters: ['ق','ط','ة'], distractors: ['ك','ب','ر'], hint: '🐱', hintLabel: 'قطة' },
+      { word: 'كلب', letters: ['ك','ل','ب'], distractors: ['ق','ط','ر'], hint: '🐶', hintLabel: 'كلب' },
+      { word: 'خروف', letters: ['خ','ر','و','ف'], distractors: ['ك','ب','ق'], hint: '🐑', hintLabel: 'خروف' },
+      { word: 'سمكة', letters: ['س','م','ك','ة'], distractors: ['خ','ر','ب'], hint: '🐟', hintLabel: 'سمكة' },
+      { word: 'بقرة', letters: ['ب','ق','ر','ة'], distractors: ['ك','س','خ'], hint: '🐄', hintLabel: 'بقرة' },
+    ]
   ],
   trials: 5
 };

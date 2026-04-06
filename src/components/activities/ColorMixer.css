@@ -88,10 +88,13 @@
   box-shadow: 0 6px 16px rgba(0,0,0,0.06);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 3px solid transparent;
-  display: flex;
-  align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.splat-option-card.light-color-card {
+  background: #f0f2f5;
+  border-color: #e1e4e8;
 }
 
 .splat-option-card:hover {

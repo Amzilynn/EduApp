@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DndContext, useDraggable, useDroppable, PointerSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { useSpeech } from '../../hooks/useSpeech';
 import { useSettings } from '../../context/SettingsContext';
+import { MamanIcon, PapaIcon, FilleIcon, GarconIcon, AmiIcon } from '../icons/PersonIcons';
 import './LetterSequencer.css';
 
 function shuffle(arr) {
@@ -64,7 +65,32 @@ function DroppableSlot({ index, letterObj, isError, isCorrect, onRemove }) {
   );
 }
 
-export default function LetterSequencer({ activity, onComplete, onProgress }) {
+function renderHint(hint, size = 60) {
+  if (!hint) return null;
+  
+  const iconMap = {
+    'maman': <MamanIcon size={size} />,
+    'papa': <PapaIcon size={size} />,
+    'fille': <FilleIcon size={size} />,
+    'garcon': <GarconIcon size={size} />,
+    'garçon': <GarconIcon size={size} />,
+    'ami': <AmiIcon size={size} />,
+    'أمي': <MamanIcon size={size} />,
+    'أبي': <PapaIcon size={size} />,
+    'أختي': <FilleIcon size={size} />,
+    'أخي': <GarconIcon size={size} />,
+    'صديقي': <AmiIcon size={size} />,
+  };
+  
+  const key = hint.toLowerCase();
+  if (iconMap[key]) {
+    return iconMap[key];
+  }
+  
+  return <span className="hint-emoji float">{hint}</span>;
+}
+
+export default function LetterSequencer({ activity, onComplete, onProgress, listIndex = 0 }) {
   const { settings } = useSettings();
   const { speak } = useSpeech();
   const isAr = settings.language === 'ar';
@@ -77,12 +103,17 @@ export default function LetterSequencer({ activity, onComplete, onProgress }) {
   const [feedbackState, setFeedbackState] = useState(null); 
 
   useEffect(() => {
-    if (activity && activity.words) {
+    if (activity && activity.wordLists) {
+      const targetList = activity.wordLists[listIndex] || activity.wordLists[0];
+      const limit = activity.trials || targetList.length;
+      setWordsList(targetList.slice(0, limit));
+      setWordIndex(0);
+    } else if (activity && activity.words) {
       const limit = activity.trials || activity.words.length;
       setWordsList(shuffle(activity.words).slice(0, limit));
       setWordIndex(0);
     }
-  }, [activity]);
+  }, [activity, listIndex]);
 
   const currentWord = wordsList[wordIndex];
   const totalWords = wordsList.length;
@@ -117,8 +148,6 @@ export default function LetterSequencer({ activity, onComplete, onProgress }) {
       newPlaced[slotIdx] = letterObj;
       setPlaced(newPlaced);
 
-      const remainingInPool = letterPool.filter(l => l.id !== letterObj.id);
-
       if (newPlaced.every(v => v !== null)) {
         const formed = newPlaced.map(l => l.letter).join('');
         setTimeout(() => {
@@ -136,8 +165,9 @@ export default function LetterSequencer({ activity, onComplete, onProgress }) {
             setFeedbackState('error');
             speak(isAr ? 'حاول مرة أخرى!' : 'Essaie encore !');
             setTimeout(() => {
-              setLetterPool(prev => shuffle([...remainingInPool, ...newPlaced]));
+              // Simply reset placed and shuffle pool (pool already contains all original letters)
               setPlaced(Array(currentWord.word.length).fill(null));
+              setLetterPool(prev => shuffle([...prev]));
               setFeedbackState(null);
             }, 1000);
           }
@@ -147,11 +177,11 @@ export default function LetterSequencer({ activity, onComplete, onProgress }) {
   }
 
   function handleRemoveLetter(letterObj, idx) {
-    if (feedbackState === 'correct') return;
+    if (feedbackState === 'correct' || feedbackState === 'error') return;
     const newPlaced = [...placed];
     newPlaced[idx] = null;
     setPlaced(newPlaced);
-    setLetterPool(prev => shuffle([...prev, letterObj]));
+    // No need to add back to letterPool; it's already there but hidden while placed[idx] was filled
   }
 
   if (!currentWord) return null;
@@ -166,7 +196,7 @@ export default function LetterSequencer({ activity, onComplete, onProgress }) {
           animate={{ opacity: 1, scale: 1 }}
           className="word-hint-card"
         >
-          <span className="hint-emoji float">{currentWord.hint}</span>
+          {renderHint(currentWord.hint, 70)}
           <span className="hint-label">{currentWord.hintLabel}</span>
         </motion.div>
 

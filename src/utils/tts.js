@@ -75,7 +75,6 @@ export class SpeechEngine {
         reject(new Error(`File not found: ${audioPath}`));
       };
 
-      // Set a small timeout to reject if it takes too long (likely missing)
       setTimeout(() => {
         if (audio && audio.readyState < 3) { 
           audio.pause();

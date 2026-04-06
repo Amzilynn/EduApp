@@ -9,13 +9,31 @@ import './ColorMixer.css';
  * Renders a "paint splat" style shape using SVG
  */
 /**
+ * Detects if a hex color is very light (close to white)
+ */
+function isLightColor(hex) {
+  if (!hex) return false;
+  const c = hex.replace('#', '');
+  const r = parseInt(c.substring(0, 2), 16);
+  const g = parseInt(c.substring(2, 4), 16);
+  const b = parseInt(c.substring(4, 6), 16);
+  // Perceived luminance formula
+  return (r * 0.299 + g * 0.587 + b * 0.114) > 210;
+}
+
+/**
  * Renders a "paint splat" style shape using SVG
  */
 function SplatRenderer({ color, label, labelColor }) {
+  const light = isLightColor(color);
+  const resolvedLabelColor = light ? '#555' : (labelColor || color || '#555');
+  const strokeColor = light ? 'rgba(0,0,0,0.25)' : 'rgba(0,0,0,0.08)';
+  const strokeWidth = light ? '2.5' : '1.5';
+
   return (
     <div className="splat-container">
       {label && (
-        <span className="splat-label" style={{ color: labelColor || color || '#555' }}>
+        <span className="splat-label" style={{ color: resolvedLabelColor }}>
           {label}
         </span>
       )}
@@ -27,20 +45,22 @@ function SplatRenderer({ color, label, labelColor }) {
         <path 
           d="M50 10C35 10 25 20 25 35C25 45 30 50 20 60C10 70 5 75 5 85C5 95 15 95 30 90C40 85 45 80 50 85C55 80 60 85 70 90C85 95 95 95 95 85C95 75 90 70 80 60C70 50 75 45 75 35C75 20 65 10 50 10Z" 
           fill={color} 
-          stroke="rgba(0,0,0,0.08)" 
-          strokeWidth="1.5"
+          stroke={strokeColor} 
+          strokeWidth={strokeWidth}
         />
         {/* Drips */}
-        <circle cx="28" cy="75" r="4.5" fill={color} />
-        <circle cx="50" cy="92" r="5.5" fill={color} />
-        <circle cx="72" cy="78" r="3.5" fill={color} />
-        {/* Shine */}
-        <path 
-          d="M40 25C35 25 32 30 32 35" 
-          stroke="rgba(255,255,255,0.45)" 
-          strokeWidth="4.5" 
-          strokeLinecap="round" 
-        />
+        <circle cx="28" cy="75" r="4.5" fill={color} stroke={light ? 'rgba(0,0,0,0.15)' : 'none'} strokeWidth="1" />
+        <circle cx="50" cy="92" r="5.5" fill={color} stroke={light ? 'rgba(0,0,0,0.15)' : 'none'} strokeWidth="1" />
+        <circle cx="72" cy="78" r="3.5" fill={color} stroke={light ? 'rgba(0,0,0,0.15)' : 'none'} strokeWidth="1" />
+        {/* Shine — skip for light colors since it blends in */}
+        {!light && (
+          <path 
+            d="M40 25C35 25 32 30 32 35" 
+            stroke="rgba(255,255,255,0.45)" 
+            strokeWidth="4.5" 
+            strokeLinecap="round" 
+          />
+        )}
       </svg>
     </div>
   );
@@ -57,12 +77,14 @@ function DraggableSplat({ item, isDragging }) {
     zIndex: 1000,
   } : undefined;
 
+  const light = isLightColor(item.color);
+
   return (
     <div
       ref={setNodeRef}
       {...listeners}
       {...attributes}
-      className={`splat-option-card ${isDragging ? 'dragging' : ''}`}
+      className={`splat-option-card ${isDragging ? 'dragging' : ''} ${light ? 'light-color-card' : ''}`}
       style={style}
     >
       <SplatRenderer color={item.color} label={item.label} labelColor={item.color} />

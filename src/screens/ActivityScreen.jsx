@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSettings } from '../context/SettingsContext';
 import { getCategory } from '../data/content';
@@ -20,10 +20,13 @@ export default function ActivityScreen() {
   const { categoryId } = useParams();
   const { settings, dispatch } = useSettings();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { speak } = useSpeech();
   const [showConfirm, setShowConfirm] = React.useState(false);
   const [completed, setCompleted] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [activityKey, setActivityKey] = useState(0);
+  const listIndex = parseInt(searchParams.get('list') || '0', 10);
 
   const isAr = settings.language === 'ar';
   const category = getCategory(settings.level, settings.language, categoryId);
@@ -48,12 +51,20 @@ export default function ActivityScreen() {
     return null;
   }
 
-  const totalSteps = activity.trials || activity.items?.length || activity.words?.length || activity.rounds?.length || 5;
+  const currentWordList = activity.wordLists ? (activity.wordLists[listIndex] || activity.wordLists[0]) : activity.words;
+  const totalSteps = activity.trials || activity.items?.length || currentWordList?.length || activity.rounds?.length || 5;
 
   function handleComplete() {
     setCompleted(true);
     setProgress(totalSteps);
     spawnConfetti();
+    playClapSound();
+  }
+
+  function playClapSound() {
+    const clapSound = new Audio('/assets/sounds/clapping.mp3');
+    clapSound.volume = 0.6;
+    clapSound.play().catch(() => {});
   }
 
   function spawnConfetti() {
@@ -89,20 +100,21 @@ export default function ActivityScreen() {
     const props = { 
       activity, 
       onComplete: handleComplete,
-      onProgress: setProgress 
+      onProgress: setProgress,
+      listIndex 
     };
 
     switch (activity.type) {
       case 'drag-text-to-image':
-        return <DragTextToImage {...props} />;
+        return <DragTextToImage key={activityKey} {...props} />;
       case 'drag-image-to-zone':
-        return <DragImageToZone {...props} />;
+        return <DragImageToZone key={activityKey} {...props} />;
       case 'letter-sequencer':
-        return <LetterSequencer {...props} />;
+        return <LetterSequencer key={activityKey} {...props} />;
       case 'number-matcher':
-        return <NumberMatcher {...props} />;
+        return <NumberMatcher key={activityKey} {...props} />;
       case 'color-mixer':
-        return <ColorMixer {...props} />;
+        return <ColorMixer key={activityKey} {...props} />;
       default:
         return <div>Activité inconnue</div>;
     }
@@ -159,7 +171,14 @@ export default function ActivityScreen() {
       
       <div className="playful-divider" />
       
-      <button className="playful-btn reset" onClick={() => window.location.reload()}>
+      <button className="playful-btn reset" onClick={() => {
+        setActivityKey(prev => prev + 1);
+        setProgress(0);
+        setCompleted(false);
+        const maxLists = activity?.wordLists?.length || 1;
+        const nextListIndex = (listIndex + 1) % maxLists;
+        navigate(`/activity/${categoryId}?list=${nextListIndex}`);
+      }}>
         <div className="playful-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="none" className="playful-svg redo-svg">
             <path d="M19 10C19 13.866 15.866 17 12 17C8.13401 17 5 13.866 5 10M5 10H10M5 10V5" stroke="#FFA726" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
