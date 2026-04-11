@@ -28,7 +28,7 @@ export function MamanIcon({ size = 60 }) {
       {/* Body (dress) */}
       <path d="M27 48 Q28 38 40 38 Q52 38 53 48 L58 72 H22 Z" fill="#F06292" />
       {/* Arms */}
-      <ellipse cx="19" cy="54" rx="5" ry="9" rx="5" ry="9" fill="#F06292" transform="rotate(-15 19 54)" />
+      <ellipse cx="19" cy="54" rx="5" ry="9" fill="#F06292" transform="rotate(-15 19 54)" />
       <ellipse cx="61" cy="54" rx="5" ry="9" fill="#F06292" transform="rotate(15 61 54)" />
       {/* Hands */}
       <circle cx="17" cy="62" r="4" fill="#FFCBA4" />

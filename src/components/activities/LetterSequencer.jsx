@@ -153,14 +153,25 @@ export default function LetterSequencer({ activity, onComplete, onProgress, list
         setTimeout(() => {
           if (formed === currentWord.word) {
             setFeedbackState('correct');
-            speak(isAr ? `أحسنت! ${currentWord.hintLabel}` : `Bravo ! ${currentWord.hintLabel}`);
-            setTimeout(() => {
-              if (wordIndex < totalWords - 1) {
-                setWordIndex(i => i + 1);
-              } else {
-                onComplete();
+            
+            const handleSuccess = async () => {
+              try {
+                await speak(isAr ? 'أحسنت!' : 'Bravo !');
+                await speak(currentWord.hintLabel);
+              } catch (e) {
+                console.error('Audio error:', e);
               }
-            }, 1500);
+              
+              setTimeout(() => {
+                if (wordIndex < totalWords - 1) {
+                  setWordIndex(i => i + 1);
+                } else {
+                  onComplete();
+                }
+              }, 500);
+            };
+            
+            handleSuccess();
           } else {
             setFeedbackState('error');
             speak(isAr ? 'حاول مرة أخرى!' : 'Essaie encore !');

@@ -14,7 +14,7 @@ const CategoryCard = ({ title, icon, color, onClick, variant = 'v1' }) => {
             {typeof icon === 'string' && icon.startsWith('/') ? (
               <img src={icon} alt={title} className="clay-illustration-3d" />
             ) : (
-              <div className="icon-3d-fallback">{icon}</div>
+              <div className={`icon-3d-fallback ${/[\u0600-\u06FF]/.test(icon) ? 'arabic-letters' : ''}`}>{icon}</div>
             )}
           </div>
           <div className="card-label-row">

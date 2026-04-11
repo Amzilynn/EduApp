@@ -15,6 +15,20 @@ function shuffle(arr) {
   return a;
 }
 
+const NUMBER_COLORS = [
+  '#FF6B6B', // 0
+  '#FF8C00', // 1
+  '#FFD93D', // 2
+  '#6BCB77', // 3
+  '#4D96FF', // 4
+  '#C77DFF', // 5
+  '#FF69B4', // 6
+  '#4CAF50', // 7
+  '#8B00FF', // 8
+  '#00D2D3', // 9
+  '#FF4D4D'  // 10
+];
+
 function NumberCard({ num, isPlaced }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `num-${num}`,
@@ -43,10 +57,13 @@ function QuantityZone({ pair, placedNumber, feedbackState }) {
     id: `zone-${pair.number}`,
   });
 
+  const groupColor = NUMBER_COLORS[pair.number % NUMBER_COLORS.length];
+
   return (
     <div
       ref={setNodeRef}
       className={`quantity-drop-zone ${isOver ? 'over' : ''} ${feedbackState || ''}`}
+      style={feedbackState === 'correct' ? { borderColor: groupColor, background: `${groupColor}11` } : {}}
     >
       <div className="illustration-wrap">
         {Array.from({ length: pair.number }).map((_, i) => (
@@ -54,11 +71,15 @@ function QuantityZone({ pair, placedNumber, feedbackState }) {
             key={i} 
             type={pair.object} 
             size={pair.number > 5 ? 24 : 32} 
+            color={groupColor}
           />
         ))}
       </div>
 
-      <div className={`drop-slot-indicator ${placedNumber ? 'filled' : ''}`}>
+      <div 
+        className={`drop-slot-indicator ${placedNumber ? 'filled' : ''}`}
+        style={placedNumber ? { background: groupColor, boxShadow: `0 6px 0 ${groupColor}99` } : { borderColor: `${groupColor}66` }}
+      >
         {placedNumber || '?'}
       </div>
     </div>

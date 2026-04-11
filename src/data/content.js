@@ -576,7 +576,7 @@ const contentMap = {
         {
           id: 'alphabet',
           title: 'الأبجدية',
-          icon: '🔤',
+          icon: 'أ-ب-ت',
           color: '#FF6B6B',
           bgColor: '#FFF0F0',
           activity: alphabet_ar,

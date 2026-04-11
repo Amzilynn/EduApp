@@ -20,3 +20,4 @@ test_carre_gris.wav
 test_pyttsx3.wav
 temp_audio.wav
 test.mp3
+.venv/
