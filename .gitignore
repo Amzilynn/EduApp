@@ -21,3 +21,11 @@ test_pyttsx3.wav
 temp_audio.wav
 test.mp3
 .venv/
+xtts-backend/
+server/
+xtts-cache/
+tts-download/
+temp_audio.wav
+test.mp3
+refrence_voices/
+recordings/

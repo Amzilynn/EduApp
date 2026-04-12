@@ -160,6 +160,11 @@ export default function ColorMixer({ activity, onComplete, onProgress }) {
       setAnswer(droppedItem);
       speak(isAr ? 'أحسنت!' : 'Bravo !');
       
+      // Speak the name of the result color
+      setTimeout(() => {
+        speak(droppedItem.label);
+      }, 800);
+      
       setTimeout(() => {
         if (currentIndex < shuffledData.rounds.length - 1) {
           setCurrentIndex(i => i + 1);

@@ -22,6 +22,8 @@ export const recordingsManifest = {
     { text: 'أجب على الأسئلة التالية', lang: 'ar', category: 'instruction' },
     { text: 'Mets les lettres dans le bon ordre pour former le mot !', lang: 'fr', category: 'instruction' },
     { text: 'رتّب الحروف لتكوين الكلمة!', lang: 'ar', category: 'instruction' },
+    { text: 'Mélange les couleurs pour trouver le résultat !', lang: 'fr', category: 'instruction' },
+    { text: 'امزج الألوان لتجد النتيجة!', lang: 'ar', category: 'instruction' },
   ],
 
   // Family words

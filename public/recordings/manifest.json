@@ -501,6 +501,66 @@
         {
           "file": "z.wav",
           "key": "z"
+        },
+        {
+          "file": "stylo.wav",
+          "key": "stylo"
+        },
+        {
+          "file": "cartable.wav",
+          "key": "cartable"
+        },
+        {
+          "file": "ma_tresse.wav",
+          "key": "ma_tresse"
+        },
+        {
+          "file": "cole.wav",
+          "key": "cole"
+        },
+        {
+          "file": "maman.wav",
+          "key": "maman"
+        },
+        {
+          "file": "papa.wav",
+          "key": "papa"
+        },
+        {
+          "file": "fille.wav",
+          "key": "fille"
+        },
+        {
+          "file": "gar_on.wav",
+          "key": "gar_on"
+        },
+        {
+          "file": "ami.wav",
+          "key": "ami"
+        },
+        {
+          "file": "mouton.wav",
+          "key": "mouton"
+        },
+        {
+          "file": "vache.wav",
+          "key": "vache"
+        },
+        {
+          "file": "poule.wav",
+          "key": "poule"
+        },
+        {
+          "file": "chien.wav",
+          "key": "chien"
+        },
+        {
+          "file": "poisson.wav",
+          "key": "poisson"
+        },
+        {
+          "file": "m_lange_les_couleurs_pour_trouver_le_r_sultat.wav",
+          "key": "m_lange_les_couleurs_pour_trouver_le_r_sultat"
         }
       ],
       "boy": [
@@ -1003,6 +1063,66 @@
         {
           "file": "z.wav",
           "key": "z"
+        },
+        {
+          "file": "stylo.wav",
+          "key": "stylo"
+        },
+        {
+          "file": "cartable.wav",
+          "key": "cartable"
+        },
+        {
+          "file": "ma_tresse.wav",
+          "key": "ma_tresse"
+        },
+        {
+          "file": "cole.wav",
+          "key": "cole"
+        },
+        {
+          "file": "maman.wav",
+          "key": "maman"
+        },
+        {
+          "file": "papa.wav",
+          "key": "papa"
+        },
+        {
+          "file": "fille.wav",
+          "key": "fille"
+        },
+        {
+          "file": "gar_on.wav",
+          "key": "gar_on"
+        },
+        {
+          "file": "ami.wav",
+          "key": "ami"
+        },
+        {
+          "file": "mouton.wav",
+          "key": "mouton"
+        },
+        {
+          "file": "vache.wav",
+          "key": "vache"
+        },
+        {
+          "file": "poule.wav",
+          "key": "poule"
+        },
+        {
+          "file": "chien.wav",
+          "key": "chien"
+        },
+        {
+          "file": "poisson.wav",
+          "key": "poisson"
+        },
+        {
+          "file": "m_lange_les_couleurs_pour_trouver_le_r_sultat.wav",
+          "key": "m_lange_les_couleurs_pour_trouver_le_r_sultat"
         }
       ]
     },

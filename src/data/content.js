@@ -374,6 +374,11 @@ const alphabet_fr = {
       { word: 'POISSON', letters: ['P','O','I','S','S','O','N'], distractors: ['A','E','M'],   hint: '🐟', hintLabel: 'POISSON' },
     ]
   ],
+  listDetails: [
+    { title: 'École', icon: '🏫' },
+    { title: 'Famille', icon: '👨‍👩‍👧‍👦' },
+    { title: 'Animaux', icon: '🐾' }
+  ],
   trials: 5
 };
 
@@ -404,6 +409,11 @@ const alphabet_ar = {
       { word: 'سمكة', letters: ['س','م','ك','ة'], distractors: ['خ','ر','ب'], hint: '🐟', hintLabel: 'سمكة' },
       { word: 'بقرة', letters: ['ب','ق','ر','ة'], distractors: ['ك','س','خ'], hint: '🐄', hintLabel: 'بقرة' },
     ]
+  ],
+  listDetails: [
+    { title: 'المدرسة', icon: '🏫' },
+    { title: 'العائلة', icon: '👨‍👩‍👧‍👦' },
+    { title: 'الحيوانات', icon: '🐾' }
   ],
   trials: 5
 };

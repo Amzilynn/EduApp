@@ -96,12 +96,58 @@ export default function ActivityScreen() {
     navigate('/');
   }
 
+  const [selectedList, setSelectedList] = useState(searchParams.get('list'));
+  const hasMultipleLists = activity.wordLists && activity.wordLists.length > 1;
+
+  useEffect(() => {
+    setSelectedList(searchParams.get('list'));
+  }, [searchParams]);
+
   function renderActivity() {
+    // If activity has multiple lists and none selected, show selector
+    if (hasMultipleLists && selectedList === null) {
+      return (
+        <div className="list-selection-container">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="selection-title"
+          >
+            {isAr ? 'اختر القائمة التي تريد التدرب عليها:' : 'Choisis la liste que tu veux travailler :'}
+          </motion.h2>
+          
+          <div className="list-options-grid">
+            {activity.listDetails?.map((list, idx) => (
+              <motion.button
+                key={idx}
+                className="list-option-card"
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                onClick={() => {
+                   speak(list.title);
+                   setTimeout(() => {
+                     setSelectedList(idx.toString());
+                     navigate(`/activity/${categoryId}?list=${idx}`);
+                   }, 400);
+                }}
+              >
+                <span className="list-icon-large">{list.icon}</span>
+                <span className="list-title-label">{list.title}</span>
+              </motion.button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
     const props = { 
       activity, 
       onComplete: handleComplete,
       onProgress: setProgress,
-      listIndex 
+      listIndex: parseInt(selectedList || '0', 10)
     };
 
     switch (activity.type) {
@@ -172,19 +218,21 @@ export default function ActivityScreen() {
       <div className="playful-divider" />
       
       <button className="playful-btn reset" onClick={() => {
-        setActivityKey(prev => prev + 1);
-        setProgress(0);
-        setCompleted(false);
-        const maxLists = activity?.wordLists?.length || 1;
-        const nextListIndex = (listIndex + 1) % maxLists;
-        navigate(`/activity/${categoryId}?list=${nextListIndex}`);
+        if (hasMultipleLists) {
+          setSelectedList(null);
+          navigate(`/activity/${categoryId}`);
+        } else {
+          setActivityKey(prev => prev + 1);
+          setProgress(0);
+          setCompleted(false);
+        }
       }}>
         <div className="playful-icon-wrapper">
           <svg viewBox="0 0 24 24" fill="none" className="playful-svg redo-svg">
             <path d="M19 10C19 13.866 15.866 17 12 17C8.13401 17 5 13.866 5 10M5 10H10M5 10V5" stroke="#FFA726" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <span className="playful-btn-label">{isAr ? 'إعادة' : 'Refaire'}</span>
+        <span className="playful-btn-label">{hasMultipleLists && selectedList !== null ? (isAr ? 'القوائم' : 'Listes') : (isAr ? 'إعادة' : 'Refaire')}</span>
       </button>
     </div>
   );
