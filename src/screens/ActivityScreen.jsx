@@ -52,7 +52,7 @@ export default function ActivityScreen() {
   }
 
   const currentWordList = activity.wordLists ? (activity.wordLists[listIndex] || activity.wordLists[0]) : activity.words;
-  const totalSteps = activity.trials || activity.items?.length || currentWordList?.length || activity.rounds?.length || 5;
+  const totalSteps = activity.trials || activity.items?.length || currentWordList?.length || activity.rounds?.length || activity.questions?.length || 5;
 
   function handleComplete() {
     setCompleted(true);
@@ -88,7 +88,12 @@ export default function ActivityScreen() {
 
   function handleNext() {
     setCompleted(false);
-    navigate('/categories');
+    if (hasMultipleLists) {
+      setSelectedList(null);
+      navigate(`/activity/${categoryId}`);
+    } else {
+      navigate('/categories');
+    }
   }
 
   function handleGoHome() {
