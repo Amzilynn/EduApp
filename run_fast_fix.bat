@@ -12,7 +12,7 @@ echo.
 :: Ensure cache directory exists
 if not exist "%CACHE%" mkdir "%CACHE%"
 
-:: Run Docker with volume mapping for both workspace and TTS model cache
+:: Run the main generation script
 docker run --rm ^
   -v "%WORKSPACE%:/mnt/EDUAPP" ^
   -v "%CACHE%:/home/user/.local/share/tts" ^

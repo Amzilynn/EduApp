@@ -130,7 +130,7 @@ export default function NumberMatcher({ activity, onComplete, onProgress }) {
       setFeedback(prev => ({ ...prev, [zoneId]: 'correct' }));
       
       // Speak the number!
-      speak(num.toString());
+      // speak(num.toString());
 
       const newPlacedCount = Object.keys(newPlacements).length;
       if (onProgress) onProgress(newPlacedCount);

@@ -156,11 +156,20 @@ export function getAllRecordings() {
 }
 
 export function getRecordingPath(text, lang, voice) {
-  const normalized = text
-    .toLowerCase()
+  let t = text.toLowerCase();
+  
+  // Special mappings for specific letters to match our file naming convention
+  if (lang === 'fr') {
+    if (t === 'î') return `/recordings/fr/${voice}/i_chapeau.wav`;
+    if (t === 'é') return `/recordings/fr/${voice}/e_accent.wav`;
+    if (t === 'ç') return `/recordings/fr/${voice}/c_cedille.wav`;
+  }
+
+  const normalized = t
     .replace(/[^a-z0-9\u0600-\u06FF]/g, '_')
     .replace(/_+/g, '_')
     .replace(/^_|_$/g, '')
     .substring(0, 50);
+  
   return `/recordings/${lang}/${voice}/${normalized}.wav`;
 }

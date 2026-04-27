@@ -7,37 +7,40 @@ output_dir = Path("/mnt/EDUAPP/public/recordings/fr/girl")
 output_dir.mkdir(parents=True, exist_ok=True)
 ref_voice = "/mnt/EDUAPP/reference_voices/XTTSV2/Frenchgirl/girl-voice-fr.mp3"
 
-# 2. Define the targeted tasks
-# We use clear phonetic strings for letters to ensure the AI says the name correctly.
+# 2. Define ONLY the "trashy" tasks to be fixed
+# (Good ones like 'i', 'rectangle', 'maitresse' and questions have been removed)
 tasks = {
-    # Family & Words
-    "le_p_re": "Le père",
-    "la_m_re": "La mère",
-    "le_fr_re": "Le frère",
-    "rectangle": "Rectangle",
-    "gar_on": "Garçon", 
+    # Family & Words (Adding articles for stability)
+    "le_p_re": "C'est le père.",
+    "la_m_re": "C'est la mère.",
+    "le_fr_re": "C'est le frère.",
+    "gar_on": "Un garçon.",
     
-    # Instructions & Questions
-    "r_ponds_aux_questions_suivantes": "Réponds aux questions suivantes",
-    "o_est_le_triangle_jaune": "Où est le triangle jaune ?",
-    "o_est_le_carr_bleu": "Où est le carré bleu ?",
-    "o_est_le_rectangle_vert": "Où est le rectangle vert ?",
+    # Instructions (Shortened for better tone)
+    "r_ponds_aux_questions_suivantes": "Réponds aux questions.",
     
-    # Letters
-    "r": "C'est la lettre ère",
-    "m": "C'est la lettre ème",
-    "p": "C'est la lettre P",
-    "o": "C'est la lettre O",
-    "i": "C'est la lettre i circonflexe",  # I chapeau
-    "e": "C'est la lettre é",             # E accent
+    # Letters (Using capital letters with periods like 'i' which worked)
+    "r": "La lettre R.",
+    "m": "La lettre M.",
+    "p": "La lettre P.",
+    "o": "La lettre O.",
+    "e": "La lettre É.",
 }
 
-# 3. Run Synthesis
+# 3. Special cases for Accents
+extra_tasks = {
+    "e_accent": "La lettre é.",
+    "i_chapeau": "La lettre i.", # Reverting to 'i' sound as it's cleaner
+}
+
+# 4. Run Synthesis
 print("Initializing XTTS model...")
-# The model path is standard for Coqui TTS
 model = TTS("tts_models/multilingual/multi-dataset/xtts_v2", gpu=False)
 
-for key, text in tasks.items():
+# Combine all tasks
+all_tasks = {**tasks, **extra_tasks}
+
+for key, text in all_tasks.items():
     file_path = output_dir / f"{key}.wav"
     print(f"\n>>> Synthesizing {key}: '{text}'")
     try:
