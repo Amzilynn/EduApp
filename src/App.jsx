@@ -13,7 +13,7 @@ function AppRoutes() {
   const location = useLocation();
 
   useEffect(() => {
-    document.documentElement.dir = 'ltr';
+    document.documentElement.dir = settings.language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = settings.language === 'ar' ? 'ar' : 'fr';
     document.body.className = `level-${settings.level || 3}`;
   }, [settings.language, settings.level]);
