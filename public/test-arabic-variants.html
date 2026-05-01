@@ -4,236 +4,635 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arabic Audio Variants Tester</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Noto+Sans+Arabic:wght@400;700&display=swap');
-        
-        body { 
-            font-family: 'Outfit', 'Noto Sans Arabic', sans-serif; 
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
-            padding: 40px 20px; 
-            color: #2d3436; 
+        :root {
+            --blue: #0984e3;
+            --green: #00b894;
+            --yellow: #fdcb6e;
+            --red: #d63031;
+            --purple: #6c5ce7;
+            --bg: #f0f2f5;
+            --card: #fff;
+            --text: #2d3436;
+            --muted: #636e72;
+            --border: #dfe6e9;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Outfit', 'Noto Sans Arabic', sans-serif;
+            background: var(--bg);
+            color: var(--text);
             min-height: 100vh;
-        }
-        
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(10px);
-            padding: 40px; 
-            border-radius: 24px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-        }
-        
-        h1 { 
-            color: #0984e3; 
-            margin-bottom: 30px; 
-            text-align: center; 
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-        
-        .voice-section { 
-            margin-bottom: 50px; 
-        }
-        
-        .voice-title { 
-            font-size: 1.8rem; 
-            color: #636e72; 
-            border-bottom: 2px solid #0984e3; 
-            padding-bottom: 10px; 
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            direction: ltr; /* Page chrome is LTR, Arabic text is RTL inline */
         }
 
-        .voice-title::before {
-            content: '';
-            width: 12px;
-            height: 12px;
-            background: #0984e3;
+        header {
+            background: linear-gradient(135deg, #0984e3 0%, #6c5ce7 100%);
+            color: white;
+            padding: 24px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(9,132,227,0.3);
+        }
+
+        header h1 { font-size: 1.6rem; font-weight: 700; }
+        header p { font-size: 0.9rem; opacity: 0.85; margin-top: 4px; }
+
+        .legend {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .dot {
+            width: 10px; height: 10px;
             border-radius: 50%;
-        }
-        
-        .grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 20px; 
-        }
-        
-        .row { 
-            background: white; 
-            border: 1px solid #dfe6e9; 
-            padding: 20px; 
-            border-radius: 16px; 
-            display: grid;
-            grid-template-columns: 200px 1fr 1fr 1fr;
-            align-items: center;
-            gap: 15px;
-            transition: all 0.3s ease;
-        }
-        
-        .row:hover {
-            transform: scale(1.01);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-color: #0984e3;
-        }
-        
-        .label-container {
-            display: flex;
-            flex-direction: column;
+            flex-shrink: 0;
         }
 
-        .key-name { 
-            font-weight: 600; 
-            font-size: 1.1rem;
-            color: #2d3436;
-        }
-        
-        .arabic-text {
-            font-size: 0.9rem;
-            color: #636e72;
-            margin-top: 4px;
-        }
+        .dot-applied { background: var(--green); }
+        .dot-regen   { background: var(--yellow); }
+        .dot-normal  { background: rgba(255,255,255,0.5); }
 
-        button { 
-            background: #0984e3; 
-            color: white; 
-            border: none; 
-            padding: 12px 20px; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            font-weight: 600; 
+        main { padding: 30px 40px; max-width: 1400px; margin: 0 auto; }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--blue);
+            padding: 12px 16px;
+            border-left: 5px solid var(--blue);
+            background: white;
+            border-radius: 8px;
+            margin: 30px 0 14px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-        
-        button:hover { 
-            background: #074b83; 
-            transform: translateY(-2px);
+            gap: 10px;
         }
 
-        button.playing {
-            background: #00b894;
+        .section-title .count {
+            font-size: 0.75rem;
+            background: var(--blue);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: 600;
         }
 
-        .controls {
-            position: sticky;
-            top: 20px;
-            z-index: 100;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
+
+        thead tr {
+            background: linear-gradient(135deg, #f8f9ff, #eef2ff);
+        }
+
+        thead th {
+            padding: 12px 14px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+        }
+
+        tbody tr {
+            border-bottom: 1px solid var(--border);
+            transition: background 0.15s;
+        }
+
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:hover { background: #f8fbff; }
+        tbody tr.regen-row { background: #fffdf5; }
+        tbody tr.regen-row:hover { background: #fff8e1; }
+
+        td {
+            padding: 10px 14px;
+            vertical-align: middle;
+        }
+
+        .key-cell {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            white-space: nowrap;
+            min-width: 160px;
+        }
+
+        .arabic-cell {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: right;
+            direction: rtl;
+            min-width: 180px;
+        }
+
+        .status-cell { white-space: nowrap; }
 
         .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 9px;
+            border-radius: 20px;
             font-size: 0.7rem;
+            font-weight: 700;
             text-transform: uppercase;
-            background: #eee;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-right: 5px;
+        }
+
+        .badge-applied  { background: #d4fcef; color: #00835b; }
+        .badge-regen    { background: #fef9e7; color: #c07d00; border: 1px solid #fdcb6e; }
+        .badge-pending  { background: #f0f2f5; color: var(--muted); }
+
+        .btns-cell {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            min-width: 240px;
+        }
+
+        .v-btn {
+            padding: 6px 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            position: relative;
+        }
+
+        .v-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+
+        .v-btn.normal { background: #e8f0fe; color: var(--blue); }
+        .v-btn.new    { background: #fef3cd; color: #8a6400; }
+        .v-btn.playing { background: var(--green); color: white; }
+        .v-btn.error   { background: var(--red); color: white; }
+
+        .v-btn.applied-mark::after {
+            content: '✓';
+            position: absolute;
+            top: -4px; right: -4px;
+            background: var(--green);
+            color: white;
+            border-radius: 50%;
+            width: 12px; height: 12px;
+            font-size: 8px;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .no-audio {
+            font-size: 0.75rem;
+            color: #b2bec3;
+            font-style: italic;
+        }
+
+        .app-file-cell {
+            font-size: 0.75rem;
+            color: var(--muted);
+        }
+
+        .app-file-cell .app-btn {
+            background: #e8f0fe;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .app-file-cell .app-btn:hover { background: var(--blue); color: white; }
+        .app-file-cell .app-btn.playing { background: var(--green); color: white; }
+
+        .now-playing-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2d3436;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            z-index: 1000;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp { from { transform: translateX(-50%) translateY(20px); opacity: 0; } to { transform: translateX(-50%) translateY(0); opacity: 1; } }
+
+        .wave { display: flex; gap: 3px; align-items: center; }
+        .wave span { width: 3px; background: var(--green); border-radius: 3px; animation: wave 1s infinite ease-in-out; }
+        .wave span:nth-child(1) { animation-delay: 0s; height: 10px; }
+        .wave span:nth-child(2) { animation-delay: 0.1s; height: 16px; }
+        .wave span:nth-child(3) { animation-delay: 0.2s; height: 10px; }
+        @keyframes wave { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(0.4); } }
+
+        @media (max-width: 900px) {
+            main { padding: 16px; }
+            header { padding: 16px; flex-direction: column; gap: 12px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Arabic Audio Validation (Fusha)</h1>
-        
-        <div id="girl-section" class="voice-section">
-            <h2 class="voice-title">Girl Voice (Salma Style)</h2>
-            <div id="girl-grid" class="grid"></div>
-        </div>
 
-        <div id="boy-section" class="voice-section">
-            <h2 class="voice-title">Boy Voice (Shakir Style)</h2>
-            <div id="boy-grid" class="grid"></div>
-        </div>
+<header>
+    <div>
+        <h1>🎙 Arabic Audio Variants Tester</h1>
+        <p>Girl voice — click any button to preview. ✓ = applied to app</p>
     </div>
+    <div class="legend">
+        <div class="legend-item"><div class="dot dot-applied"></div> Applied to App</div>
+        <div class="legend-item"><div class="dot dot-regen"></div> Regenerated (pick best)</div>
+        <div class="legend-item"><div class="dot dot-normal"></div> V1–V3 Standard</div>
+    </div>
+</header>
 
-    <script>
-        const data = {
-            girl: {
-                repeat_again: "أَعِدْ مَرَّةً أُخْرَى",
-                where_is_blue_square: "أَيْنَ الْمُرَبَّعُ الْأَزْرَقُ؟",
-                where_is_green_rectangle: "أَيْنَ الْمُسْتَطِيلُ الْأَخْضَرُ؟",
-                bravo: "أَحْسَنْتِ!",
-                rouge: "أَحْمَر",
-                jaune: "أَصْفَر",
-                green: "أَخْضَر",
-                pink: "وَرْدِيّ",
-                marron: "بُنِّيّ",
-                purple: "بَنَفْسَجِيّ",
-                rectangle: "مُسْتَطِيل",
-                triangle: "مُثَلَّث",
-                mix_colors: "اِخْلِطِ الْأَلْوَانَ لِتَجِدَ النَّتِيجَةَ الصَّحِيحَةَ",
-                alif: "أَلِف", baa: "بَاء", taa: "تَاء", thaa: "ثَاء", jeem: "جِيم",
-                haa_soft: "حَاء", khaa: "خَاء", daal: "دَال", thaal: "ذَال", raa: "رَاء",
-                zay: "زَاي", seen: "سِين", sheen: "شِين", saad: "صَاد", daad: "ضَاد",
-                taa_hard: "طَاء", zaa: "ظَاء", ayn: "عَيْن", ghayn: "غَيْن", faa: "فَاء",
-                qaaf: "قَاف", kaaf: "كَاف", laam: "لاَم", meem: "مِيم", noon: "نُون",
-                haa: "هَاء", waw: "وَاو", yaa: "يَاء"
-            },
-            boy: {
-                father: "أَب",
-                grandfather: "جَدّ",
-                bravo: "أَحْسَنْتَ!",
-                rectangle: "مُسْتَطِيل",
-                triangle: "مُثَلَّث",
-                marron: "بُنِّيّ",
-                pink: "وَرْدِيّ",
-                purple: "بَنَفْسَجِيّ",
-                gris: "رَمَادِيّ",
-                where_is_blue_square: "أَيْنَ الْمُرَبَّعُ الْأَزْرَقُ؟",
-                where_is_green_rectangle: "أَيْنَ الْمُسْتَطِيلُ الْأَخْضَرُ؟"
-            }
-        };
+<main>
 
-        function createGrid(voice) {
-            const grid = document.getElementById(`${voice}-grid`);
-            const phrases = data[voice];
+    <!-- SECTION: Phrases & Words -->
+    <div class="section-title">📢 Phrases & Words <span class="count">13</span></div>
+    <table id="tbl-phrases">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Arabic</th>
+                <th>Status</th>
+                <th>Variants</th>
+                <th>Applied in App</th>
+            </tr>
+        </thead>
+        <tbody id="body-phrases"></tbody>
+    </table>
 
-            for (const [key, text] of Object.entries(phrases)) {
-                const row = document.createElement('div');
-                row.className = 'row';
-                
-                row.innerHTML = `
-                    <div class="label-container">
-                        <span class="key-name">${key}</span>
-                        <span class="arabic-text">${text}</span>
-                    </div>
-                    <button onclick="play('${voice}', '${key}', 1, this)">V1</button>
-                    <button onclick="play('${voice}', '${key}', 2, this)">V2</button>
-                    <button onclick="play('${voice}', '${key}', 3, this)">V3</button>
-                `;
-                grid.appendChild(row);
-            }
-        }
+    <!-- SECTION: Alphabet -->
+    <div class="section-title">🔤 Alphabet — الحروف <span class="count">28</span></div>
+    <table id="tbl-alpha">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Arabic Name</th>
+                <th>Status</th>
+                <th>Variants</th>
+                <th>Applied in App</th>
+            </tr>
+        </thead>
+        <tbody id="body-alpha"></tbody>
+    </table>
 
-        function play(voice, key, version, btn) {
-            const path = `recordings/ar/${voice}/${key}_v${version}.wav`;
-            const audio = new Audio(path);
-            
-            btn.classList.add('playing');
-            audio.play()
-                .then(() => {
-                    audio.onended = () => btn.classList.remove('playing');
-                })
-                .catch(e => {
-                    console.error("Audio not found:", path);
-                    btn.classList.remove('playing');
-                    btn.style.background = '#ff7675';
-                    setTimeout(() => btn.style.background = '', 1000);
-                });
-        }
+    <!-- SECTION: Boy Voice -->
+    <div class="section-title" style="border-left-color:#6c5ce7;">👦 Boy Voice — صوت الولد <span class="count" style="background:#6c5ce7;">11</span></div>
+    <table id="tbl-boy">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Arabic</th>
+                <th>Status</th>
+                <th>Variants</th>
+                <th>Applied in App</th>
+            </tr>
+        </thead>
+        <tbody id="body-boy"></tbody>
+    </table>
 
-        createGrid('girl');
-        createGrid('boy');
-    </script>
+</main>
+
+<div class="now-playing-bar" id="nowPlaying">
+    <div class="wave"><span></span><span></span><span></span></div>
+    <span id="nowPlayingText">Playing…</span>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+//  DATA
+// ─────────────────────────────────────────────
+
+const GIRL_DIR = 'recordings/ar/girl/';
+const BOY_DIR  = 'recordings/ar/boy/';
+
+// Items applied to the app by the user's choice
+// format: { key, arabic, appFile, appliedVariant, variants, isRegen }
+// appliedVariant = null means NOT yet applied (needs pick from regen)
+const phrases = [
+    {
+        key: 'repeat_again',
+        arabic: 'أَعِدْ مَرَّةً أُخْرَى',
+        appFile: 'أعد_مرة_أخرى.wav',
+        appliedVariant: 1,
+        variants: [1,2,3]
+    },
+    {
+        key: 'where_is_blue_square',
+        arabic: 'أَيْنَ الْمُرَبَّعُ الْأَزْرَقُ؟',
+        appFile: 'أين_المربع_الأزرق؟.wav',
+        appliedVariant: 2,
+        variants: [1,2,3]
+    },
+    {
+        key: 'where_is_green_rectangle',
+        arabic: 'أَيْنَ الْمُسْتَطِيلُ الْأَخْضَرُ؟',
+        appFile: 'أين_المستطيل_الأخضر؟.wav',
+        appliedVariant: 6,
+        variants: [1,2,3,4,5,6]
+    },
+    {
+        key: 'bravo',
+        arabic: 'أَحْسَنْتَ!',
+        appFile: 'أحسنت.wav',
+        appliedVariant: 5,
+        variants: [1,2,3,4,5,6],
+        note: 'Neutral (not أحسنتِ)'
+    },
+    {
+        key: 'rouge',
+        arabic: 'أَحْمَر',
+        appFile: 'أحمر.wav',
+        appliedVariant: 3,
+        variants: [1,2,3]
+    },
+    {
+        key: 'jaune',
+        arabic: 'أَصْفَر',
+        appFile: 'أصفر.wav',
+        appliedVariant: 1,
+        variants: [1,2,3]
+    },
+    {
+        key: 'green',
+        arabic: 'أَخْضَر',
+        appFile: 'أخضر.wav',
+        appliedVariant: 3,
+        variants: [1,2,3]
+    },
+    {
+        key: 'pink',
+        arabic: 'وَرْدِيّ',
+        appFile: 'وردي.wav',
+        appliedVariant: 1,
+        variants: [1,2,3]
+    },
+    {
+        key: 'marron',
+        arabic: 'بُنِّيّ',
+        appFile: 'بني.wav',
+        appliedVariant: 2,
+        variants: [1,2,3]
+    },
+    {
+        key: 'purple',
+        arabic: 'بَنَفْسَجِيّ',
+        appFile: 'بنفسجي.wav',
+        appliedVariant: 3,
+        variants: [1,2,3]
+    },
+    {
+        key: 'rectangle',
+        arabic: 'مُسْتَطِيل',
+        appFile: 'مستطيل.wav',
+        appliedVariant: 3,
+        variants: [1,2,3]
+    },
+    {
+        key: 'triangle',
+        arabic: 'مُثَلَّث',
+        appFile: 'مثلث.wav',
+        appliedVariant: 3,
+        variants: [1,2,3]
+    },
+    {
+        key: 'mix_colors',
+        arabic: 'اِخْلِطِ الْأَلْوَانَ لِتَجِدَ النَّتِيجَةَ الصَّحِيحَةَ',
+        appFile: 'امزج_الألوان_لتجد_النتيجة_الصحيحة.wav',
+        appliedVariant: 6,
+        variants: [1,2,3,4,5,6],
+        note: 'Full phrase — V6 applied'
+    },
+];
+
+const alphabet = [
+    { key: 'alif',     arabic: 'أَلِف',   appFile: 'أ.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'baa',      arabic: 'بَاء',    appFile: 'ب.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'taa',      arabic: 'تَاء',    appFile: 'ت.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'thaa',     arabic: 'ثَاء',    appFile: 'ث.wav',  appliedVariant: 3, variants: [1,2,3] },
+    { key: 'jeem',     arabic: 'جِيم',    appFile: 'ج.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'haa_soft', arabic: 'حَاء',    appFile: 'ح.wav',  appliedVariant: 3, variants: [1,2,3] },
+    { key: 'khaa',     arabic: 'خَاء',    appFile: 'خ.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'daal',     arabic: 'دَال',    appFile: 'د.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'thaal',    arabic: 'ذَال',    appFile: 'ذ.wav',  appliedVariant: 6, variants: [1,2,3,4,5,6] },
+    { key: 'raa',      arabic: 'رَاء',    appFile: 'ر.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'zay',      arabic: 'زَاي',    appFile: 'ز.wav',  appliedVariant: 1, variants: [1,2,3,4,5,6] },
+    { key: 'seen',     arabic: 'سِين',    appFile: 'س.wav',  appliedVariant: 3, variants: [1,2,3] },
+    { key: 'sheen',    arabic: 'شِين',    appFile: 'ش.wav',  appliedVariant: 3, variants: [1,2,3] },
+    { key: 'saad',     arabic: 'صَاد',    appFile: 'ص.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'daad',     arabic: 'ضَاد',    appFile: 'ض.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'taa_hard', arabic: 'طَاء',    appFile: 'ط.wav',  appliedVariant: 1, variants: [1,2,3,4,5,6] },
+    { key: 'zaa',      arabic: 'ظَاء',    appFile: 'ظ.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'ayn',      arabic: 'عَيْن',   appFile: 'ع.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'ghayn',    arabic: 'غَيْن',   appFile: 'غ.wav',  appliedVariant: 3, variants: [1,2,3] },
+    { key: 'faa',      arabic: 'فَاء',    appFile: 'ف.wav',  appliedVariant: 6, variants: [1,2,3,4,5,6] },
+    { key: 'qaaf',     arabic: 'قَاف',    appFile: 'ق.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'kaaf',     arabic: 'كَاف',    appFile: 'ك.wav',  appliedVariant: 3, variants: [1,2,3] },
+    { key: 'laam',     arabic: 'لاَم',    appFile: 'ل.wav',  appliedVariant: 3, variants: [1,2,3] },
+    { key: 'meem',     arabic: 'مِيم',    appFile: 'م.wav',  appliedVariant: 4, variants: [1,2,3,4,5,6] },
+    { key: 'noon',     arabic: 'نُون',    appFile: 'ن.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'haa',      arabic: 'هَاء',    appFile: 'هـ.wav', appliedVariant: 1, variants: [1,2,3] },
+    { key: 'waw',      arabic: 'وَاو',    appFile: 'و.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'yaa',      arabic: 'يَاء',    appFile: 'ي.wav',  appliedVariant: 1, variants: [1,2,3] },
+];
+
+// ─────────────────────────────────────────────
+//  AUDIO PLAYBACK
+// ─────────────────────────────────────────────
+let currentAudio = null;
+let currentBtn   = null;
+
+function play(src, btn, label) {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+    if (currentBtn) {
+        currentBtn.classList.remove('playing', 'error');
+    }
+
+    const audio = new Audio(src);
+    currentAudio = audio;
+    currentBtn   = btn;
+
+    btn.classList.add('playing');
+    showNowPlaying(label);
+
+    audio.play()
+        .then(() => {
+            audio.onended = () => {
+                btn.classList.remove('playing');
+                hideNowPlaying();
+            };
+        })
+        .catch(() => {
+            btn.classList.remove('playing');
+            btn.classList.add('error');
+            setTimeout(() => btn.classList.remove('error'), 1500);
+            hideNowPlaying();
+        });
+}
+
+function showNowPlaying(label) {
+    const bar = document.getElementById('nowPlaying');
+    document.getElementById('nowPlayingText').textContent = label;
+    bar.style.display = 'flex';
+}
+
+function hideNowPlaying() {
+    document.getElementById('nowPlaying').style.display = 'none';
+}
+
+// ─────────────────────────────────────────────
+//  TABLE BUILDER
+// ─────────────────────────────────────────────
+function buildRow(item, dir) {
+    const tr = document.createElement('tr');
+    if (item.isRegen) tr.classList.add('regen-row');
+
+    // Key
+    const tdKey = document.createElement('td');
+    tdKey.className = 'key-cell';
+    tdKey.textContent = item.key;
+    if (item.note) {
+        const note = document.createElement('div');
+        note.style.cssText = 'font-size:0.65rem;color:#a29bfe;margin-top:2px;font-style:italic;';
+        note.textContent = item.note;
+        tdKey.appendChild(note);
+    }
+    tr.appendChild(tdKey);
+
+    // Arabic
+    const tdAr = document.createElement('td');
+    tdAr.className = 'arabic-cell';
+    tdAr.textContent = item.arabic;
+    tr.appendChild(tdAr);
+
+    // Status
+    const tdStatus = document.createElement('td');
+    tdStatus.className = 'status-cell';
+    if (item.appliedVariant !== null) {
+        tdStatus.innerHTML = `<span class="badge badge-applied">✓ V${item.appliedVariant} Applied</span>`;
+    } else if (item.isRegen) {
+        tdStatus.innerHTML = `<span class="badge badge-regen">↻ Pick one</span>`;
+    } else {
+        tdStatus.innerHTML = `<span class="badge badge-pending">—</span>`;
+    }
+    tr.appendChild(tdStatus);
+
+    // Variant buttons
+    const tdBtns = document.createElement('td');
+    const btnsDiv = document.createElement('div');
+    btnsDiv.className = 'btns-cell';
+
+    item.variants.forEach(v => {
+        const btn = document.createElement('button');
+        const isNew = v >= 4;
+        btn.className = `v-btn ${isNew ? 'new' : 'normal'}`;
+        if (item.appliedVariant === v) btn.classList.add('applied-mark');
+        btn.textContent = `V${v}`;
+        if (isNew) btn.title = 'Newly regenerated';
+
+        btn.addEventListener('click', () => {
+            const src = `${dir}${item.key}_v${v}.wav`;
+            play(src, btn, `${item.arabic} — V${v}`);
+        });
+        btnsDiv.appendChild(btn);
+    });
+    tdBtns.appendChild(btnsDiv);
+    tr.appendChild(tdBtns);
+
+    // App file button
+    const tdApp = document.createElement('td');
+    tdApp.className = 'app-file-cell';
+    if (item.appFile) {
+        const appBtn = document.createElement('button');
+        appBtn.className = 'app-btn';
+        appBtn.innerHTML = `🔊 <span style="font-family:Noto Sans Arabic,sans-serif;direction:rtl;">${item.arabic}</span>`;
+        appBtn.title = item.appFile;
+        appBtn.addEventListener('click', () => {
+            const src = `${dir}${item.appFile}`;
+            play(src, appBtn, `[APP] ${item.arabic}`);
+        });
+        tdApp.appendChild(appBtn);
+        const fname = document.createElement('div');
+        fname.style.cssText = 'font-size:0.62rem;color:#b2bec3;margin-top:3px;';
+        fname.textContent = item.appFile;
+        tdApp.appendChild(fname);
+    } else {
+        tdApp.innerHTML = `<span class="no-audio">Not mapped</span>`;
+    }
+    tr.appendChild(tdApp);
+
+    return tr;
+}
+
+function buildTable(items, tbodyId, dir) {
+    const tbody = document.getElementById(tbodyId);
+    items.forEach(item => tbody.appendChild(buildRow(item, dir)));
+}
+
+buildTable(phrases, 'body-phrases', GIRL_DIR);
+buildTable(alphabet, 'body-alpha',   GIRL_DIR);
+
+// ─────────────────────────────────────────────
+//  BOY VOICE DATA
+// ─────────────────────────────────────────────
+const boyPhrases = [
+    { key: 'father',     arabic: 'أَب',     appFile: 'الأب.wav',  appliedVariant: 1, variants: [1,2,3] },
+    { key: 'grandfather', arabic: 'جَدّ',   appFile: 'الجد.wav',  appliedVariant: 5, variants: [1,2,3,4,5,6] },
+    { key: 'bravo',      arabic: 'أَحْسَنْتَ!', appFile: 'أحسنت.wav', appliedVariant: 2, variants: [1,2,3,4,5,6] },
+    { key: 'rectangle',  arabic: 'مُسْتَطِيل', appFile: 'مستطيل.wav', appliedVariant: 2, variants: [1,2,3] },
+    { key: 'triangle',   arabic: 'مُثَلَّث',   appFile: 'مثلث.wav',   appliedVariant: 1, variants: [1,2,3] },
+    { key: 'marron',     arabic: 'بُنِّيّ',    appFile: 'بني.wav',    appliedVariant: 1, variants: [1,2,3] },
+    { key: 'pink',       arabic: 'وَرْدِيّ',   appFile: 'وردي.wav',   appliedVariant: 1, variants: [1,2,3] },
+    { key: 'purple',     arabic: 'بَنَفْسَجِيّ', appFile: 'بنفسجي.wav', appliedVariant: 3, variants: [1,2,3] },
+    { key: 'gris',       arabic: 'رَمَادِيّ',  appFile: 'رمادي.wav',  appliedVariant: 2, variants: [1,2,3] },
+    { key: 'where_is_blue_square',     arabic: 'أَيْنَ الْمُرَبَّعُ الْأَزْرَقُ؟',     appFile: 'أين_المربع_الأزرق؟.wav',     appliedVariant: 1, variants: [1,2,3] },
+    { key: 'where_is_green_rectangle', arabic: 'أَيْنَ الْمُسْتَطِيلُ الْأَخْضَرُ؟', appFile: 'أين_المستطيل_الأخضر؟.wav', appliedVariant: 1, variants: [1,2,3] },
+];
+
+buildTable(boyPhrases, 'body-boy', BOY_DIR);
+</script>
 </body>
 </html>

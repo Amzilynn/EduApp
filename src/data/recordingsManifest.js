@@ -143,6 +143,12 @@ export const recordingsManifest = {
     { text: 'ليس صحيحا...', lang: 'ar', category: 'error' },
     { text: 'أعد المحاولة!', lang: 'ar', category: 'error' },
   ],
+  
+  // Activity Selection Question
+  selection: [
+    { text: "Quelle catégorie veux-tu explorer ?", lang: 'fr', category: 'selection' },
+    { text: "أي فئة تريد استكشافها؟", lang: 'ar', category: 'selection' },
+  ],
 };
 
 export function getAllRecordings() {

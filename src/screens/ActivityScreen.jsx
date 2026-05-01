@@ -105,12 +105,24 @@ export default function ActivityScreen() {
   const hasMultipleLists = activity.wordLists && activity.wordLists.length > 1;
 
   useEffect(() => {
+    if (hasMultipleLists && selectedList === null) {
+      const selectionQuestion = isAr ? "أي فئة تريد استكشافها؟" : "Quelle catégorie veux-tu explorer ?";
+      const timer = setTimeout(() => {
+        speak(selectionQuestion);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [hasMultipleLists, selectedList, isAr, speak]);
+
+  useEffect(() => {
     setSelectedList(searchParams.get('list'));
   }, [searchParams]);
 
   function renderActivity() {
     // If activity has multiple lists and none selected, show selector
     if (hasMultipleLists && selectedList === null) {
+      const selectionQuestion = isAr ? "أي فئة تريد استكشافها؟" : "Quelle catégorie veux-tu explorer ?";
+      
       return (
         <div className="list-selection-container">
           <motion.h2 
@@ -118,7 +130,7 @@ export default function ActivityScreen() {
             animate={{ opacity: 1, y: 0 }}
             className="selection-title"
           >
-            {isAr ? 'اختر القائمة التي تريد التدرب عليها:' : 'Choisis la liste que tu veux travailler :'}
+            {selectionQuestion}
           </motion.h2>
           
           <div className="list-options-grid">
@@ -179,18 +191,20 @@ export default function ActivityScreen() {
         <span className="home-label-3d-bold">{isAr ? 'الرئيسية' : 'Accueil'}</span>
       </button>
       
-      <div className="v3-instruction-text-group">
-        <div className="v3-instruction-text">{activity.instruction}</div>
-        {!activity.noAudio && (
-          <button 
-            className="v3-instruction-speaker-btn" 
-            onClick={() => speak(activity.instruction)}
-            title="Écouter l'instruction"
-          >
-            🔊
-          </button>
-        )}
-      </div>
+      {!(hasMultipleLists && selectedList === null) && (
+        <div className="v3-instruction-text-group">
+          <div className="v3-instruction-text">{activity.instruction}</div>
+          {!activity.noAudio && (
+            <button 
+              className="v3-instruction-speaker-btn" 
+              onClick={() => speak(activity.instruction)}
+              title="Écouter l'instruction"
+            >
+              🔊
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 
