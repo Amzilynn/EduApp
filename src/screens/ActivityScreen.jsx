@@ -105,34 +105,14 @@ export default function ActivityScreen() {
   const hasMultipleLists = activity.wordLists && activity.wordLists.length > 1;
 
   useEffect(() => {
-    if (hasMultipleLists && selectedList === null) {
-      const selectionQuestion = isAr ? "أي فئة تريد استكشافها؟" : "Quelle catégorie veux-tu explorer ?";
-      const timer = setTimeout(() => {
-        speak(selectionQuestion);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [hasMultipleLists, selectedList, isAr, speak]);
-
-  useEffect(() => {
     setSelectedList(searchParams.get('list'));
   }, [searchParams]);
 
   function renderActivity() {
     // If activity has multiple lists and none selected, show selector
     if (hasMultipleLists && selectedList === null) {
-      const selectionQuestion = isAr ? "أي فئة تريد استكشافها؟" : "Quelle catégorie veux-tu explorer ?";
-      
       return (
         <div className="list-selection-container">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="selection-title"
-          >
-            {selectionQuestion}
-          </motion.h2>
-          
           <div className="list-options-grid">
             {activity.listDetails?.map((list, idx) => (
               <motion.button
@@ -191,20 +171,28 @@ export default function ActivityScreen() {
         <span className="home-label-3d-bold">{isAr ? 'الرئيسية' : 'Accueil'}</span>
       </button>
       
-      {!(hasMultipleLists && selectedList === null) && (
-        <div className="v3-instruction-text-group">
-          <div className="v3-instruction-text">{activity.instruction}</div>
-          {!activity.noAudio && (
-            <button 
-              className="v3-instruction-speaker-btn" 
-              onClick={() => speak(activity.instruction)}
-              title="Écouter l'instruction"
-            >
-              🔊
-            </button>
-          )}
+      <div className="v3-instruction-text-group">
+        <div className="v3-instruction-text">
+          {hasMultipleLists && selectedList === null 
+            ? (isAr ? "أي فئة تريد استكشافها؟" : "Quelle catégorie veux-tu explorer ?")
+            : activity.instruction
+          }
         </div>
-      )}
+        {!activity.noAudio && (
+          <button 
+            className="v3-instruction-speaker-btn" 
+            onClick={() => {
+              const text = hasMultipleLists && selectedList === null 
+                ? (isAr ? "أي فئة تريد استكشافها؟" : "Quelle catégorie veux-tu explorer ?")
+                : activity.instruction;
+              speak(text);
+            }}
+            title="Écouter"
+          >
+            🔊
+          </button>
+        )}
+      </div>
     </div>
   );
 

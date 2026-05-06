@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arabic Audio Tester — FULL DYNAMIC LIST</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Noto+Sans+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>French Audio Tester — FULL DYNAMIC LIST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="audit_data.js"></script>
     <style>
         :root { --blue: #0984e3; --green: #00b894; --yellow: #fdcb6e; --red: #d63031; --bg: #f0f2f5; --card: #fff; --text: #2d3436; --muted: #636e72; --border: #dfe6e9; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Outfit', 'Noto Sans Arabic', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; direction: ltr; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
         header { background: linear-gradient(135deg, #0984e3 0%, #6c5ce7 100%); color: white; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .nav-tabs { display: flex; gap: 10px; padding: 20px 40px; }
         .tab-btn { padding: 10px 20px; border-radius: 30px; border: none; background: #fff; cursor: pointer; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: 0.2s; }
@@ -25,7 +25,6 @@
         tbody tr.regen-row { background: #fff5f5 !important; }
         td { padding: 12px 15px; vertical-align: middle; }
         .key-cell { font-family: monospace; font-size: 0.85rem; color: #555; }
-        .label-cell { font-family: 'Noto Sans Arabic', sans-serif; font-size: 1.1rem; font-weight: 600; direction: rtl; text-align: right; }
         .btns-cell { display: flex; flex-wrap: wrap; gap: 8px; }
         .v-container { display: flex; flex-direction: column; align-items: center; gap: 4px; border: 1px solid #eee; padding: 6px; border-radius: 8px; background: #fafafa; min-width: 75px; }
         .v-btn { padding: 7px 14px; border-radius: 6px; border: none; cursor: pointer; font-weight: 700; font-size: 0.75rem; width: 100%; transition: 0.2s; }
@@ -43,7 +42,7 @@
 
 <header>
     <div>
-        <h1>🎙 Arabic Audio Tester — Master List</h1>
+        <h1>🎙 French Audio Tester — Master List</h1>
         <p style="font-size:0.8rem; opacity:0.8;">Automatically showing every file found on disk.</p>
     </div>
     <button onclick="copySelections()" style="background:var(--yellow); color:var(--text); border:none; padding:10px 20px; border-radius:25px; font-weight:700; cursor:pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">📋 Copy Selections</button>
@@ -57,7 +56,7 @@
 <main id="tab-girl">
     <div class="section-title">📂 All Found Recordings <span class="count" id="count-girl">0</span></div>
     <table id="tbl-girl">
-        <thead><tr><th>File Key / Name</th><th>Arabic Label (if known)</th><th>Selection & Variants</th><th>Base File</th></tr></thead>
+        <thead><tr><th>File Key / Name</th><th>Selection & Variants</th><th>Base File</th></tr></thead>
         <tbody id="body-girl"></tbody>
     </table>
 </main>
@@ -65,7 +64,7 @@
 <main id="tab-boy" style="display:none;">
     <div class="section-title">📂 All Found Recordings <span class="count" id="count-boy">0</span></div>
     <table id="tbl-boy">
-        <thead><tr><th>File Key / Name</th><th>Arabic Label (if known)</th><th>Selection & Variants</th><th>Base File</th></tr></thead>
+        <thead><tr><th>File Key / Name</th><th>Selection & Variants</th><th>Base File</th></tr></thead>
         <tbody id="body-boy"></tbody>
     </table>
 </main>
@@ -76,34 +75,25 @@
 </div>
 
 <script>
-const DIRS = { 'girl': 'recordings/ar/girl/', 'boy': 'recordings/ar/boy/' };
-
-// Nice labels for known keys
-const LABELS = {
-    'alif': 'أَلِف', 'baa': 'بَاء', 'taa': 'تَاء', 'thaa': 'ثَاء', 'jeem': 'جِيم', 'haa_soft': 'حَاء', 'khaa': 'خَاء', 'daal': 'دَال', 'thaal': 'ذَال', 'raa': 'رَاء', 'zay': 'زَاي', 'seen': 'سِين', 'sheen': 'شِين', 'saad': 'صَاد', 'daad': 'ضَاد', 'taa_hard': 'طَاء', 'zaa': 'ظَاء', 'ayn': 'عَيْن', 'ghayn': 'غَيْن', 'faa': 'فَاء', 'qaaf': 'قَاف', 'kaaf': 'كَاف', 'laam': 'لاَم', 'meem': 'مِيم', 'noon': 'نُون', 'haa': 'هَاء', 'waw': 'وَاو', 'yaa': 'يَاء',
-    'where_is_blue_square': 'أَيْنَ الْمُرَبَّعُ الْأَزْرَقُ؟', 'where_is_green_rectangle': 'أَيْنَ الْمُسْتَطِيلُ الْأَخْضَرُ؟', 'bravo': 'أَحْسَنْتَ!', 'rouge': 'أَحْمَر', 'jaune': 'أَصْفَر', 'green': 'أَخْضَر', 'bleu': 'أَزْرَق', 'blanc': 'أَبْيَض', 'noir': 'أَسْوَد', 'pink': 'وَرْدِيّ', 'marron': 'بُنِّيّ', 'purple': 'بَنَفْسَجِيّ', 'gris': 'رَمَادِيّ', 'orange': 'بُرْتُقَالِيّ', 'rectangle': 'مُسْتَطِيل', 'triangle': 'مُثَلَّث', 'carre': 'مُرَبَّع', 'cercle': 'دَائِرَة', 'father': 'أَب', 'grandfather': 'جَدّ', 'mother': 'أُمّ', 'grandmother': 'جَدَّة', 'brother': 'أَخ', 'sister': 'أُخْت', 'mix_colors': 'اِخْلِطِ الْأَلْوَانَ', 'welcome_learn': 'ماذا نريد أن نتعلم اليوم؟', 'selection_cat': 'أي فئة تريد استكشافها؟', 'instr_person': 'اسحب الكلمة إلى الشخص الصحيح!', 'instr_color': 'اسحب الكلمة إلى اللون الصحيح!', 'instr_shape': 'اسحب الكلمة إلى الشكل الصحيح!', 'instr_questions': 'أجب على الأسئلة التالية', 'instr_order': 'رتّب الحروف لتكوين الكلمة!', 'instr_mix': 'امزج الألوان لتجد النتيجة!'
-};
+const DIRS = { 'girl': 'recordings/fr/girl/', 'boy': 'recordings/fr/boy/' };
 
 function buildTable(voice) {
-    const auditKey = 'ar_' + voice;
+    const auditKey = 'fr_' + voice;
     const data = AUDIT[auditKey] || {};
     const tbody = document.getElementById('body-' + voice);
     const dir = DIRS[voice];
     tbody.innerHTML = '';
     
-    // Get all keys and sort them (Arabic keys often end up at the bottom)
     const keys = Object.keys(data).sort((a, b) => a.localeCompare(b));
     
     keys.forEach(key => {
         const tr = document.createElement('tr');
         const variants = data[key];
-        const label = LABELS[key] || key; // Show the key itself if no label known
         
         tr.innerHTML = `
             <td class="key-cell">${key}</td>
-            <td class="label-cell">${label}</td>
             <td><div class="btns-cell" id="btns-${voice}-${key}"></div></td>
-            <td><button class="v-btn normal" style="width:auto;" onclick="play('${dir}${key}.wav', this, '[BASE] ${label}')">Play Base</button></td>
+            <td><button class="v-btn normal" style="width:auto;" onclick="play('${dir}${key}.wav', this, '[BASE] ${key}')">Play Base</button></td>
         `;
         
         const btnsDiv = tr.querySelector(`#btns-${voice}-${key}`);
@@ -123,13 +113,13 @@ function buildTable(voice) {
         regenContainer.appendChild(regenBtn);
         btnsDiv.appendChild(regenContainer);
 
-        // Always show a PICK option for the Base file if it exists
+        // BASE PICK
         const basePickContainer = document.createElement('div');
         basePickContainer.className = 'v-container';
         const baseBtn = document.createElement('button');
         baseBtn.className = 'v-btn normal';
         baseBtn.textContent = 'BASE';
-        baseBtn.onclick = () => play(`${dir}${key}.wav`, baseBtn, label);
+        baseBtn.onclick = () => play(`${dir}${key}.wav`, baseBtn, key);
         const basePick = document.createElement('button');
         basePick.className = 'pick-btn';
         basePick.textContent = 'PICK';
@@ -145,7 +135,7 @@ function buildTable(voice) {
             const vBtn = document.createElement('button');
             vBtn.className = 'v-btn normal';
             vBtn.textContent = `V${v}`;
-            vBtn.onclick = () => play(`${dir}${key}_v${v}.wav`, vBtn, `${label} V${v}`);
+            vBtn.onclick = () => play(`${dir}${key}_v${v}.wav`, vBtn, `${key} V${v}`);
             const vPick = document.createElement('button');
             vPick.className = 'pick-btn';
             vPick.textContent = 'PICK';
@@ -184,7 +174,7 @@ function copySelections() {
             const picked = row.querySelector('.v-btn.picked');
             if (picked) {
                 const status = picked.textContent.includes('REGEN') ? 'REGENERATE' : picked.textContent;
-                lines.push(`${v === 'girl' ? '👧 Girl' : '👦 Boy'} ${key}: ${status}`);
+                lines.push(`${v} ${key}: ${status}`);
             }
         });
     });

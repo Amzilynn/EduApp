@@ -47,6 +47,10 @@
           "key": "a"
         },
         {
+          "file": "ami.wav",
+          "key": "ami"
+        },
+        {
           "file": "arbre.wav",
           "key": "arbre"
         },
@@ -99,6 +103,10 @@
           "key": "carr_jaune"
         },
         {
+          "file": "carr_marron.wav",
+          "key": "carr_marron"
+        },
+        {
           "file": "carr_noir.wav",
           "key": "carr_noir"
         },
@@ -123,6 +131,10 @@
           "key": "carr_violet"
         },
         {
+          "file": "cartable.wav",
+          "key": "cartable"
+        },
+        {
           "file": "cercle.wav",
           "key": "cercle"
         },
@@ -141,6 +153,10 @@
         {
           "file": "cercle_jaune.wav",
           "key": "cercle_jaune"
+        },
+        {
+          "file": "cercle_marron.wav",
+          "key": "cercle_marron"
         },
         {
           "file": "cercle_noir.wav",
@@ -171,6 +187,18 @@
           "key": "chat"
         },
         {
+          "file": "chien.wav",
+          "key": "chien"
+        },
+        {
+          "file": "cole.wav",
+          "key": "cole"
+        },
+        {
+          "file": "c_cedille.wav",
+          "key": "c_cedille"
+        },
+        {
           "file": "d.wav",
           "key": "d"
         },
@@ -187,8 +215,16 @@
           "key": "excellent"
         },
         {
+          "file": "e_accent.wav",
+          "key": "e_accent"
+        },
+        {
           "file": "f.wav",
           "key": "f"
+        },
+        {
+          "file": "fille.wav",
+          "key": "fille"
         },
         {
           "file": "fleur.wav",
@@ -197,6 +233,10 @@
         {
           "file": "g.wav",
           "key": "g"
+        },
+        {
+          "file": "gar_on.wav",
+          "key": "gar_on"
         },
         {
           "file": "glisse_le_mot_vers_la_bonne_couleur.wav",
@@ -211,6 +251,10 @@
           "key": "glisse_le_mot_vers_le_bon_personnage"
         },
         {
+          "file": "glisse_le_mot_vers_le_bon_personnagevf.wav",
+          "key": "glisse_le_mot_vers_le_bon_personnagevf"
+        },
+        {
           "file": "gris.wav",
           "key": "gris"
         },
@@ -221,6 +265,10 @@
         {
           "file": "i.wav",
           "key": "i"
+        },
+        {
+          "file": "i_chapeau.wav",
+          "key": "i_chapeau"
         },
         {
           "file": "j.wav",
@@ -239,8 +287,24 @@
           "key": "l"
         },
         {
+          "file": "lapin.wav",
+          "key": "lapin"
+        },
+        {
           "file": "la_grand_m_re.wav",
           "key": "la_grand_m_re"
+        },
+        {
+          "file": "la_grand_m_re_v1.wav",
+          "key": "la_grand_m_re_v1"
+        },
+        {
+          "file": "la_grand_m_re_v2.wav",
+          "key": "la_grand_m_re_v2"
+        },
+        {
+          "file": "la_grand_m_re_v3.wav",
+          "key": "la_grand_m_re_v3"
         },
         {
           "file": "la_m_re.wav",
@@ -249,10 +313,6 @@
         {
           "file": "la_s_ur.wav",
           "key": "la_s_ur"
-        },
-        {
-          "file": "lapin.wav",
-          "key": "lapin"
         },
         {
           "file": "le_fr_re.wav",
@@ -267,6 +327,18 @@
           "key": "le_p_re"
         },
         {
+          "file": "le_p_re_v1.wav",
+          "key": "le_p_re_v1"
+        },
+        {
+          "file": "le_p_re_v2.wav",
+          "key": "le_p_re_v2"
+        },
+        {
+          "file": "le_p_re_v3.wav",
+          "key": "le_p_re_v3"
+        },
+        {
           "file": "livre.wav",
           "key": "livre"
         },
@@ -279,8 +351,28 @@
           "key": "m"
         },
         {
+          "file": "maman.wav",
+          "key": "maman"
+        },
+        {
+          "file": "marron.wav",
+          "key": "marron"
+        },
+        {
+          "file": "ma_tresse.wav",
+          "key": "ma_tresse"
+        },
+        {
           "file": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_.wav",
           "key": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_"
+        },
+        {
+          "file": "mouton.wav",
+          "key": "mouton"
+        },
+        {
+          "file": "m_lange_les_couleurs_pour_trouver_le_r_sultat.wav",
+          "key": "m_lange_les_couleurs_pour_trouver_le_r_sultat"
         },
         {
           "file": "n.wav",
@@ -293,6 +385,14 @@
         {
           "file": "o.wav",
           "key": "o"
+        },
+        {
+          "file": "oiseau.wav",
+          "key": "oiseau"
+        },
+        {
+          "file": "orange.wav",
+          "key": "orange"
         },
         {
           "file": "o_est_le_carr_bleu.wav",
@@ -311,28 +411,36 @@
           "key": "o_est_le_triangle_jaune"
         },
         {
-          "file": "oiseau.wav",
-          "key": "oiseau"
-        },
-        {
-          "file": "orange.wav",
-          "key": "orange"
-        },
-        {
           "file": "p.wav",
           "key": "p"
+        },
+        {
+          "file": "papa.wav",
+          "key": "papa"
         },
         {
           "file": "pas_tout_fait.wav",
           "key": "pas_tout_fait"
         },
         {
+          "file": "poisson.wav",
+          "key": "poisson"
+        },
+        {
           "file": "pomme.wav",
           "key": "pomme"
         },
         {
+          "file": "poule.wav",
+          "key": "poule"
+        },
+        {
           "file": "q.wav",
           "key": "q"
+        },
+        {
+          "file": "quelle_cat_gorie_veux_tu_explorer.wav",
+          "key": "quelle_cat_gorie_veux_tu_explorer"
         },
         {
           "file": "qu_est_ce_qu_on_veut_apprendre_aujourd_hui.wav",
@@ -341,14 +449,6 @@
         {
           "file": "r.wav",
           "key": "r"
-        },
-        {
-          "file": "r_essaie.wav",
-          "key": "r_essaie"
-        },
-        {
-          "file": "r_ponds_aux_questions_suivantes.wav",
-          "key": "r_ponds_aux_questions_suivantes"
         },
         {
           "file": "rectangle.wav",
@@ -369,6 +469,10 @@
         {
           "file": "rectangle_jaune.wav",
           "key": "rectangle_jaune"
+        },
+        {
+          "file": "rectangle_marron.wav",
+          "key": "rectangle_marron"
         },
         {
           "file": "rectangle_noir.wav",
@@ -403,6 +507,14 @@
           "key": "rouge"
         },
         {
+          "file": "r_essaie.wav",
+          "key": "r_essaie"
+        },
+        {
+          "file": "r_ponds_aux_questions_suivantes.wav",
+          "key": "r_ponds_aux_questions_suivantes"
+        },
+        {
           "file": "s.wav",
           "key": "s"
         },
@@ -411,16 +523,20 @@
           "key": "soleil"
         },
         {
+          "file": "stylo.wav",
+          "key": "stylo"
+        },
+        {
           "file": "super.wav",
           "key": "super"
         },
         {
-          "file": "t.wav",
-          "key": "t"
+          "file": "s_ur.wav",
+          "key": "s_ur"
         },
         {
-          "file": "tr_s_bien.wav",
-          "key": "tr_s_bien"
+          "file": "t.wav",
+          "key": "t"
         },
         {
           "file": "triangle.wav",
@@ -441,6 +557,10 @@
         {
           "file": "triangle_jaune.wav",
           "key": "triangle_jaune"
+        },
+        {
+          "file": "triangle_marron.wav",
+          "key": "triangle_marron"
         },
         {
           "file": "triangle_noir.wav",
@@ -467,6 +587,10 @@
           "key": "triangle_violet"
         },
         {
+          "file": "tr_s_bien.wav",
+          "key": "tr_s_bien"
+        },
+        {
           "file": "tu_es_formidable.wav",
           "key": "tu_es_formidable"
         },
@@ -477,6 +601,10 @@
         {
           "file": "v.wav",
           "key": "v"
+        },
+        {
+          "file": "vache.wav",
+          "key": "vache"
         },
         {
           "file": "vert.wav",
@@ -501,66 +629,6 @@
         {
           "file": "z.wav",
           "key": "z"
-        },
-        {
-          "file": "stylo.wav",
-          "key": "stylo"
-        },
-        {
-          "file": "cartable.wav",
-          "key": "cartable"
-        },
-        {
-          "file": "ma_tresse.wav",
-          "key": "ma_tresse"
-        },
-        {
-          "file": "cole.wav",
-          "key": "cole"
-        },
-        {
-          "file": "maman.wav",
-          "key": "maman"
-        },
-        {
-          "file": "papa.wav",
-          "key": "papa"
-        },
-        {
-          "file": "fille.wav",
-          "key": "fille"
-        },
-        {
-          "file": "gar_on.wav",
-          "key": "gar_on"
-        },
-        {
-          "file": "ami.wav",
-          "key": "ami"
-        },
-        {
-          "file": "mouton.wav",
-          "key": "mouton"
-        },
-        {
-          "file": "vache.wav",
-          "key": "vache"
-        },
-        {
-          "file": "poule.wav",
-          "key": "poule"
-        },
-        {
-          "file": "chien.wav",
-          "key": "chien"
-        },
-        {
-          "file": "poisson.wav",
-          "key": "poisson"
-        },
-        {
-          "file": "m_lange_les_couleurs_pour_trouver_le_r_sultat.wav",
-          "key": "m_lange_les_couleurs_pour_trouver_le_r_sultat"
         }
       ],
       "boy": [
@@ -609,6 +677,10 @@
           "key": "a"
         },
         {
+          "file": "ami.wav",
+          "key": "ami"
+        },
+        {
           "file": "arbre.wav",
           "key": "arbre"
         },
@@ -661,6 +733,10 @@
           "key": "carr_jaune"
         },
         {
+          "file": "carr_marron.wav",
+          "key": "carr_marron"
+        },
+        {
           "file": "carr_noir.wav",
           "key": "carr_noir"
         },
@@ -685,6 +761,10 @@
           "key": "carr_violet"
         },
         {
+          "file": "cartable.wav",
+          "key": "cartable"
+        },
+        {
           "file": "cercle.wav",
           "key": "cercle"
         },
@@ -703,6 +783,10 @@
         {
           "file": "cercle_jaune.wav",
           "key": "cercle_jaune"
+        },
+        {
+          "file": "cercle_marron.wav",
+          "key": "cercle_marron"
         },
         {
           "file": "cercle_noir.wav",
@@ -733,6 +817,18 @@
           "key": "chat"
         },
         {
+          "file": "chien.wav",
+          "key": "chien"
+        },
+        {
+          "file": "cole.wav",
+          "key": "cole"
+        },
+        {
+          "file": "c_cedille.wav",
+          "key": "c_cedille"
+        },
+        {
           "file": "d.wav",
           "key": "d"
         },
@@ -749,8 +845,16 @@
           "key": "excellent"
         },
         {
+          "file": "e_accent.wav",
+          "key": "e_accent"
+        },
+        {
           "file": "f.wav",
           "key": "f"
+        },
+        {
+          "file": "fille.wav",
+          "key": "fille"
         },
         {
           "file": "fleur.wav",
@@ -759,6 +863,10 @@
         {
           "file": "g.wav",
           "key": "g"
+        },
+        {
+          "file": "gar_on.wav",
+          "key": "gar_on"
         },
         {
           "file": "glisse_le_mot_vers_la_bonne_couleur.wav",
@@ -785,6 +893,10 @@
           "key": "i"
         },
         {
+          "file": "i_chapeau.wav",
+          "key": "i_chapeau"
+        },
+        {
           "file": "j.wav",
           "key": "j"
         },
@@ -801,6 +913,10 @@
           "key": "l"
         },
         {
+          "file": "lapin.wav",
+          "key": "lapin"
+        },
+        {
           "file": "la_grand_m_re.wav",
           "key": "la_grand_m_re"
         },
@@ -811,10 +927,6 @@
         {
           "file": "la_s_ur.wav",
           "key": "la_s_ur"
-        },
-        {
-          "file": "lapin.wav",
-          "key": "lapin"
         },
         {
           "file": "le_fr_re.wav",
@@ -841,8 +953,40 @@
           "key": "m"
         },
         {
+          "file": "maman.wav",
+          "key": "maman"
+        },
+        {
+          "file": "marron.wav",
+          "key": "marron"
+        },
+        {
+          "file": "marron_v1.wav",
+          "key": "marron_v1"
+        },
+        {
+          "file": "marron_v2.wav",
+          "key": "marron_v2"
+        },
+        {
+          "file": "marron_v3.wav",
+          "key": "marron_v3"
+        },
+        {
+          "file": "ma_tresse.wav",
+          "key": "ma_tresse"
+        },
+        {
           "file": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_.wav",
           "key": "mets_les_lettres_dans_le_bon_ordre_pour_former_le_"
+        },
+        {
+          "file": "mouton.wav",
+          "key": "mouton"
+        },
+        {
+          "file": "m_lange_les_couleurs_pour_trouver_le_r_sultat.wav",
+          "key": "m_lange_les_couleurs_pour_trouver_le_r_sultat"
         },
         {
           "file": "n.wav",
@@ -855,6 +999,14 @@
         {
           "file": "o.wav",
           "key": "o"
+        },
+        {
+          "file": "oiseau.wav",
+          "key": "oiseau"
+        },
+        {
+          "file": "orange.wav",
+          "key": "orange"
         },
         {
           "file": "o_est_le_carr_bleu.wav",
@@ -873,28 +1025,36 @@
           "key": "o_est_le_triangle_jaune"
         },
         {
-          "file": "oiseau.wav",
-          "key": "oiseau"
-        },
-        {
-          "file": "orange.wav",
-          "key": "orange"
-        },
-        {
           "file": "p.wav",
           "key": "p"
+        },
+        {
+          "file": "papa.wav",
+          "key": "papa"
         },
         {
           "file": "pas_tout_fait.wav",
           "key": "pas_tout_fait"
         },
         {
+          "file": "poisson.wav",
+          "key": "poisson"
+        },
+        {
           "file": "pomme.wav",
           "key": "pomme"
         },
         {
+          "file": "poule.wav",
+          "key": "poule"
+        },
+        {
           "file": "q.wav",
           "key": "q"
+        },
+        {
+          "file": "quelle_cat_gorie_veux_tu_explorer.wav",
+          "key": "quelle_cat_gorie_veux_tu_explorer"
         },
         {
           "file": "qu_est_ce_qu_on_veut_apprendre_aujourd_hui.wav",
@@ -903,14 +1063,6 @@
         {
           "file": "r.wav",
           "key": "r"
-        },
-        {
-          "file": "r_essaie.wav",
-          "key": "r_essaie"
-        },
-        {
-          "file": "r_ponds_aux_questions_suivantes.wav",
-          "key": "r_ponds_aux_questions_suivantes"
         },
         {
           "file": "rectangle.wav",
@@ -931,6 +1083,10 @@
         {
           "file": "rectangle_jaune.wav",
           "key": "rectangle_jaune"
+        },
+        {
+          "file": "rectangle_marron.wav",
+          "key": "rectangle_marron"
         },
         {
           "file": "rectangle_noir.wav",
@@ -965,6 +1121,14 @@
           "key": "rouge"
         },
         {
+          "file": "r_essaie.wav",
+          "key": "r_essaie"
+        },
+        {
+          "file": "r_ponds_aux_questions_suivantes.wav",
+          "key": "r_ponds_aux_questions_suivantes"
+        },
+        {
           "file": "s.wav",
           "key": "s"
         },
@@ -973,16 +1137,16 @@
           "key": "soleil"
         },
         {
+          "file": "stylo.wav",
+          "key": "stylo"
+        },
+        {
           "file": "super.wav",
           "key": "super"
         },
         {
           "file": "t.wav",
           "key": "t"
-        },
-        {
-          "file": "tr_s_bien.wav",
-          "key": "tr_s_bien"
         },
         {
           "file": "triangle.wav",
@@ -1003,6 +1167,10 @@
         {
           "file": "triangle_jaune.wav",
           "key": "triangle_jaune"
+        },
+        {
+          "file": "triangle_marron.wav",
+          "key": "triangle_marron"
         },
         {
           "file": "triangle_noir.wav",
@@ -1029,6 +1197,10 @@
           "key": "triangle_violet"
         },
         {
+          "file": "tr_s_bien.wav",
+          "key": "tr_s_bien"
+        },
+        {
           "file": "tu_es_formidable.wav",
           "key": "tu_es_formidable"
         },
@@ -1041,12 +1213,28 @@
           "key": "v"
         },
         {
+          "file": "vache.wav",
+          "key": "vache"
+        },
+        {
           "file": "vert.wav",
           "key": "vert"
         },
         {
           "file": "violet.wav",
           "key": "violet"
+        },
+        {
+          "file": "violet_v1.wav",
+          "key": "violet_v1"
+        },
+        {
+          "file": "violet_v2.wav",
+          "key": "violet_v2"
+        },
+        {
+          "file": "violet_v3.wav",
+          "key": "violet_v3"
         },
         {
           "file": "w.wav",
@@ -1063,66 +1251,6 @@
         {
           "file": "z.wav",
           "key": "z"
-        },
-        {
-          "file": "stylo.wav",
-          "key": "stylo"
-        },
-        {
-          "file": "cartable.wav",
-          "key": "cartable"
-        },
-        {
-          "file": "ma_tresse.wav",
-          "key": "ma_tresse"
-        },
-        {
-          "file": "cole.wav",
-          "key": "cole"
-        },
-        {
-          "file": "maman.wav",
-          "key": "maman"
-        },
-        {
-          "file": "papa.wav",
-          "key": "papa"
-        },
-        {
-          "file": "fille.wav",
-          "key": "fille"
-        },
-        {
-          "file": "gar_on.wav",
-          "key": "gar_on"
-        },
-        {
-          "file": "ami.wav",
-          "key": "ami"
-        },
-        {
-          "file": "mouton.wav",
-          "key": "mouton"
-        },
-        {
-          "file": "vache.wav",
-          "key": "vache"
-        },
-        {
-          "file": "poule.wav",
-          "key": "poule"
-        },
-        {
-          "file": "chien.wav",
-          "key": "chien"
-        },
-        {
-          "file": "poisson.wav",
-          "key": "poisson"
-        },
-        {
-          "file": "m_lange_les_couleurs_pour_trouver_le_r_sultat.wav",
-          "key": "m_lange_les_couleurs_pour_trouver_le_r_sultat"
         }
       ]
     },
@@ -1169,8 +1297,608 @@
           "key": "9"
         },
         {
+          "file": "alif_v1.wav",
+          "key": "alif_v1"
+        },
+        {
+          "file": "alif_v2.wav",
+          "key": "alif_v2"
+        },
+        {
+          "file": "alif_v3.wav",
+          "key": "alif_v3"
+        },
+        {
+          "file": "ayn_v1.wav",
+          "key": "ayn_v1"
+        },
+        {
+          "file": "ayn_v2.wav",
+          "key": "ayn_v2"
+        },
+        {
+          "file": "ayn_v3.wav",
+          "key": "ayn_v3"
+        },
+        {
+          "file": "baa_v1.wav",
+          "key": "baa_v1"
+        },
+        {
+          "file": "baa_v2.wav",
+          "key": "baa_v2"
+        },
+        {
+          "file": "baa_v3.wav",
+          "key": "baa_v3"
+        },
+        {
+          "file": "bravo_v1.wav",
+          "key": "bravo_v1"
+        },
+        {
+          "file": "bravo_v2.wav",
+          "key": "bravo_v2"
+        },
+        {
+          "file": "bravo_v3.wav",
+          "key": "bravo_v3"
+        },
+        {
+          "file": "bravo_v4.wav",
+          "key": "bravo_v4"
+        },
+        {
+          "file": "bravo_v5.wav",
+          "key": "bravo_v5"
+        },
+        {
+          "file": "bravo_v6.wav",
+          "key": "bravo_v6"
+        },
+        {
+          "file": "daad_v1.wav",
+          "key": "daad_v1"
+        },
+        {
+          "file": "daad_v2.wav",
+          "key": "daad_v2"
+        },
+        {
+          "file": "daad_v3.wav",
+          "key": "daad_v3"
+        },
+        {
+          "file": "daal_v1.wav",
+          "key": "daal_v1"
+        },
+        {
+          "file": "daal_v2.wav",
+          "key": "daal_v2"
+        },
+        {
+          "file": "daal_v3.wav",
+          "key": "daal_v3"
+        },
+        {
+          "file": "faa_v1.wav",
+          "key": "faa_v1"
+        },
+        {
+          "file": "faa_v2.wav",
+          "key": "faa_v2"
+        },
+        {
+          "file": "faa_v3.wav",
+          "key": "faa_v3"
+        },
+        {
+          "file": "faa_v4.wav",
+          "key": "faa_v4"
+        },
+        {
+          "file": "faa_v5.wav",
+          "key": "faa_v5"
+        },
+        {
+          "file": "faa_v6.wav",
+          "key": "faa_v6"
+        },
+        {
+          "file": "ghayn_v1.wav",
+          "key": "ghayn_v1"
+        },
+        {
+          "file": "ghayn_v2.wav",
+          "key": "ghayn_v2"
+        },
+        {
+          "file": "ghayn_v3.wav",
+          "key": "ghayn_v3"
+        },
+        {
+          "file": "green_v1.wav",
+          "key": "green_v1"
+        },
+        {
+          "file": "green_v2.wav",
+          "key": "green_v2"
+        },
+        {
+          "file": "green_v3.wav",
+          "key": "green_v3"
+        },
+        {
+          "file": "haa_soft_v1.wav",
+          "key": "haa_soft_v1"
+        },
+        {
+          "file": "haa_soft_v2.wav",
+          "key": "haa_soft_v2"
+        },
+        {
+          "file": "haa_soft_v3.wav",
+          "key": "haa_soft_v3"
+        },
+        {
+          "file": "haa_v1.wav",
+          "key": "haa_v1"
+        },
+        {
+          "file": "haa_v2.wav",
+          "key": "haa_v2"
+        },
+        {
+          "file": "haa_v3.wav",
+          "key": "haa_v3"
+        },
+        {
+          "file": "jaune_v1.wav",
+          "key": "jaune_v1"
+        },
+        {
+          "file": "jaune_v2.wav",
+          "key": "jaune_v2"
+        },
+        {
+          "file": "jaune_v3.wav",
+          "key": "jaune_v3"
+        },
+        {
+          "file": "jeem_v1.wav",
+          "key": "jeem_v1"
+        },
+        {
+          "file": "jeem_v2.wav",
+          "key": "jeem_v2"
+        },
+        {
+          "file": "jeem_v3.wav",
+          "key": "jeem_v3"
+        },
+        {
+          "file": "kaaf_v1.wav",
+          "key": "kaaf_v1"
+        },
+        {
+          "file": "kaaf_v2.wav",
+          "key": "kaaf_v2"
+        },
+        {
+          "file": "kaaf_v3.wav",
+          "key": "kaaf_v3"
+        },
+        {
+          "file": "khaa_v1.wav",
+          "key": "khaa_v1"
+        },
+        {
+          "file": "khaa_v2.wav",
+          "key": "khaa_v2"
+        },
+        {
+          "file": "khaa_v3.wav",
+          "key": "khaa_v3"
+        },
+        {
+          "file": "laam_v1.wav",
+          "key": "laam_v1"
+        },
+        {
+          "file": "laam_v2.wav",
+          "key": "laam_v2"
+        },
+        {
+          "file": "laam_v3.wav",
+          "key": "laam_v3"
+        },
+        {
+          "file": "marron_v1.wav",
+          "key": "marron_v1"
+        },
+        {
+          "file": "marron_v2.wav",
+          "key": "marron_v2"
+        },
+        {
+          "file": "marron_v3.wav",
+          "key": "marron_v3"
+        },
+        {
+          "file": "meem_v1.wav",
+          "key": "meem_v1"
+        },
+        {
+          "file": "meem_v2.wav",
+          "key": "meem_v2"
+        },
+        {
+          "file": "meem_v3.wav",
+          "key": "meem_v3"
+        },
+        {
+          "file": "meem_v4.wav",
+          "key": "meem_v4"
+        },
+        {
+          "file": "meem_v5.wav",
+          "key": "meem_v5"
+        },
+        {
+          "file": "meem_v6.wav",
+          "key": "meem_v6"
+        },
+        {
+          "file": "mix_colors_v1.wav",
+          "key": "mix_colors_v1"
+        },
+        {
+          "file": "mix_colors_v2.wav",
+          "key": "mix_colors_v2"
+        },
+        {
+          "file": "mix_colors_v3.wav",
+          "key": "mix_colors_v3"
+        },
+        {
+          "file": "mix_colors_v4.wav",
+          "key": "mix_colors_v4"
+        },
+        {
+          "file": "mix_colors_v5.wav",
+          "key": "mix_colors_v5"
+        },
+        {
+          "file": "mix_colors_v6.wav",
+          "key": "mix_colors_v6"
+        },
+        {
+          "file": "noon_v1.wav",
+          "key": "noon_v1"
+        },
+        {
+          "file": "noon_v2.wav",
+          "key": "noon_v2"
+        },
+        {
+          "file": "noon_v3.wav",
+          "key": "noon_v3"
+        },
+        {
+          "file": "pink_v1.wav",
+          "key": "pink_v1"
+        },
+        {
+          "file": "pink_v2.wav",
+          "key": "pink_v2"
+        },
+        {
+          "file": "pink_v3.wav",
+          "key": "pink_v3"
+        },
+        {
+          "file": "purple_v1.wav",
+          "key": "purple_v1"
+        },
+        {
+          "file": "purple_v2.wav",
+          "key": "purple_v2"
+        },
+        {
+          "file": "purple_v3.wav",
+          "key": "purple_v3"
+        },
+        {
+          "file": "qaaf_v1.wav",
+          "key": "qaaf_v1"
+        },
+        {
+          "file": "qaaf_v2.wav",
+          "key": "qaaf_v2"
+        },
+        {
+          "file": "qaaf_v3.wav",
+          "key": "qaaf_v3"
+        },
+        {
+          "file": "raa_v1.wav",
+          "key": "raa_v1"
+        },
+        {
+          "file": "raa_v2.wav",
+          "key": "raa_v2"
+        },
+        {
+          "file": "raa_v3.wav",
+          "key": "raa_v3"
+        },
+        {
+          "file": "rectangle_v1.wav",
+          "key": "rectangle_v1"
+        },
+        {
+          "file": "rectangle_v2.wav",
+          "key": "rectangle_v2"
+        },
+        {
+          "file": "rectangle_v3.wav",
+          "key": "rectangle_v3"
+        },
+        {
+          "file": "repeat_again_v1.wav",
+          "key": "repeat_again_v1"
+        },
+        {
+          "file": "repeat_again_v2.wav",
+          "key": "repeat_again_v2"
+        },
+        {
+          "file": "repeat_again_v3.wav",
+          "key": "repeat_again_v3"
+        },
+        {
+          "file": "rouge_v1.wav",
+          "key": "rouge_v1"
+        },
+        {
+          "file": "rouge_v2.wav",
+          "key": "rouge_v2"
+        },
+        {
+          "file": "rouge_v3.wav",
+          "key": "rouge_v3"
+        },
+        {
+          "file": "saad_v1.wav",
+          "key": "saad_v1"
+        },
+        {
+          "file": "saad_v2.wav",
+          "key": "saad_v2"
+        },
+        {
+          "file": "saad_v3.wav",
+          "key": "saad_v3"
+        },
+        {
+          "file": "seen_v1.wav",
+          "key": "seen_v1"
+        },
+        {
+          "file": "seen_v2.wav",
+          "key": "seen_v2"
+        },
+        {
+          "file": "seen_v3.wav",
+          "key": "seen_v3"
+        },
+        {
+          "file": "sheen_v1.wav",
+          "key": "sheen_v1"
+        },
+        {
+          "file": "sheen_v2.wav",
+          "key": "sheen_v2"
+        },
+        {
+          "file": "sheen_v3.wav",
+          "key": "sheen_v3"
+        },
+        {
+          "file": "taa_hard_v1.wav",
+          "key": "taa_hard_v1"
+        },
+        {
+          "file": "taa_hard_v2.wav",
+          "key": "taa_hard_v2"
+        },
+        {
+          "file": "taa_hard_v3.wav",
+          "key": "taa_hard_v3"
+        },
+        {
+          "file": "taa_hard_v4.wav",
+          "key": "taa_hard_v4"
+        },
+        {
+          "file": "taa_hard_v5.wav",
+          "key": "taa_hard_v5"
+        },
+        {
+          "file": "taa_hard_v6.wav",
+          "key": "taa_hard_v6"
+        },
+        {
+          "file": "taa_v1.wav",
+          "key": "taa_v1"
+        },
+        {
+          "file": "taa_v2.wav",
+          "key": "taa_v2"
+        },
+        {
+          "file": "taa_v3.wav",
+          "key": "taa_v3"
+        },
+        {
+          "file": "thaal_v1.wav",
+          "key": "thaal_v1"
+        },
+        {
+          "file": "thaal_v2.wav",
+          "key": "thaal_v2"
+        },
+        {
+          "file": "thaal_v3.wav",
+          "key": "thaal_v3"
+        },
+        {
+          "file": "thaal_v4.wav",
+          "key": "thaal_v4"
+        },
+        {
+          "file": "thaal_v5.wav",
+          "key": "thaal_v5"
+        },
+        {
+          "file": "thaal_v6.wav",
+          "key": "thaal_v6"
+        },
+        {
+          "file": "thaa_v1.wav",
+          "key": "thaa_v1"
+        },
+        {
+          "file": "thaa_v2.wav",
+          "key": "thaa_v2"
+        },
+        {
+          "file": "thaa_v3.wav",
+          "key": "thaa_v3"
+        },
+        {
+          "file": "triangle_v1.wav",
+          "key": "triangle_v1"
+        },
+        {
+          "file": "triangle_v2.wav",
+          "key": "triangle_v2"
+        },
+        {
+          "file": "triangle_v3.wav",
+          "key": "triangle_v3"
+        },
+        {
+          "file": "waw_v1.wav",
+          "key": "waw_v1"
+        },
+        {
+          "file": "waw_v2.wav",
+          "key": "waw_v2"
+        },
+        {
+          "file": "waw_v3.wav",
+          "key": "waw_v3"
+        },
+        {
+          "file": "where_is_blue_square_v1.wav",
+          "key": "where_is_blue_square_v1"
+        },
+        {
+          "file": "where_is_blue_square_v2.wav",
+          "key": "where_is_blue_square_v2"
+        },
+        {
+          "file": "where_is_blue_square_v3.wav",
+          "key": "where_is_blue_square_v3"
+        },
+        {
+          "file": "where_is_green_rectangle_v1.wav",
+          "key": "where_is_green_rectangle_v1"
+        },
+        {
+          "file": "where_is_green_rectangle_v2.wav",
+          "key": "where_is_green_rectangle_v2"
+        },
+        {
+          "file": "where_is_green_rectangle_v3.wav",
+          "key": "where_is_green_rectangle_v3"
+        },
+        {
+          "file": "where_is_green_rectangle_v4.wav",
+          "key": "where_is_green_rectangle_v4"
+        },
+        {
+          "file": "where_is_green_rectangle_v5.wav",
+          "key": "where_is_green_rectangle_v5"
+        },
+        {
+          "file": "where_is_green_rectangle_v6.wav",
+          "key": "where_is_green_rectangle_v6"
+        },
+        {
+          "file": "yaa_v1.wav",
+          "key": "yaa_v1"
+        },
+        {
+          "file": "yaa_v2.wav",
+          "key": "yaa_v2"
+        },
+        {
+          "file": "yaa_v3.wav",
+          "key": "yaa_v3"
+        },
+        {
+          "file": "zaa_v1.wav",
+          "key": "zaa_v1"
+        },
+        {
+          "file": "zaa_v2.wav",
+          "key": "zaa_v2"
+        },
+        {
+          "file": "zaa_v3.wav",
+          "key": "zaa_v3"
+        },
+        {
+          "file": "zay_v1.wav",
+          "key": "zay_v1"
+        },
+        {
+          "file": "zay_v2.wav",
+          "key": "zay_v2"
+        },
+        {
+          "file": "zay_v3.wav",
+          "key": "zay_v3"
+        },
+        {
+          "file": "zay_v4.wav",
+          "key": "zay_v4"
+        },
+        {
+          "file": "zay_v5.wav",
+          "key": "zay_v5"
+        },
+        {
+          "file": "zay_v6.wav",
+          "key": "zay_v6"
+        },
+        {
           "file": "أ.wav",
           "key": "أ"
+        },
+        {
+          "file": "أ_v1.wav",
+          "key": "أ_v1"
+        },
+        {
+          "file": "أ_v2.wav",
+          "key": "أ_v2"
+        },
+        {
+          "file": "أ_v3.wav",
+          "key": "أ_v3"
         },
         {
           "file": "أبيض.wav",
@@ -1213,8 +1941,16 @@
           "key": "أعد_المحاولة"
         },
         {
+          "file": "أعد_مرة_أخرى.wav",
+          "key": "أعد_مرة_أخرى"
+        },
+        {
           "file": "أنت_ممتاز.wav",
           "key": "أنت_ممتاز"
+        },
+        {
+          "file": "أي_فئة_تريد_استكشافها؟.wav",
+          "key": "أي_فئة_تريد_استكشافها؟"
         },
         {
           "file": "أين_الدائرة_الحمراء؟.wav",
@@ -1235,6 +1971,14 @@
         {
           "file": "ا.wav",
           "key": "ا"
+        },
+        {
+          "file": "ا_v1.wav",
+          "key": "ا_v1"
+        },
+        {
+          "file": "ا_v2.wav",
+          "key": "ا_v2"
         },
         {
           "file": "اسحب_الكلمة_إلى_الشخص_الصحيح.wav",
@@ -1273,6 +2017,14 @@
           "key": "الجدة"
         },
         {
+          "file": "امزج_الألوان_لتجد_النتيجة.wav",
+          "key": "امزج_الألوان_لتجد_النتيجة"
+        },
+        {
+          "file": "امزج_الألوان_لتجد_النتيجة_الصحيحة.wav",
+          "key": "امزج_الألوان_لتجد_النتيجة_الصحيحة"
+        },
+        {
           "file": "ب.wav",
           "key": "ب"
         },
@@ -1287,6 +2039,10 @@
         {
           "file": "بنفسجي.wav",
           "key": "بنفسجي"
+        },
+        {
+          "file": "بني.wav",
+          "key": "بني"
         },
         {
           "file": "بيت.wav",
@@ -1327,6 +2083,18 @@
         {
           "file": "حاول_مرة_أخرى.wav",
           "key": "حاول_مرة_أخرى"
+        },
+        {
+          "file": "حاول_مرة_أخرى_v1.wav",
+          "key": "حاول_مرة_أخرى_v1"
+        },
+        {
+          "file": "حاول_مرة_أخرى_v2.wav",
+          "key": "حاول_مرة_أخرى_v2"
+        },
+        {
+          "file": "حاول_مرة_أخرى_v3.wav",
+          "key": "حاول_مرة_أخرى_v3"
         },
         {
           "file": "خ.wav",
@@ -1391,6 +2159,22 @@
         {
           "file": "رائع.wav",
           "key": "رائع"
+        },
+        {
+          "file": "رتب_الحروف_لتكوين_الكلمة.wav",
+          "key": "رتب_الحروف_لتكوين_الكلمة"
+        },
+        {
+          "file": "رتب_الحروف_لتكوين_الكلمة_v1.wav",
+          "key": "رتب_الحروف_لتكوين_الكلمة_v1"
+        },
+        {
+          "file": "رتب_الحروف_لتكوين_الكلمة_v2.wav",
+          "key": "رتب_الحروف_لتكوين_الكلمة_v2"
+        },
+        {
+          "file": "رتب_الحروف_لتكوين_الكلمة_v3.wav",
+          "key": "رتب_الحروف_لتكوين_الكلمة_v3"
         },
         {
           "file": "رتّب_الحروف_لتكوين_الكلمة.wav",
@@ -1687,6 +2471,162 @@
           "key": "9"
         },
         {
+          "file": "bravo_v1.wav",
+          "key": "bravo_v1"
+        },
+        {
+          "file": "bravo_v2.wav",
+          "key": "bravo_v2"
+        },
+        {
+          "file": "bravo_v3.wav",
+          "key": "bravo_v3"
+        },
+        {
+          "file": "bravo_v4.wav",
+          "key": "bravo_v4"
+        },
+        {
+          "file": "bravo_v5.wav",
+          "key": "bravo_v5"
+        },
+        {
+          "file": "bravo_v6.wav",
+          "key": "bravo_v6"
+        },
+        {
+          "file": "father_v1.wav",
+          "key": "father_v1"
+        },
+        {
+          "file": "father_v2.wav",
+          "key": "father_v2"
+        },
+        {
+          "file": "father_v3.wav",
+          "key": "father_v3"
+        },
+        {
+          "file": "grandfather_v1.wav",
+          "key": "grandfather_v1"
+        },
+        {
+          "file": "grandfather_v2.wav",
+          "key": "grandfather_v2"
+        },
+        {
+          "file": "grandfather_v3.wav",
+          "key": "grandfather_v3"
+        },
+        {
+          "file": "grandfather_v4.wav",
+          "key": "grandfather_v4"
+        },
+        {
+          "file": "grandfather_v5.wav",
+          "key": "grandfather_v5"
+        },
+        {
+          "file": "grandfather_v6.wav",
+          "key": "grandfather_v6"
+        },
+        {
+          "file": "gris_v1.wav",
+          "key": "gris_v1"
+        },
+        {
+          "file": "gris_v2.wav",
+          "key": "gris_v2"
+        },
+        {
+          "file": "gris_v3.wav",
+          "key": "gris_v3"
+        },
+        {
+          "file": "marron_v1.wav",
+          "key": "marron_v1"
+        },
+        {
+          "file": "marron_v2.wav",
+          "key": "marron_v2"
+        },
+        {
+          "file": "marron_v3.wav",
+          "key": "marron_v3"
+        },
+        {
+          "file": "pink_v1.wav",
+          "key": "pink_v1"
+        },
+        {
+          "file": "pink_v2.wav",
+          "key": "pink_v2"
+        },
+        {
+          "file": "pink_v3.wav",
+          "key": "pink_v3"
+        },
+        {
+          "file": "purple_v1.wav",
+          "key": "purple_v1"
+        },
+        {
+          "file": "purple_v2.wav",
+          "key": "purple_v2"
+        },
+        {
+          "file": "purple_v3.wav",
+          "key": "purple_v3"
+        },
+        {
+          "file": "rectangle_v1.wav",
+          "key": "rectangle_v1"
+        },
+        {
+          "file": "rectangle_v2.wav",
+          "key": "rectangle_v2"
+        },
+        {
+          "file": "rectangle_v3.wav",
+          "key": "rectangle_v3"
+        },
+        {
+          "file": "triangle_v1.wav",
+          "key": "triangle_v1"
+        },
+        {
+          "file": "triangle_v2.wav",
+          "key": "triangle_v2"
+        },
+        {
+          "file": "triangle_v3.wav",
+          "key": "triangle_v3"
+        },
+        {
+          "file": "where_is_blue_square_v1.wav",
+          "key": "where_is_blue_square_v1"
+        },
+        {
+          "file": "where_is_blue_square_v2.wav",
+          "key": "where_is_blue_square_v2"
+        },
+        {
+          "file": "where_is_blue_square_v3.wav",
+          "key": "where_is_blue_square_v3"
+        },
+        {
+          "file": "where_is_green_rectangle_v1.wav",
+          "key": "where_is_green_rectangle_v1"
+        },
+        {
+          "file": "where_is_green_rectangle_v2.wav",
+          "key": "where_is_green_rectangle_v2"
+        },
+        {
+          "file": "where_is_green_rectangle_v3.wav",
+          "key": "where_is_green_rectangle_v3"
+        },
+        {
           "file": "أ.wav",
           "key": "أ"
         },
@@ -1733,6 +2673,10 @@
         {
           "file": "أنت_ممتاز.wav",
           "key": "أنت_ممتاز"
+        },
+        {
+          "file": "أي_فئة_تريد_استكشافها؟.wav",
+          "key": "أي_فئة_تريد_استكشافها؟"
         },
         {
           "file": "أين_الدائرة_الحمراء؟.wav",
@@ -1791,6 +2735,10 @@
           "key": "الجدة"
         },
         {
+          "file": "امزج_الألوان_لتجد_النتيجة.wav",
+          "key": "امزج_الألوان_لتجد_النتيجة"
+        },
+        {
           "file": "ب.wav",
           "key": "ب"
         },
@@ -1805,6 +2753,10 @@
         {
           "file": "بنفسجي.wav",
           "key": "بنفسجي"
+        },
+        {
+          "file": "بني.wav",
+          "key": "بني"
         },
         {
           "file": "بيت.wav",

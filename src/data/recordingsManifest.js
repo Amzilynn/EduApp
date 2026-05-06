@@ -143,7 +143,7 @@ export const recordingsManifest = {
     { text: 'ليس صحيحا...', lang: 'ar', category: 'error' },
     { text: 'أعد المحاولة!', lang: 'ar', category: 'error' },
   ],
-  
+
   // Activity Selection Question
   selection: [
     { text: "Quelle catégorie veux-tu explorer ?", lang: 'fr', category: 'selection' },
@@ -161,9 +161,62 @@ export function getAllRecordings() {
   return recordings;
 }
 
+const AR_MAPPINGS = {
+  // Phrases & Instructions
+  'ماذا نريد أن نتعلم اليوم؟': 'welcome_learn',
+  'أي فئة تريد استكشافها؟': 'selection_cat',
+  'اسحب الكلمة إلى الشخص الصحيح!': 'instr_person',
+  'اسحب الكلمة إلى اللون الصحيح!': 'instr_color',
+  'اسحب الكلمة إلى الشكل الصحيح!': 'instr_shape',
+  'أجب على الأسئلة التالية': 'instr_questions',
+  'رتّب الحروف لتكوين الكلمة!': 'instr_order',
+  'رتب الحروف لتكوين الكلمة!': 'instr_order',
+  'اِخْلِطِ الْأَلْوَانَ لِتَجِدَ النَّتِيجَةَ الصَّحِيحَةَ': 'اِخْلِطِ_الْأَلْوَانَ_لِتَجِدَ_النَّتِيجَةَ_الصَّح',
+  'اخلط الالوان لتجد النتيجة الصحيحة': 'اِخْلِطِ_الْأَلْوَانَ_لِتَجِدَ_النَّتِيجَةَ_الصَّح',
+  'امزج الألوان لتجد النتيجة!': 'instr_mix',
+  'طابق الرقم مع الكمية الصحيحة!': 'طابق_الرقم_مع_الكمية_الصحيحة',
+  'أين المربع الأزرق؟': 'where_is_blue_square',
+  'أين المستطيل الأخضر؟': 'where_is_green_rectangle',
+  'أين الدائرة الحمراء؟': 'o_est_le_cercle_rouge',
+  'أين المثلث الأصفر؟': 'o_est_le_triangle_jaune',
+  'حاول مرة أخرى!': 'essaie_encore',
+  'حاول مرة اخرى!': 'essaie_encore',
+  'ليس صحيحا...': 'pas_tout_a_fait',
+  'أعد المحاولة!': 'reessaie',
+  'اعد المحاولة!': 'reessaie',
+  'أعد مرة أخرى!': 'repeat_again',
+  'اعد مرة اخرى!': 'repeat_again',
+
+  // Family
+  'الأم': 'mother', 'الأب': 'father', 'الأخ': 'brother', 'الأخت': 'sister', 'الجدة': 'grandmother', 'الجد': 'grandfather',
+
+  // Colors
+  'أحمر': 'rouge', 'أزرق': 'bleu', 'أصفر': 'jaune', 'أسود': 'noir', 'أبيض': 'blanc', 'أخضر': 'green', 'برتقالي': 'orange', 'وردي': 'pink', 'بنفسجي': 'purple', 'رمادي': 'gris',
+
+  // Shapes
+  'دائرة': 'cercle', 'مربع': 'carre', 'مثلث': 'triangle', 'مستطيل': 'rectangle',
+
+  // Success
+  'أحسنت!': 'bravo', 'ممتاز!': 'mumtaz', 'رائع!': 'rae', 'جيد جدا!': 'jayid_jiddan', 'أنت ممتاز!': 'anta_mumtaz',
+
+  // Words
+  'بقرة': 'ba9ara', 'سمكة': 'samaka', 'أسد': 'asad', 'قمر': 'qamar', 'شمس': 'shams', 'كتاب': 'kitab', 'قلم': 'qalam', 'بحر': 'bahr', 'وردة': 'warda', 'تفاحة': 'tuffaha', 'جمل': 'jamal', 'بيت': 'bayt',
+  'محفظة': 'bag', 'معلمة': 'teacher', 'مدرسة': 'school', 'صديقي': 'friend', 'قطة': 'cat', 'كلب': 'dog', 'خروف': 'sheep', 'بني': 'marron',
+
+  // Alphabet
+  'أ': 'alif', 'ب': 'baa', 'ت': 'taa', 'ث': 'thaa', 'ج': 'jeem', 'ح': 'haa_soft', 'خ': 'khaa', 'د': 'daal', 'ذ': 'thaal', 'ر': 'raa', 'ز': 'zay', 'س': 'seen', 'ش': 'sheen', 'ص': 'saad', 'ض': 'daad', 'ط': 'taa_hard', 'ظ': 'zaa', 'ع': 'ayn', 'غ': 'ghayn', 'ف': 'faa', 'ق': 'qaaf', 'ك': 'kaaf', 'ل': 'laam', 'م': 'meem', 'ن': 'noon', 'هـ': 'haa', 'و': 'waw', 'ي': 'yaa',
+
+  // Fallback direct mappings
+  'أمي': 'mother',
+  'أبي': 'father',
+  'أخي': 'brother',
+  'أختي': 'sister',
+  'ة': 'taa_marbuta',
+};
+
 export function getRecordingPath(text, lang, voice) {
-  let t = text.toLowerCase();
-  
+  let t = text.toLowerCase().trim();
+
   // Special mappings for specific letters to match our file naming convention
   if (lang === 'fr') {
     if (t === 'î') return `/recordings/fr/${voice}/i_chapeau.wav`;
@@ -171,11 +224,34 @@ export function getRecordingPath(text, lang, voice) {
     if (t === 'ç') return `/recordings/fr/${voice}/c_cedille.wav`;
   }
 
+  if (lang === 'ar') {
+    // Check our robust mapping first (removing harakat)
+    let cleanText = text.replace(/[\u064B-\u065F\u0670]/g, '').trim();
+    
+    if (AR_MAPPINGS[cleanText]) {
+      return `/recordings/ar/${voice}/${AR_MAPPINGS[cleanText]}.wav`;
+    }
+
+    // Fallback mappings to other keys
+    if (cleanText === 'أمي') cleanText = 'الأم';
+    if (cleanText === 'أبي') cleanText = 'الأب';
+    if (cleanText === 'أخي') cleanText = 'الأخ';
+    if (cleanText === 'أختي') cleanText = 'الأخت';
+
+    // Check mapping again after fallback
+    if (AR_MAPPINGS[cleanText]) {
+      return `/recordings/ar/${voice}/${AR_MAPPINGS[cleanText]}.wav`;
+    }
+    
+    t = cleanText;
+  }
+
   const normalized = t
+    .replace(/[\u064B-\u065F\u0670]/g, '') // Remove Arabic diacritics (harakat)
     .replace(/[^a-z0-9\u0600-\u06FF]/g, '_')
     .replace(/_+/g, '_')
     .replace(/^_|_$/g, '')
     .substring(0, 50);
-  
+
   return `/recordings/${lang}/${voice}/${normalized}.wav`;
 }

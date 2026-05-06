@@ -211,7 +211,7 @@ const combinaisons_ar = {
     },
     {
       id: 'q2',
-      question: 'أين المربع الأزرق؟',
+      question: 'أَيْنَ الْمُرَبَّعُ الْأَزْرَقُ؟',
       correctId: 'carre-bleu',
       options: [
         { id: 'cercle-orange',     shape: 'circle',    color: '#FF8C00', colorName: 'برتقالي', shapeName: 'دائرة' },
@@ -233,7 +233,7 @@ const combinaisons_ar = {
     },
     {
       id: 'q4',
-      question: 'أين المستطيل الأخضر؟',
+      question: 'أَيْنَ الْمُسْتَطِيلُ الْأَخْضَرُ؟',
       correctId: 'rectangle-vert',
       options: [
         { id: 'cercle-jaune',      shape: 'circle',    color: '#FFD700', colorName: 'أصفر',     shapeName: 'دائرة' },
@@ -299,7 +299,7 @@ const melange_ar = {
   id: 'melange',
   type: 'color-mixer',
   title: 'مزج الألوان',
-  instruction: 'امزج الألوان لتجد النتيجة!',
+  instruction: 'اِخْلِطِ الْأَلْوَانَ لِتَجِدَ النَّتِيجَةَ الصَّحِيحَةَ',
   rounds: [
     {
       color1: { label: 'أحمر', value: '#FF4444' },
@@ -391,21 +391,21 @@ const alphabet_ar = {
     [
       { word: 'قلم', letters: ['ق','ل','م'], distractors: ['ب','ت','ر'], hint: '🖊️', hintLabel: 'قلم' },
       { word: 'كتاب', letters: ['ك','ت','ا','ب'], distractors: ['م','ن','ر'], hint: '📚', hintLabel: 'كتاب' },
-      { word: 'محفظة', letters: ['م','ح','ف','ظ','ة'], distractors: ['ق','ل','ب'], hint: '🎒', hintLabel: 'محفظة' },
-      { word: 'معلمة', letters: ['م','ع','ل','م','ة'], distractors: ['ق','ب','ر'], hint: '👩‍🏫', hintLabel: 'معلمة' },
-      { word: 'مدرسة', letters: ['م','د','ر','س','ة'], distractors: ['ك','ت','ب'], hint: '🏫', hintLabel: 'مدرسة' },
+      { word: 'بيت', letters: ['ب','ي','ت'], distractors: ['ق','ل','ر'], hint: '🏠', hintLabel: 'بيت' },
+      { word: 'قمر', letters: ['ق','م','ر'], distractors: ['ب','ت','س'], hint: '🌙', hintLabel: 'قمر' },
+      { word: 'شمس', letters: ['ش','م','س'], distractors: ['ق','ل','ر'], hint: '☀️', hintLabel: 'شمس' },
     ],
     [
       { word: 'أمي', letters: ['أ','م','ي'], distractors: ['و','ك','ت'], hint: 'أمي', hintLabel: 'أمي' },
       { word: 'أبي', letters: ['أ','ب','ي'], distractors: ['م','و','ك'], hint: 'أبي', hintLabel: 'أبي' },
       { word: 'أختي', letters: ['أ','خ','ت','ي'], distractors: ['ب','م','و'], hint: 'أختي', hintLabel: 'أختي' },
       { word: 'أخي', letters: ['أ','خ','ي'], distractors: ['ت','ب','م'], hint: 'أخي', hintLabel: 'أخي' },
-      { word: 'صديقي', letters: ['ص','د','ي','ق','ي'], distractors: ['ك','م','و'], hint: 'صديقي', hintLabel: 'صديقي' },
+      { word: 'أسد', letters: ['أ','س','د'], distractors: ['ك','م','و'], hint: '🦁', hintLabel: 'أسد' },
     ],
     [
-      { word: 'قطة', letters: ['ق','ط','ة'], distractors: ['ك','ب','ر'], hint: '🐱', hintLabel: 'قطة' },
-      { word: 'كلب', letters: ['ك','ل','ب'], distractors: ['ق','ط','ر'], hint: '🐶', hintLabel: 'كلب' },
-      { word: 'خروف', letters: ['خ','ر','و','ف'], distractors: ['ك','ب','ق'], hint: '🐑', hintLabel: 'خروف' },
+      { word: 'جمل', letters: ['ج','م','ل'], distractors: ['ك','ب','ر'], hint: '🐫', hintLabel: 'جمل' },
+      { word: 'بحر', letters: ['ب','ح','ر'], distractors: ['ق','ط','ر'], hint: '🌊', hintLabel: 'بحر' },
+      { word: 'وردة', letters: ['و','ر','د','ة'], distractors: ['ك','ب','ق'], hint: '🌹', hintLabel: 'وردة' },
       { word: 'سمكة', letters: ['س','م','ك','ة'], distractors: ['خ','ر','ب'], hint: '🐟', hintLabel: 'سمكة' },
       { word: 'بقرة', letters: ['ب','ق','ر','ة'], distractors: ['ك','س','خ'], hint: '🐄', hintLabel: 'بقرة' },
     ]

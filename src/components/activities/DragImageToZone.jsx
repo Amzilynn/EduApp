@@ -173,8 +173,7 @@ export default function DragImageToZone({ activity, onComplete, onProgress }) {
           <p className="question-text-big">{question.question}</p>
           <button
             onClick={() => {
-              const isSame = currentQ % 2 === 0;
-              (isSame ? speak : speakOpposite)(question.question);
+              speak(question.question);
             }}
             className="speaker-btn-frosted"
           >🔊</button>
