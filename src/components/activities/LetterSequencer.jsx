@@ -77,6 +77,7 @@ function renderHint(hint, size = 60) {
     'ami': <AmiIcon size={size} />,
     'أمي': <MamanIcon size={size} />,
     'أبي': <PapaIcon size={size} />,
+    'أب': <PapaIcon size={size} />,
     'أختي': <FilleIcon size={size} />,
     'أخي': <GarconIcon size={size} />,
     'صديقي': <AmiIcon size={size} />,

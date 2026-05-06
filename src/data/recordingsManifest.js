@@ -108,16 +108,21 @@ export const recordingsManifest = {
     { text: 'Chat', lang: 'fr', category: 'alphabet' },
     { text: 'Chien', lang: 'fr', category: 'alphabet' },
     { text: 'Poisson', lang: 'fr', category: 'alphabet' },
-    { text: 'بيت', lang: 'ar', category: 'alphabet' },
-    { text: 'قمر', lang: 'ar', category: 'alphabet' },
-    { text: 'شمس', lang: 'ar', category: 'alphabet' },
     { text: 'كتاب', lang: 'ar', category: 'alphabet' },
     { text: 'قلم', lang: 'ar', category: 'alphabet' },
-    { text: 'أسد', lang: 'ar', category: 'alphabet' },
-    { text: 'بحر', lang: 'ar', category: 'alphabet' },
-    { text: 'وردة', lang: 'ar', category: 'alphabet' },
-    { text: 'تفاحة', lang: 'ar', category: 'alphabet' },
-    { text: 'جمل', lang: 'ar', category: 'alphabet' },
+    { text: 'حقيبة', lang: 'ar', category: 'alphabet' },
+    { text: 'معلمة', lang: 'ar', category: 'alphabet' },
+    { text: 'مدرسة', lang: 'ar', category: 'alphabet' },
+    { text: 'أمي', lang: 'ar', category: 'alphabet' },
+    { text: 'أب', lang: 'ar', category: 'alphabet' },
+    { text: 'أختي', lang: 'ar', category: 'alphabet' },
+    { text: 'أخي', lang: 'ar', category: 'alphabet' },
+    { text: 'صديقي', lang: 'ar', category: 'alphabet' },
+    { text: 'قطة', lang: 'ar', category: 'alphabet' },
+    { text: 'كلب', lang: 'ar', category: 'alphabet' },
+    { text: 'خروف', lang: 'ar', category: 'alphabet' },
+    { text: 'سمكة', lang: 'ar', category: 'alphabet' },
+    { text: 'بقرة', lang: 'ar', category: 'alphabet' },
   ],
 
   // Success/feedback messages
@@ -201,7 +206,7 @@ const AR_MAPPINGS = {
 
   // Words
   'بقرة': 'ba9ara', 'سمكة': 'samaka', 'أسد': 'asad', 'قمر': 'qamar', 'شمس': 'shams', 'كتاب': 'kitab', 'قلم': 'qalam', 'بحر': 'bahr', 'وردة': 'warda', 'تفاحة': 'tuffaha', 'جمل': 'jamal', 'بيت': 'bayt',
-  'محفظة': 'bag', 'معلمة': 'teacher', 'مدرسة': 'school', 'صديقي': 'friend', 'قطة': 'cat', 'كلب': 'dog', 'خروف': 'sheep', 'بني': 'marron',
+  'محفظة': 'bag', 'حقيبة': 'bag', 'معلمة': 'teacher', 'مدرسة': 'school', 'صديقي': 'friend', 'قطة': 'cat', 'كلب': 'dog', 'خروف': 'sheep', 'بني': 'marron',
 
   // Alphabet
   'أ': 'alif', 'ب': 'baa', 'ت': 'taa', 'ث': 'thaa', 'ج': 'jeem', 'ح': 'haa_soft', 'خ': 'khaa', 'د': 'daal', 'ذ': 'thaal', 'ر': 'raa', 'ز': 'zay', 'س': 'seen', 'ش': 'sheen', 'ص': 'saad', 'ض': 'daad', 'ط': 'taa_hard', 'ظ': 'zaa', 'ع': 'ayn', 'غ': 'ghayn', 'ف': 'faa', 'ق': 'qaaf', 'ك': 'kaaf', 'ل': 'laam', 'م': 'meem', 'ن': 'noon', 'هـ': 'haa', 'و': 'waw', 'ي': 'yaa',
@@ -209,6 +214,7 @@ const AR_MAPPINGS = {
   // Fallback direct mappings
   'أمي': 'mother',
   'أبي': 'father',
+  'أب': 'father',
   'أخي': 'brother',
   'أختي': 'sister',
   'ة': 'taa_marbuta',
@@ -235,6 +241,7 @@ export function getRecordingPath(text, lang, voice) {
     // Fallback mappings to other keys
     if (cleanText === 'أمي') cleanText = 'الأم';
     if (cleanText === 'أبي') cleanText = 'الأب';
+    if (cleanText === 'أب') cleanText = 'الأب';
     if (cleanText === 'أخي') cleanText = 'الأخ';
     if (cleanText === 'أختي') cleanText = 'الأخت';
 
